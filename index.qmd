@@ -1,5 +1,5 @@
 ---
-title: "Herzlich Willkommen zu Produktionswirtschaft!"
+title: "Herzlich Willkommen!"
 subtitle: "Universität Duisburg-Essen - Sommersemester 2025"
 
 html:
@@ -30,9 +30,9 @@ Es sind keine fortgeschrittenen Kenntnisse oder Erfahrungen erforderlich, um den
 Der Kerninhalt des Kurses ist in sechs Module gegliedert:
 
 1. **Prognosen und Exponentielles Glätten** - Einführung in Zeitreihenvorhersagen
-2. **Zeitreihenanalyse** - Fortgeschrittene Techniken mit Holt/Winters und Regressionsmodellen
-3. **Beschäftigungsglättung und Produktionsplanung** - Kernkonzepte des Produktionsmanagements
-4. **Ressourcenplanung und Scheduling** - Optimierung der Ressourcenzuweisung
+2. **Zeitreihenanalyse** - Holt/Winters und Regressionsmodellen
+3. **Beschäftigungsglättung** - Kernkonzepte des Produktionsmanagements
+4. **Ressourcenplanung** - Optimierung der Ressourcenzuweisung
 5. **Reihenfolgeplanung** - Bestimmung optimaler Produktionssequenzen
 6. **Prüfungsvorbereitung** - Übungsaufgaben und Wiederholung
 

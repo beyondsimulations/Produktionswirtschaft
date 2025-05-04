@@ -1,2 +1,4 @@
 exams
 .DS_Store
+/.quarto/
+_site/

@@ -17,26 +17,52 @@ website:
   bread-crumbs: true
   sidebar:
     style: floating
-    logo: https://images.beyondsimulations.com/logo/midjourney_square_left.png
+    #logo: https://images.beyondsimulations.com/logo/midjourney_square_left.png
     collapse-level: 2
     search: true
     contents:
-      - text: "Willkommen"
+      - text: "Startseite"
         href: index.qmd
-      - text: "01 - Exponentielles Glätten"
-        href: part-01/tutorial-01.qmd
-      - text: "02 - Zeitreihenanalyse"
-        href: part-02/tutorial-02.qmd
-      - text: "03 - Beschäftigungsglättung"
-        href: part-03/tutorial-03.qmd
-      - text: "04 - Ressourcenplanung"
-        href: part-04/tutorial-04.qmd
-      - text: "05 - Reihenfolgeplanung"
-        href: part-05/tutorial-05.qmd
-      - text: "06 - Prüfungsvorbereitung"
-        href: part-06/tutorial-06.qmd
-      - text: "Literatur"
-        href: general/literature.qmd
+      - text: "***"
+      - section: "01 Zeitreihen"
+        contents:
+          - text: "Vorlesung"
+            href: part-01/pw2-lecture-01.pdf
+          - text: "Tutorium"
+            href: part-01/pw2-tutorial-01.qmd
+      - section: "02 Holt-Winters"
+        contents:
+          - text: "Vorlesung"
+            href: part-02/pw2-lecture-02.pdf
+          - text: "Tutorium"
+            href: part-02/pw2-tutorial-02.qmd
+      - section: "03 Beschäftigung"
+        contents:
+          - text: "Vorlesung"
+            href: part-03/pw2-lecture-03.pdf
+          - text: "Tutorium"
+            href: part-03/pw2-tutorial-03.qmd
+      - section: "04 Ressourcenplan"
+        contents:
+          - text: "Vorlesung"
+            href: part-04/pw2-lecture-04.pdf
+          - text: "Tutorium"
+            href: part-04/pw2-tutorial-04.qmd
+      - section: "05 Reihenfolgen"
+        contents:
+          - text: "Vorlesung"
+            href: part-05/pw2-lecture-05.pdf
+          - text: "Tutorium"
+            href: part-05/pw2-tutorial-05.qmd
+      - section: "06 Recap"
+        contents:
+          - text: "Tutorium"
+            href: part-06/pw2-tutorial-06.qmd
+      - text: "***"
+      - text: "FAQs"
+        href: general/faqs.qmd
+      - text: "Chat"
+        href: general/chat.qmd
 
   page-footer: 
     center: "Produktionswirtschaft, Tobias Vlćek</br>CC BY-NC-SA 4.0" 
@@ -45,6 +71,10 @@ website:
         href: https://github.com/beyondsimulations/Produktionswirtschaft
       - icon: linkedin
         href: https://linkedin.com/in/tobiasvlcek
+      - icon: envelope
+        href: mailto:workshop@beyondsimulations.com
+      - icon: lock
+        href: general/privacy.qmd
 
 format:
   html:
@@ -72,6 +102,7 @@ format:
       text: |
         \usepackage{fvextra}
         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+        
 execute:
   freeze: auto
 
