@@ -1,0 +1,78 @@
+project:
+  type: website
+  render:
+    - 404.qmd
+    - index.qmd
+    - general/*.qmd
+    - part-01/*.qmd
+    - part-02/*.qmd
+    - part-03/*.qmd
+    - part-04/*.qmd
+    - part-05/*.qmd
+    - part-06/*.qmd
+website:
+  title: "Produktionswirtschaft"
+  repo-url: https://github.com/beyondsimulations/Produktionswirtschaft
+  site-url: https://beyondsimulations.github.io/Produktionswirtschaft
+  bread-crumbs: true
+  sidebar:
+    style: floating
+    logo: https://images.beyondsimulations.com/logo/midjourney_square_left.png
+    collapse-level: 2
+    search: true
+    contents:
+      - text: "Willkommen"
+        href: index.qmd
+      - text: "01 - Exponentielles Glätten"
+        href: part-01/tutorial-01.qmd
+      - text: "02 - Zeitreihenanalyse"
+        href: part-02/tutorial-02.qmd
+      - text: "03 - Beschäftigungsglättung"
+        href: part-03/tutorial-03.qmd
+      - text: "04 - Ressourcenplanung"
+        href: part-04/tutorial-04.qmd
+      - text: "05 - Reihenfolgeplanung"
+        href: part-05/tutorial-05.qmd
+      - text: "06 - Prüfungsvorbereitung"
+        href: part-06/tutorial-06.qmd
+      - text: "Literatur"
+        href: general/literature.qmd
+
+  page-footer: 
+    center: "Produktionswirtschaft, Tobias Vlćek</br>CC BY-NC-SA 4.0" 
+    right: 
+      - icon: github
+        href: https://github.com/beyondsimulations/Produktionswirtschaft
+      - icon: linkedin
+        href: https://linkedin.com/in/tobiasvlcek
+
+format:
+  html:
+    theme: [litera, styles.scss]
+    toc: true
+    highlight-style: arrow
+    linkcolor: "#a60000"
+    code-copy: true
+    code-link: true
+    toc-location: right
+    code-overflow: wrap
+    code-block-bg: true
+    code-block-border-left: "#AD1F00"
+    include-in-header:
+      - general/header.html
+
+  pdf:
+    documentclass: report
+    geometry:
+        - margin=1in
+    fontfamily: roboto
+    fontfamilyoptions: sfdefault
+    colorlinks: true
+    include-in-header: 
+      text: |
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+execute:
+  freeze: auto
+
+
