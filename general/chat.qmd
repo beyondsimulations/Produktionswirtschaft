@@ -3,7 +3,13 @@ title: "Chat mit der Kurs-KI"
 subtitle: "Stellen Sie Fragen zum Kurs!"
 
 html:
-include-after-body: 
+    theme: [sandstone, ../styles.scss]
+    highlight-style: breezedark
+    linkcolor: "#a60000"
+    code-copy: true
+    code-link: true
+    toc: true
+    include-after-body: 
       text: |
 
 ---

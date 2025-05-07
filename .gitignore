@@ -2,3 +2,6 @@ exams
 .DS_Store
 /.quarto/
 _site/
+env
+_freeze/
+/env/

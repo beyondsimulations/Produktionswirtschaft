@@ -3,7 +3,7 @@ title: "Privacy Policy"
 subtitle: "How we handle your data"
 format:
   html:
-    theme: [default, ../styles.scss]
+    theme: [sandstone, ../styles.scss]
     highlight-style: breezedark
     linkcolor: "#a60000"
     code-copy: true

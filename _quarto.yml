@@ -48,16 +48,12 @@ website:
             href: part-04/pw2-lecture-04.pdf
           - text: "Tutorium"
             href: part-04/pw2-tutorial-04.qmd
-      - section: "05 Reihenfolgen"
+      - section: "05 Abläufe"
         contents:
           - text: "Vorlesung"
             href: part-05/pw2-lecture-05.pdf
           - text: "Tutorium"
             href: part-05/pw2-tutorial-05.qmd
-      - section: "06 Recap"
-        contents:
-          - text: "Tutorium"
-            href: part-06/pw2-tutorial-06.qmd
       - text: "***"
       - text: "FAQs"
         href: general/faqs.qmd
@@ -78,7 +74,7 @@ website:
 
 format:
   html:
-    theme: [litera, styles.scss]
+    theme: [sandstone, styles.scss]
     toc: true
     highlight-style: arrow
     linkcolor: "#a60000"

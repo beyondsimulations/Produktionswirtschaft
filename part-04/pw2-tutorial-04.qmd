@@ -1,0 +1,269 @@
+---
+title: "Übung 04"
+subtitle: "Ressourcenplanung und Durchlaufterminierung"
+
+format:
+    html:
+        theme: [sandstone, ../styles.scss]
+        highlight-style: arrow
+        linkcolor: "#a60000"
+    pdf: 
+        documentclass: report
+---
+
+## Aufgabe 1: Netzplan und Kapazitätsabgleich
+
+Die "Elbe Flugzeugwerke GmbH" in Dresden ist spezialisiert auf die Umrüstung von Passagierflugzeugen in Frachtflugzeuge (P2F - Passenger to Freighter). Bei der Umrüstung eines A320-Flugzeugs müssen mehrere neue Bodenstrukturelemente im Frachtraum installiert werden. Diese Arbeiten erfordern den Einsatz einer speziellen, hochpräzisen mobilen Nietanlage, von der im Hangar für dieses Projekt aktuell nur **eine** Einheit zur Verfügung steht (Kapazität = 1).
+
+Das Projektmanagement-Team hat folgende Arbeitsgänge (AG), deren Dauer in Tagen, die direkten Vorgänger und den Bedarf an der mobilen Nietanlage (NA) identifiziert:
+
+| AG  | Beschreibung                     | Dauer (Tage) | Direkte Vorgänger | Benötigt Nietanlage (NA=1) |
+|-----|----------------------------------|--------------|-------------------|--------------------------|
+| A   | Vorbereitung Sektion 1           | 2            | -                 | Nein                     |
+| B   | Vorbereitung Sektion 2           | 1            | -                 | Nein                     |
+| C   | Nietarbeiten Sektion 1           | 3            | A                 | Ja                       |
+| D   | Nietarbeiten Sektion 2           | 4            | B                 | Ja                       |
+| E   | Montage Hilfsstruktur            | 2            | -                 | Nein                     |
+| F   | Finale Niet-Verbindung           | 3            | C, D, E           | Ja                       |
+| G   | Inspektion & Abschluss           | 1            | F                 | Nein                     |
+
+Projektstart ist zum Zeitpunkt 0.
+
+**Ihre Aufgaben:**
+
+1.  Durchlaufterminierung (ohne Kapazitätsbeschränkung):
+    a.  Bestimmen Sie die frühestmöglichen Anfangs- (FAZ) und Endzeitpunkte (FEZ) für alle Arbeitsgänge.
+    b.  Bestimmen Sie die spätestzulässigen Anfangs- (SAZ) und Endzeitpunkte (SEZ) für alle Arbeitsgänge. Nehmen Sie für die Rückwärtsrechnung an, dass SEZ(G) = FEZ(G) ist, um den kritischen Pfad zu identifizieren.
+    c.  Berechnen Sie die Gesamtpufferzeit (GP) und identifizieren Sie den/die kritischen Pfad(e).
+    d.  Wie lange dauert das Projekt minimal ohne Kapazitätsengpässe?
+
+2.  Kapazitätsorientierte Planung (mit Nietanlage Kapazität = 1):
+    a.  Identifizieren Sie die Arbeitsgänge, die die Nietanlage benötigen.
+    b.  Erstellen Sie einen neuen Zeitplan (Start- und Endtermine für alle Arbeitsgänge), der die Kapazitätsbeschränkung der Nietanlage (maximal ein Arbeitsgang gleichzeitig) berücksichtigt. Versuchen Sie, die Arbeitsgänge so auf der Nietanlage einzuplanen, dass die neue Gesamtprojektdauer minimiert wird. Verwenden Sie die FAZ-Werte aus der unbeschränkten Planung als eine mögliche Priorität (frühester Start zuerst). Bei Gleichheit kann die Dauer oder eine andere logische Überlegung entscheiden.
+    c.  Stellen Sie den Belegungsplan der Nietanlage und den resultierenden Projektplan skizzenhaft dar (z.B. als einfache Zeitachse oder Tabelle).
+    d.  Wie lange dauert das Projekt nun unter Berücksichtigung des Engpasses? Was ist der neue kritische Pfad?
+
+::: {.content-visible when-profile="solution"}
+
+**Lösung mit Python:**
+
+```{python}
+#| label: fig-task2-calc
+#| fig-cap: "Netzplanberechnung und Kapazitätsabgleich für Flugzeugumbau"
+
+import pandas as pd
+
+# Definition der Arbeitsgänge für Aufgabe 2
+tasks_data_t2 = [
+    {'AG': 'A', 'Beschreibung': 'Vorbereitung Sektion 1', 'Dauer': 2, 'Vorgänger': [], 'Bedarf_NA': 0},
+    {'AG': 'B', 'Beschreibung': 'Vorbereitung Sektion 2', 'Dauer': 1, 'Vorgänger': [], 'Bedarf_NA': 0},
+    {'AG': 'C', 'Beschreibung': 'Nietarbeiten Sektion 1', 'Dauer': 3, 'Vorgänger': ['A'], 'Bedarf_NA': 1},
+    {'AG': 'D', 'Beschreibung': 'Nietarbeiten Sektion 2', 'Dauer': 4, 'Vorgänger': ['B'], 'Bedarf_NA': 1},
+    {'AG': 'E', 'Beschreibung': 'Montage Hilfsstruktur', 'Dauer': 2, 'Vorgänger': [], 'Bedarf_NA': 0},
+    {'AG': 'F', 'Beschreibung': 'Finale Niet-Verbindung', 'Dauer': 3, 'Vorgänger': ['C', 'D', 'E'], 'Bedarf_NA': 1},
+    {'AG': 'G', 'Beschreibung': 'Inspektion & Abschluss', 'Dauer': 1, 'Vorgänger': ['F'], 'Bedarf_NA': 0}
+]
+
+def calculate_cpm(task_list, fixed_starts=None):
+    tasks_dict_cpm = {task['AG']: task.copy() for task in task_list}
+    if fixed_starts is None:
+        fixed_starts = {}
+
+    for task_id in tasks_dict_cpm:
+        tasks_dict_cpm[task_id]['FAZ'] = 0
+        tasks_dict_cpm[task_id]['FEZ'] = 0
+        tasks_dict_cpm[task_id]['SAZ'] = 0
+        tasks_dict_cpm[task_id]['SEZ'] = 0
+        tasks_dict_cpm[task_id]['GP'] = 0
+        tasks_dict_cpm[task_id]['Kritisch'] = False
+
+    # Angepasste Reihenfolge für dieses Beispiel (oder topologische Sortierung verwenden)
+    processing_order_fwd_cpm = ['A', 'B', 'E', 'C', 'D', 'F', 'G'] 
+    # Sicherstellen, dass alle Tasks in der Liste sind
+    current_tasks_ids = [t['AG'] for t in task_list]
+    processing_order_fwd_cpm = [t for t in processing_order_fwd_cpm if t in current_tasks_ids] \
+                             + [t for t in current_tasks_ids if t not in processing_order_fwd_cpm]
+
+
+    # Vorwärtsrechnung
+    for task_id in processing_order_fwd_cpm:
+        task = tasks_dict_cpm[task_id]
+        if task_id in fixed_starts:
+            task['FAZ'] = fixed_starts[task_id]['start']
+        elif not task['Vorgänger']:
+            task['FAZ'] = 0
+        else:
+            task['FAZ'] = max(tasks_dict_cpm[p_id]['FEZ'] for p_id in task['Vorgänger'] if p_id in tasks_dict_cpm)
+        
+        if task_id in fixed_starts:
+             task['FEZ'] = fixed_starts[task_id]['end']
+        else:
+            task['FEZ'] = task['FAZ'] + task['Dauer']
+
+    last_task_id_cpm = processing_order_fwd_cpm[-1]
+    tasks_dict_cpm[last_task_id_cpm]['SEZ'] = tasks_dict_cpm[last_task_id_cpm]['FEZ']
+    tasks_dict_cpm[last_task_id_cpm]['SAZ'] = tasks_dict_cpm[last_task_id_cpm]['SEZ'] - tasks_dict_cpm[last_task_id_cpm]['Dauer']
+
+    # Rückwärtsrechnung
+    processing_order_bwd_cpm = processing_order_fwd_cpm[::-1]
+    for task_id in processing_order_bwd_cpm:
+        task = tasks_dict_cpm[task_id]
+        if task_id == last_task_id_cpm:
+            continue
+
+        successors_of_current_task = []
+        for succ_id, succ_details in tasks_dict_cpm.items():
+            if task_id in succ_details['Vorgänger']:
+                successors_of_current_task.append(succ_id)
+        
+        if not successors_of_current_task:
+            task['SEZ'] = tasks_dict_cpm[last_task_id_cpm]['FEZ']
+        else:
+            task['SEZ'] = min(tasks_dict_cpm[s_id]['SAZ'] for s_id in successors_of_current_task)
+        
+        task['SAZ'] = task['SEZ'] - task['Dauer']
+        
+        # Wenn Startzeit fixiert war, kann SAZ nicht früher sein als FAZ
+        if task_id in fixed_starts:
+            task['SAZ'] = max(task['SAZ'], task['FAZ'])
+            task['SEZ'] = task['SAZ'] + task['Dauer']
+
+
+    for task_id in tasks_dict_cpm:
+        task = tasks_dict_cpm[task_id]
+        task['GP'] = task['SAZ'] - task['FAZ']
+        task['Kritisch'] = (task['GP'] == 0)
+
+    result_df_intermediate = pd.DataFrame.from_dict(tasks_dict_cpm, orient='index')
+    result_df_intermediate = result_df_intermediate.reset_index()
+    df_to_return = result_df_intermediate.drop(columns=['AG']) 
+    df_to_return = df_to_return.rename(columns={'index': 'AG'}) 
+    return df_to_return
+
+# 1. Durchlaufterminierung (ohne Kapazitätsbeschränkung)
+print("1. Durchlaufterminierung (ohne Kapazitätsbeschränkung):")
+df_unconstrained = calculate_cpm(tasks_data_t2)
+display_columns_cpm = ['AG', 'Dauer', 'FAZ', 'FEZ', 'SAZ', 'SEZ', 'GP', 'Kritisch']
+print(df_unconstrained[display_columns_cpm].to_string(index=False))
+duration_unconstrained = df_unconstrained.loc[df_unconstrained['AG'] == 'G', 'FEZ'].iloc[0]
+krit_weg_unconstrained_df = df_unconstrained[df_unconstrained['Kritisch']].sort_values(by='FAZ')
+print(f"\nMinimale Projektdauer (unbeschränkt): {duration_unconstrained} Tage")
+print(f"Kritischer Weg (unbeschränkt): {' -> '.join(krit_weg_unconstrained_df['AG'].tolist())}")
+
+# 2. Kapazitätsorientierte Planung (Nietanlage Kapazität = 1)
+print("\n2. Kapazitätsorientierte Planung (Nietanlage Kapazität = 1):")
+tasks_requiring_na = [task for task in tasks_data_t2 if task['Bedarf_NA'] == 1]
+
+# Sortiere NA-Tasks nach ihrem unbeschränkten FAZ
+# Dazu holen wir die FAZ-Werte aus df_unconstrained
+na_task_faz = {row['AG']: row['FAZ'] for index, row in df_unconstrained.iterrows()}
+tasks_requiring_na_sorted = sorted(tasks_requiring_na, key=lambda t: na_task_faz[t['AG']])
+
+resource_free_at = 0
+na_schedule = []
+fixed_starts_constrained = {}
+
+# Temporäres Dictionary für FEZ-Werte, das während der NA-Planung aktualisiert wird
+temp_tasks_dict_for_na_planning = {task['AG']: task.copy() for task in tasks_data_t2}
+for index, row in df_unconstrained.iterrows(): # Initialisiere mit unbeschränkten FEZ
+    temp_tasks_dict_for_na_planning[row['AG']]['FEZ_current'] = row['FEZ']
+
+
+print("\nPlanung der Nietanlage-Belegung (Heuristik: frühester FAZ):")
+for na_task in tasks_requiring_na_sorted:
+    task_id = na_task['AG']
+    task_duration = na_task['Dauer']
+    
+    # FAZ des NA-Tasks basierend auf den aktuellen FEZ seiner Vorgänger
+    # (Vorgänger könnten sich durch vorherige NA-Belegungen verschoben haben)
+    if not na_task['Vorgänger']:
+        min_start_due_to_preds = 0
+    else:
+        min_start_due_to_preds = max(temp_tasks_dict_for_na_planning[p_id]['FEZ_current'] for p_id in na_task['Vorgänger'])
+        
+    constrained_start = max(min_start_due_to_preds, resource_free_at)
+    constrained_end = constrained_start + task_duration
+    resource_free_at = constrained_end
+    
+    na_schedule.append({'AG': task_id, 'Start': constrained_start, 'Ende': constrained_end})
+    fixed_starts_constrained[task_id] = {'start': constrained_start, 'end': constrained_end}
+    
+    # Update FEZ_current für diesen Task im temporären Dictionary
+    temp_tasks_dict_for_na_planning[task_id]['FEZ_current'] = constrained_end
+    
+    # Wichtig: Jetzt müssen die FEZ_current aller *nachfolgenden* Tasks im temp_tasks_dict_for_na_planning
+    # potenziell neu berechnet werden, falls sich dieser NA-Task verschoben hat.
+    # Für diese vereinfachte Heuristik im Python-Code verzichten wir auf die volle dynamische 
+    # Neuberechnung aller FEZ_current nach jedem einzelnen NA-Task und verlassen uns darauf, dass
+    # die `calculate_cpm` Funktion mit `fixed_starts` das Endergebnis korrekt herstellt.
+    # Die Studierenden machen dies bei der manuellen Planung iterativ.
+
+print("Belegungsplan Nietanlage:")
+for item in na_schedule:
+    print(f"- AG {item['AG']}: Start Tag {item['Start']}, Ende Tag {item['Ende']}")
+
+print("\nEndgültige Projektplanung (mit Kapazitätsbeschränkung):")
+df_constrained = calculate_cpm(tasks_data_t2, fixed_starts=fixed_starts_constrained)
+print(df_constrained[display_columns_cpm].to_string(index=False))
+
+duration_constrained = df_constrained.loc[df_constrained['AG'] == 'G', 'FEZ'].iloc[0]
+krit_weg_constrained_df = df_constrained[df_constrained['Kritisch']].sort_values(by='FAZ')
+print(f"\nMinimale Projektdauer (beschränkt): {duration_constrained} Tage")
+print(f"Kritischer Weg (beschränkt): {' -> '.join(krit_weg_constrained_df['AG'].tolist())}")
+
+```
+
+**Erläuterung der Ergebnisse (manuelle Lösung):**
+
+1.  **Durchlaufterminierung (ohne Kapazitätsbeschränkung):**
+    *   Die Studierenden erstellen eine Tabelle mit FAZ, FEZ, SAZ, SEZ, GP für alle Arbeitsgänge.
+    *   Beispielhafte unbeschränkte Werte (manuell zu berechnen):
+        *   A: FAZ=0, FEZ=2
+        *   B: FAZ=0, FEZ=1
+        *   E: FAZ=0, FEZ=2
+        *   C: FAZ=max(FEZ(A))=2, FEZ=2+3=5
+        *   D: FAZ=max(FEZ(B))=1, FEZ=1+4=5
+        *   F: FAZ=max(FEZ(C)=5, FEZ(D)=5, FEZ(E)=2)=5, FEZ=5+3=8
+        *   G: FAZ=max(FEZ(F))=8, FEZ=8+1=9
+    *   Minimale Projektdauer (unbeschränkt): 9 Tage.
+    *   Kritischer Pfad (unbeschränkt, nach manueller Berechnung, wenn SEZ(G)=FEZ(G)=9):
+        *   SEZ(G)=9, SAZ(G)=8
+        *   SEZ(F)=SAZ(G)=8, SAZ(F)=5
+        *   SEZ(C)=SAZ(F)=5, SAZ(C)=2
+        *   SEZ(D)=SAZ(F)=5, SAZ(D)=1
+        *   SEZ(E)=SAZ(F)=5, SAZ(E)=3
+        *   SEZ(A)=SAZ(C)=2, SAZ(A)=0
+        *   SEZ(B)=SAZ(D)=1, SAZ(B)=0
+        *   GP(A)=0, GP(B)=0, GP(C)=0, GP(D)=0, GP(E)=3, GP(F)=0, GP(G)=0.
+        *   Kritische Pfade: A-C-F-G und B-D-F-G.
+
+2.  **Kapazitätsorientierte Planung (Nietanlage Kapazität = 1):**
+    *   Arbeitsgänge mit NA-Bedarf: C, D, F.
+    *   Unbeschränkte FAZ-Werte: FAZ(C)=2, FAZ(D)=1, FAZ(F)=5.
+    *   Priorisierung für NA (z.B. nach FAZ): D (startet früher oder gleichzeitig mit C), dann C, dann F.
+        *   **AG D (Dauer 4):** Kann frühestens an Tag 1 starten (nach B). FAZ(B)=1. NA ist frei.
+            *   Start D: Tag 1, Ende D: Tag 1+4=5. NA belegt bis Ende Tag 5.
+        *   **AG C (Dauer 3):** Kann frühestens an Tag 2 starten (nach A). FAZ(A)=2. NA ist aber erst ab Tag 5 frei (nach D).
+            *   Start C: max(FAZ(A)=2, NA_frei=5) = Tag 5. Ende C: Tag 5+3=8. NA belegt bis Ende Tag 8.
+        *   **AG F (Dauer 3):** Benötigt C, D, E.
+            *   FEZ(C) ist jetzt Tag 8 (verschoben).
+            *   FEZ(D) ist Tag 5.
+            *   FEZ(E) ist Tag 2 (unverändert).
+            *   Frühestmöglicher Start für F (Vorgänger): max(8, 5, 2) = Tag 8.
+            *   NA ist frei ab Ende Tag 8 (nach C).
+            *   Start F: max(Vorbedingung_Start=8, NA_frei=8) = Tag 8. Ende F: Tag 8+3=11.
+    *   Neuer Projektplan:
+        *   A: FAZ=0, FEZ=2
+        *   B: FAZ=0, FEZ=1
+        *   E: FAZ=0, FEZ=2
+        *   D: FAZ=1, FEZ=5 (durch NA geplant)
+        *   C: FAZ=5, FEZ=8 (durch NA geplant, startet nach D auf NA und nach A)
+        *   F: FAZ=max(FEZ(C)=8, FEZ(D)=5, FEZ(E)=2)=8, FEZ=8+3=11 (durch NA geplant)
+        *   G: FAZ=max(FEZ(F))=11, FEZ=11+1=12
+    *   Neue minimale Projektdauer (beschränkt): 12 Tage.
+    *   Der neue kritische Pfad wird durch die Sequenz auf der Nietanlage und deren Vorgänger/Nachfolger bestimmt. Hier wäre es B -> D (auf NA) -> C (auf NA, wartet auf D und A) -> F (auf NA) -> G. Auch A ist Teil davon, da C auf A wartet. Pfad: A->C->F->G und B->D-> (Zwischen C und D ist die NA der Engpass). Der längste Pfad zum Start von F ist über C (Ende Tag 8).
+    *   Der Pfad über die Nietanlage (B-D, dann A-C, dann E, dann F, dann G) wird bestimmend.
+        Kritischer Pfad wird wahrscheinlich: B → D → (Warten auf NA für C) → C → F → G. Da C auch von A abhängt, ist A auch kritisch, wenn sein Pfad bis C länger oder gleich dem Pfad bis zum Start von C auf der NA ist.
+        Der kritische Pfad ist B → D → C → F → G (1+4+3+3+1 = 12) und A ist auch kritisch (GP=0), da C von A abhängt und durch die NA-Planung C's SAZ = FAZ = 5 ist. (SAZ(A) = FAZ(C)-Dauer(C) = 5-3 = 2, FEZ(A)=2, SAZ(A)=0, GP(A)=0).
+
+:::
