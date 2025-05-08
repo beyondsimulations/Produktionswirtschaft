@@ -17,7 +17,7 @@ website:
   bread-crumbs: true
   sidebar:
     style: floating
-    #logo: https://images.beyondsimulations.com/logo/midjourney_square_left.png
+    logo: https://images.beyondsimulations.com/logo/logo_pw2.png
     collapse-level: 2
     search: true
     contents:
@@ -110,7 +110,7 @@ format:
         </script>
         <style>
           #dify-chatbot-bubble-button {
-            background-color: #F29325 !important;
+            background-color: #646B91 !important;
           }
           #dify-chatbot-bubble-window {
             width: 24rem !important;

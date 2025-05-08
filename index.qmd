@@ -34,7 +34,7 @@ Der Kerninhalt des Kurses ist in sechs Module gegliedert:
 3. **Beschäftigungsglättung** - Kernkonzepte des Produktionsmanagements
 4. **Ressourcenplanung** - Optimierung der Ressourcenzuweisung
 5. **Reihenfolgeplanung** - Bestimmung optimaler Produktionssequenzen
-6. **Prüfungsvorbereitung** - Übungsaufgaben und Wiederholung
+6. **Recap** - Wiederholung und offene Fragen
 
 # Tutorials
 
