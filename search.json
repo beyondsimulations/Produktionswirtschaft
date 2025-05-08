@@ -1,0 +1,330 @@
+[
+  {
+    "objectID": "part-05/pw2-tutorial-05.html",
+    "href": "part-05/pw2-tutorial-05.html",
+    "title": "Übung 05",
+    "section": "",
+    "text": "Cyber Systems steht vor der Herausforderung, die Montage ihrer neuesten Endoskelett-Arme zu optimieren. In der Endmontage gibt es eine einzelne Station, die für die finale Qualitätsprüfung und Kalibrierung zuständig ist. Für eine Charge von 6 Armen sind die Bearbeitungszeiten (in Stunden) für diese Station bekannt. Die Aufträge sind in der Reihenfolge ihres Eintreffens (FCFS) nummeriert.\n\n\n\nAuftrag (Arm-ID)\nBearbeitungszeit \\(a_p\\) (Stunden)\n\n\n\n\nA001\n3\n\n\nA002\n5\n\n\nA003\n2\n\n\nA004\n8\n\n\nA005\n4\n\n\nA006\n6\n\n\n\nIhre Aufgaben:\n\nErmitteln Sie die Auftragsreihenfolge nach der FCFS-Regel (First Come, First Served). Berechnen Sie für diese Reihenfolge:\n\nDen Fertigstellungszeitpunkt \\(F_p\\) für jeden Auftrag.\nDie Durchlaufzeit \\(D_p\\) für jeden Auftrag (da alle Aufträge zum Zeitpunkt 0 eintreffen, gilt \\(D_p = F_p\\)).\nDie mittlere Durchlaufzeit \\(\\bar{D}\\).\n\nErmitteln Sie die Auftragsreihenfolge nach der KOZ-Regel (Kürzeste Operationszeit-Regel, auch SPT-Regel). Berechnen Sie für diese Reihenfolge ebenfalls \\(F_p\\), \\(D_p\\) und \\(\\bar{D}\\).\nVergleichen Sie die Ergebnisse der FCFS- und KOZ-Regel. Welche Regel führt zu einer geringeren mittleren Durchlaufzeit?\nDiskutieren Sie kurz, warum die KOZ-Regel in Bezug auf die mittlere Durchlaufzeit optimal ist, aber welche potenziellen Nachteile sie haben könnte.",
+    "crumbs": [
+      "05 Abläufe",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-05/pw2-tutorial-05.html#aufgabe-1-optimierung-der-montage",
+    "href": "part-05/pw2-tutorial-05.html#aufgabe-1-optimierung-der-montage",
+    "title": "Übung 05",
+    "section": "",
+    "text": "Cyber Systems steht vor der Herausforderung, die Montage ihrer neuesten Endoskelett-Arme zu optimieren. In der Endmontage gibt es eine einzelne Station, die für die finale Qualitätsprüfung und Kalibrierung zuständig ist. Für eine Charge von 6 Armen sind die Bearbeitungszeiten (in Stunden) für diese Station bekannt. Die Aufträge sind in der Reihenfolge ihres Eintreffens (FCFS) nummeriert.\n\n\n\nAuftrag (Arm-ID)\nBearbeitungszeit \\(a_p\\) (Stunden)\n\n\n\n\nA001\n3\n\n\nA002\n5\n\n\nA003\n2\n\n\nA004\n8\n\n\nA005\n4\n\n\nA006\n6\n\n\n\nIhre Aufgaben:\n\nErmitteln Sie die Auftragsreihenfolge nach der FCFS-Regel (First Come, First Served). Berechnen Sie für diese Reihenfolge:\n\nDen Fertigstellungszeitpunkt \\(F_p\\) für jeden Auftrag.\nDie Durchlaufzeit \\(D_p\\) für jeden Auftrag (da alle Aufträge zum Zeitpunkt 0 eintreffen, gilt \\(D_p = F_p\\)).\nDie mittlere Durchlaufzeit \\(\\bar{D}\\).\n\nErmitteln Sie die Auftragsreihenfolge nach der KOZ-Regel (Kürzeste Operationszeit-Regel, auch SPT-Regel). Berechnen Sie für diese Reihenfolge ebenfalls \\(F_p\\), \\(D_p\\) und \\(\\bar{D}\\).\nVergleichen Sie die Ergebnisse der FCFS- und KOZ-Regel. Welche Regel führt zu einer geringeren mittleren Durchlaufzeit?\nDiskutieren Sie kurz, warum die KOZ-Regel in Bezug auf die mittlere Durchlaufzeit optimal ist, aber welche potenziellen Nachteile sie haben könnte.",
+    "crumbs": [
+      "05 Abläufe",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-05/pw2-tutorial-05.html#aufgabe-2-einhaltung-von-produktionsfristen",
+    "href": "part-05/pw2-tutorial-05.html#aufgabe-2-einhaltung-von-produktionsfristen",
+    "title": "Übung 05",
+    "section": "Aufgabe 2: Einhaltung von Produktionsfristen",
+    "text": "Aufgabe 2: Einhaltung von Produktionsfristen\nWey Corp. steht unter Druck, kritische Navigationskomponenten für ihre nächste Generation von Frachtern der “Nostromos”-Klasse zu fertigen. Jeder Komponententyp durchläuft eine spezielle Endmontage- und Teststation. Für die aktuelle Produktionswoche liegen fünf dringende Aufträge vor, jeweils mit bekannter Bearbeitungszeit an dieser Station und einem festen Auslieferungstermin (Plantermin). Das Management möchte die Anzahl der verspäteten Aufträge minimieren. Alle Aufträge sind zu Beginn der Woche (Zeitpunkt 0) verfügbar.\n\n\n\n\n\n\n\n\nAuftrag (Komponente)\nBearbeitungszeit \\(a_p\\) (Tage)\nPlantermin \\(LT_p\\) (Tag)\n\n\n\n\nC01\n3\n7\n\n\nC02\n5\n10\n\n\nC03\n2\n5\n\n\nC04\n6\n12\n\n\nC05\n4\n8\n\n\n\nIhre Aufgaben:\n\nSortieren Sie die Aufträge zunächst nach der Liefertermin-Regel (EDD - Earliest Due Date). Erstellen Sie einen Plan und ermitteln Sie für jeden Auftrag den Fertigstellungszeitpunkt \\(F_p\\) und die Verspätung \\(V_p = \\max(0, F_p - LT_p)\\). Wie viele Aufträge sind verspätet?\nWenden Sie nun das*Hodgson-Verfahren an, um die Anzahl der verspäteten Aufträge zu minimieren.\nErstellen Sie den finalen Ablaufplan. Berechnen Sie für diesen Plan:\n\nDen Fertigstellungszeitpunkt \\(F_p\\) für jeden Auftrag.\nDie Verspätung \\(V_p\\) für jeden Auftrag.\nDie Gesamtzahl der verspäteten Aufträge.\nDie maximale Verspätung.\n\nVergleichen Sie das Ergebnis des Hodgson-Verfahrens mit dem der reinen Liefertermin-Regel hinsichtlich der Anzahl verspäteter Aufträge.",
+    "crumbs": [
+      "05 Abläufe",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-05/pw2-tutorial-05.html#aufgabe-3-produktionsoptimierung",
+    "href": "part-05/pw2-tutorial-05.html#aufgabe-3-produktionsoptimierung",
+    "title": "Übung 05",
+    "section": "Aufgabe 3: Produktionsoptimierung",
+    "text": "Aufgabe 3: Produktionsoptimierung\nJohnson-Industries arbeitet an der Fertigung von Schlüsselkomponenten für ein neues, fortschrittliches Verteidigungssystem, Projekt “Aegis”. Jede Komponente muss zwei Hauptproduktionsstufen durchlaufen: Zuerst eine Präzisionsbearbeitung auf Maschine A und anschließend eine komplexe Montage auf Maschine B. Die Aufträge können nicht überholt werden und die Reihenfolge der Bearbeitung ist auf beiden Maschinen gleich (Flow Shop). Ziel ist es, die Gesamtfertigungszeit für alle anstehenden Komponenten (den Makespan) zu minimieren.\nFür die anstehende Produktionscharge sind die Bearbeitungszeiten (in Stunden) für fünf Komponenten bekannt:\n\n\n\n\n\n\n\n\nKomponente (ID)\nBearbeitungszeit Maschine A (Stunden)\nBearbeitungszeit Maschine B (Stunden)\n\n\n\n\nARC-01\n5\n2\n\n\nREP-02\n1\n6\n\n\nUNI-03\n9\n7\n\n\nTHR-04\n3\n8\n\n\nSTA-05\n10\n4\n\n\n\nIhre Aufgaben:\n\nWenden Sie den Johnson-Algorithmus an, um die optimale Auftragsreihenfolge zu bestimmen, die den Makespan minimiert. Dokumentieren Sie Ihre Schritte zur Herleitung der Reihenfolge. Geben Sie die finale, optimale Auftragsreihenfolge an.\nErstellen Sie einen detaillierten Belegungsplan (Gantt-Diagramm) für die ermittelte Reihenfolge. Zeichnen Sie die Belegung für Maschine A und Maschine B.\nBerechnen Sie den minimalen Makespan (Gesamtfertigungszeit) für diese Auftragscharge.",
+    "crumbs": [
+      "05 Abläufe",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-03/pw2-tutorial-03.html",
+    "href": "part-03/pw2-tutorial-03.html",
+    "title": "Übung 03",
+    "section": "",
+    "text": "Ein mittelständischer Hersteller von Fahrrädern plant sein Produktionsprogramm für die kommenden drei Monate (Perioden \\(t=1, 2, 3\\)). Es werden zwei Hauptprodukttypen betrachtet: “Stadtrad Klassik” (Produkt K) und “Mountainbike Pro” (Produkt M). Das Unternehmen möchte die Gesamtkosten aus Lagerhaltung und Überstunden minimieren.\nNachfrage (Stück pro Periode):\n\n\n\nProdukt\nPeriode 1\nPeriode 2\nPeriode 3\n\n\n\n\nK\n100\n120\n150\n\n\nM\n70\n80\n90\n\n\n\nKosten:\n\nLagerkostensatz: 5 EUR/Stück und Periode (für beide Produkte)\nÜberstundenkostensatz: 10 EUR/Kapazitätseinheit (personelle Kapazität)\n\nKapazitäten\n\nAnfangslagerbestand: \\(L_{K0}=20\\) Stück, \\(L_{M0}=10\\) Stück.\nMaximale personelle Kapazität: 250 Einheiten pro Periode.\nMaximale technische Kapazität: 400 Einheiten pro Periode.\nMaximale Zusatzkapazität (Überstunden): 50 Einheiten pro Periode.\n\nProduktionskoeffizienten (Kapazitätsbedarf pro Stück)\n\n\n\nProdukt\nPersonelle Kapazität\nTechnische Kapazität\n\n\n\n\nK\n1.0\n1.5\n\n\nM\n1.2\n2.0\n\n\n\nIhre Aufgaben:\n\nZielformulierung: Schreiben Sie die Zielfunktion zur Minimierung der Gesamtkosten für die FahrradFreund GmbH explizit auf.\nWichtige Nebenbedingungen formulieren: Formulieren Sie die folgenden Nebenbedingungen für die FahrradFreund GmbH:\n\nLagerbilanzgleichung für das Stadtrad Klassik (Produkt K) in Periode 2.\nPersonelle Kapazitätsbeschränkung in Periode 1.\nTechnische Kapazitätsbeschränkung in Periode 3.\n\nBewertung eines Teil-Produktionsplans: Angenommen, die Produktionsleitung schlägt für Periode 1 folgende Produktionsmengen vor:\n\n90 Stück (Stadtrad Klassik)\n70 Stück (Mountainbike Pro)\n\nBerechnen Sie für Periode 1:\n\nDen Lagerbestand für beide Produkte am Ende von Periode 1.\nDen Bedarf an personeller Kapazität. Ist die reguläre personelle Kapazität ausreichend oder werden Überstunden benötigt? Wenn ja, wie viele und was sind die Kosten dafür?\nDen Bedarf an technischer Kapazität. Ist die technische Kapazität ausreichend?\nDie gesamten Lagerkosten, die für die in Periode 1 gehaltenen Endbestände anfallen.",
+    "crumbs": [
+      "03 Beschäftigung",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-03/pw2-tutorial-03.html#aufgabe-1-aggregierte-produktionsplanung",
+    "href": "part-03/pw2-tutorial-03.html#aufgabe-1-aggregierte-produktionsplanung",
+    "title": "Übung 03",
+    "section": "",
+    "text": "Ein mittelständischer Hersteller von Fahrrädern plant sein Produktionsprogramm für die kommenden drei Monate (Perioden \\(t=1, 2, 3\\)). Es werden zwei Hauptprodukttypen betrachtet: “Stadtrad Klassik” (Produkt K) und “Mountainbike Pro” (Produkt M). Das Unternehmen möchte die Gesamtkosten aus Lagerhaltung und Überstunden minimieren.\nNachfrage (Stück pro Periode):\n\n\n\nProdukt\nPeriode 1\nPeriode 2\nPeriode 3\n\n\n\n\nK\n100\n120\n150\n\n\nM\n70\n80\n90\n\n\n\nKosten:\n\nLagerkostensatz: 5 EUR/Stück und Periode (für beide Produkte)\nÜberstundenkostensatz: 10 EUR/Kapazitätseinheit (personelle Kapazität)\n\nKapazitäten\n\nAnfangslagerbestand: \\(L_{K0}=20\\) Stück, \\(L_{M0}=10\\) Stück.\nMaximale personelle Kapazität: 250 Einheiten pro Periode.\nMaximale technische Kapazität: 400 Einheiten pro Periode.\nMaximale Zusatzkapazität (Überstunden): 50 Einheiten pro Periode.\n\nProduktionskoeffizienten (Kapazitätsbedarf pro Stück)\n\n\n\nProdukt\nPersonelle Kapazität\nTechnische Kapazität\n\n\n\n\nK\n1.0\n1.5\n\n\nM\n1.2\n2.0\n\n\n\nIhre Aufgaben:\n\nZielformulierung: Schreiben Sie die Zielfunktion zur Minimierung der Gesamtkosten für die FahrradFreund GmbH explizit auf.\nWichtige Nebenbedingungen formulieren: Formulieren Sie die folgenden Nebenbedingungen für die FahrradFreund GmbH:\n\nLagerbilanzgleichung für das Stadtrad Klassik (Produkt K) in Periode 2.\nPersonelle Kapazitätsbeschränkung in Periode 1.\nTechnische Kapazitätsbeschränkung in Periode 3.\n\nBewertung eines Teil-Produktionsplans: Angenommen, die Produktionsleitung schlägt für Periode 1 folgende Produktionsmengen vor:\n\n90 Stück (Stadtrad Klassik)\n70 Stück (Mountainbike Pro)\n\nBerechnen Sie für Periode 1:\n\nDen Lagerbestand für beide Produkte am Ende von Periode 1.\nDen Bedarf an personeller Kapazität. Ist die reguläre personelle Kapazität ausreichend oder werden Überstunden benötigt? Wenn ja, wie viele und was sind die Kosten dafür?\nDen Bedarf an technischer Kapazität. Ist die technische Kapazität ausreichend?\nDie gesamten Lagerkosten, die für die in Periode 1 gehaltenen Endbestände anfallen.",
+    "crumbs": [
+      "03 Beschäftigung",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-03/pw2-tutorial-03.html#aufgabe-2-erweiterung-um-make-or-buy-entscheidungen",
+    "href": "part-03/pw2-tutorial-03.html#aufgabe-2-erweiterung-um-make-or-buy-entscheidungen",
+    "title": "Übung 03",
+    "section": "Aufgabe 2: Erweiterung um Make-or-Buy-Entscheidungen",
+    "text": "Aufgabe 2: Erweiterung um Make-or-Buy-Entscheidungen\nAufbauend auf Aufgabe 1 soll das Planungsmodell nun um die Möglichkeit erweitert werden, Fahrräder nicht nur selbst zu produzieren, sondern auch von einem externen Lieferanten zu beziehen.\nZusätzliche Daten für Make-or-Buy:\nDie Kosten für den Fremdbezug der Fahrräder betragen:\n\nStadtrad Klassik (Produkt K): \\(c_K^B = 85\\) EUR/Stück\nMountainbike Pro (Produkt M): \\(c_M^B = 100\\) EUR/Stück\n\nAlle anderen Daten (Nachfrage, Lagerkosten, Kapazitäten, Produktionskoeffizienten, Anfangslagerbestände etc.) entsprechen denen aus Aufgabe 1.\nIhre Aufgaben:\n\nModellformulierung (Erweiterung):\n\nDefinieren Sie die neue(n) Entscheidungsvariable(n), die für die Berücksichtigung von Fremdbezugsmengen notwendig ist/sind.\nFormulieren Sie die erweiterte Zielfunktion zur Minimierung der Gesamtkosten unter Einbeziehung der Fremdbezugskosten. Die Gesamtkosten umfassen nun Lagerhaltungs-, Überstunden- und Fremdbezugskosten.\nWie muss die Lagerbilanzgleichung (Nachfragebefriedigung) angepasst werden, um die Fremdbezugsmengen zu berücksichtigen? Formulieren Sie die allgemeine, angepasste Lagerbilanzgleichung für ein Produkt \\(k\\) in einer Periode \\(t\\).\n\nBewertung eines kombinierten Produktions- und Bezugsplans für Periode 1: Angenommen, die Produktionsleitung schlägt für Periode 1 folgenden kombinierten Plan vor:\n\nEigenfertigung Stadtrad Klassik (\\(x_{K1}\\)): 50 Stück\nFremdbezug Stadtrad Klassik (\\(B_{K1}\\)): 50 Stück\nEigenfertigung Mountainbike Pro (\\(x_{M1}\\)): 40 Stück\nFremdbezug Mountainbike Pro (\\(B_{M1}\\)): 30 Stück\n\nBerechnen Sie für Periode 1 (unter Verwendung der relevanten Daten aus Aufgabe 1 und den neuen Fremdbezugskosten):\n\nDie Lagerbestände für beide Produkte (K und M) am Ende von Periode 1.\nDen Bedarf an personeller Kapazität allein für die Eigenfertigung. Ist die reguläre personelle Kapazität (250 Einheiten) ausreichend oder werden Überstunden benötigt? Wenn ja, wie viele Einheiten Überstunden fallen an und was sind die Kosten dafür?\nDen Bedarf an technischer Kapazität allein für die Eigenfertigung. Ist die technische Kapazität ausreichend?\nDie gesamten Kosten für den Fremdbezug in Periode 1.\nDie gesamten relevanten Kosten gemäß diesem Plan.",
+    "crumbs": [
+      "03 Beschäftigung",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-01/pw2-tutorial-01.html",
+    "href": "part-01/pw2-tutorial-01.html",
+    "title": "Übung 01",
+    "section": "",
+    "text": "Eine traditionsreiche Konditorei aus dem Schwarzwald möchte den Verkauf ihrer berühmten Schwarzwälder Kirschtorte besser verstehen, um Zutatenbestellungen und Personalplanung zu optimieren. Die Verkaufszahlen der letzten zwei Jahre (in Stück pro Monat) sind wie folgt:\n\n\n\nMonat\nJahr 1\nJahr 2\n\n\n\n\nJanuar\n80\n95\n\n\nFebruar\n75\n90\n\n\nMärz\n90\n105\n\n\nApril\n110\n125\n\n\nMai\n130\n150\n\n\nJuni\n150\n175\n\n\nJuli\n160\n190\n\n\nAugust\n155\n180\n\n\nSeptember\n120\n140\n\n\nOktober\n100\n115\n\n\nNovember\n85\n100\n\n\nDezember\n100\n120\n\n\n\nIhre Aufgaben:\n\nStellen Sie die Zeitreihe grafisch dar (eine einfache Skizze auf Papier genügt).\nBeschreiben Sie die Hauptkomponenten (Trend, Saison, Zyklus, irreguläre Schwankungen), die Sie in den Verkaufszahlen vermuten. Wie würden Sie diese qualitativ charakterisieren? (z.B. steigender Trend, saisonale Spitzen im Sommer und zu Weihnachten).\nSkizzieren Sie, wie Sie vorgehen würden, um die Trend- und Saisonkomponenten grob zu schätzen, basierend auf den im Skript vorgestellten Ideen.",
+    "crumbs": [
+      "01 Zeitreihen",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-01/pw2-tutorial-01.html#aufgabe-1-zerlegung-einer-zeitreihe",
+    "href": "part-01/pw2-tutorial-01.html#aufgabe-1-zerlegung-einer-zeitreihe",
+    "title": "Übung 01",
+    "section": "",
+    "text": "Eine traditionsreiche Konditorei aus dem Schwarzwald möchte den Verkauf ihrer berühmten Schwarzwälder Kirschtorte besser verstehen, um Zutatenbestellungen und Personalplanung zu optimieren. Die Verkaufszahlen der letzten zwei Jahre (in Stück pro Monat) sind wie folgt:\n\n\n\nMonat\nJahr 1\nJahr 2\n\n\n\n\nJanuar\n80\n95\n\n\nFebruar\n75\n90\n\n\nMärz\n90\n105\n\n\nApril\n110\n125\n\n\nMai\n130\n150\n\n\nJuni\n150\n175\n\n\nJuli\n160\n190\n\n\nAugust\n155\n180\n\n\nSeptember\n120\n140\n\n\nOktober\n100\n115\n\n\nNovember\n85\n100\n\n\nDezember\n100\n120\n\n\n\nIhre Aufgaben:\n\nStellen Sie die Zeitreihe grafisch dar (eine einfache Skizze auf Papier genügt).\nBeschreiben Sie die Hauptkomponenten (Trend, Saison, Zyklus, irreguläre Schwankungen), die Sie in den Verkaufszahlen vermuten. Wie würden Sie diese qualitativ charakterisieren? (z.B. steigender Trend, saisonale Spitzen im Sommer und zu Weihnachten).\nSkizzieren Sie, wie Sie vorgehen würden, um die Trend- und Saisonkomponenten grob zu schätzen, basierend auf den im Skript vorgestellten Ideen.",
+    "crumbs": [
+      "01 Zeitreihen",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-01/pw2-tutorial-01.html#aufgabe-2-prognose-ohne-trend",
+    "href": "part-01/pw2-tutorial-01.html#aufgabe-2-prognose-ohne-trend",
+    "title": "Übung 01",
+    "section": "Aufgabe 2: Prognose ohne Trend",
+    "text": "Aufgabe 2: Prognose ohne Trend\nBäckermeisterin Anna Weber in Freiburg möchte die Nachfrage nach ihren beliebten Roggenbrötchen für den nächsten Tag vorhersagen, um Überproduktion oder Engpässe zu vermeiden. Sie hat die Verkaufszahlen der letzten 10 Tage notiert:\n\n\n\nTag\nVerkaufte Roggenbrötchen (\\(y_t\\))\n\n\n\n\n1\n120\n\n\n2\n125\n\n\n3\n115\n\n\n4\n122\n\n\n5\n118\n\n\n6\n128\n\n\n7\n123\n\n\n8\n119\n\n\n9\n126\n\n\n10\n124\n\n\n\nFrau Weber geht davon aus, dass der Verkauf relativ konstant ist, aber täglichen Schwankungen unterliegt (d.h. kein klarer Trend, konstantes Niveau).\nIhre Aufgaben:\n\nBerechnen Sie einen gleitenden Durchschnitt der Ordnung \\(n=3\\) (3-Tage-Linie), um eine Prognose für Tag 11 zu erstellen (\\(p_{11}\\)). Der Prognosewert für Tag \\(t+1\\) ist der Durchschnittswert zum Zeitpunkt \\(t\\).\nWenden Sie die exponentielle Glättung erster Ordnung an, um eine Prognose für Tag 11 zu erstellen. Verwenden Sie einen Glättungsfaktor \\(\\alpha = 0.2\\). Als Startwert für den geglätteten Wert zum Zeitpunkt \\(t=0\\) (Prognose für Tag 1, \\(p_1\\)) nehmen Sie den tatsächlichen Verkauf von Tag 1 (\\(y_1\\)).\nWelche Prognose erscheint Ihnen intuitiv plausibler? Begründen Sie kurz.\nBerechnen Sie den Prognosefehler mit der mittleren absoluten Abweichung (MAE) für alle 10 Tage.",
+    "crumbs": [
+      "01 Zeitreihen",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-01/pw2-tutorial-01.html#aufgabe-3-prognose-mit-trend",
+    "href": "part-01/pw2-tutorial-01.html#aufgabe-3-prognose-mit-trend",
+    "title": "Übung 01",
+    "section": "Aufgabe 3: Prognose mit Trend",
+    "text": "Aufgabe 3: Prognose mit Trend\nEin aufstrebender YouTuber hat in den letzten 8 Monaten einen stetigen Zuwachs an neuen Abonnenten verzeichnet. Er möchte die Entwicklung für die nächsten zwei Monate prognostizieren, um seine Content-Strategie anzupassen.\n\n\n\nMonat \\(t\\)\nNeue Abonnenten \\(y_t\\)\n\n\n\n\n1\n500\n\n\n2\n530\n\n\n3\n520\n\n\n4\n580\n\n\n5\n620\n\n\n6\n670\n\n\n7\n640\n\n\n8\n710\n\n\n\nEr möchte die Methode der exponentiellen Glättung mit Trendkorrektur verwenden, wie sie im Skript vorgestellt wird. Nutzen Sie einen Glättungsfaktor \\(\\alpha = 0.3\\). Das geschätzte Niveau zum Zeitpunkt \\(t=0\\) ist \\(\\widehat{a}_0 = 480\\) und der Trend (Steigung) ist \\(\\widehat{b}_0 = 25\\).\nIhre Aufgaben:\n\nBerechnen Sie die initialen Werte \\(y_0^{(1)}\\) und \\(y_0^{(2)}\\).\nBerechnen Sie iterativ \\(y_t^{(1)}\\), \\(y_t^{(2)}\\), \\(\\widehat{a}_t\\) und \\(\\widehat{b}_t\\) für die Monate \\(t=1\\) bis \\(t=8\\).\nErstellen Sie eine Prognose für die Anzahl neuer Abonnenten für Monat 9 und Monat 10.\nBerechnen Sie den Prognosefehler mit der mittleren quadratischen Abweichung (MSE) für Monat 7 und Monat 8.",
+    "crumbs": [
+      "01 Zeitreihen",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "general/faqs.html",
+    "href": "general/faqs.html",
+    "title": "Häufig gestellte Fragen",
+    "section": "",
+    "text": "Falls Sie eine Frage haben, die hier nicht beantwortet wird, teilen Sie mir dies bitte mit, indem Sie mir eine E-Mail an workshop@beyondsimulations.com. Sollten Sie einen Fehler im Kursmaterial gefunden haben oder Vorschläge zur Verbesserung des Kurses haben, teilen Sie mir dies bitte ebenfalls sehr gerne mit!",
+    "crumbs": [
+      "FAQs"
+    ]
+  },
+  {
+    "objectID": "general/faqs.html#unbeantwortete-fragen",
+    "href": "general/faqs.html#unbeantwortete-fragen",
+    "title": "Häufig gestellte Fragen",
+    "section": "",
+    "text": "Falls Sie eine Frage haben, die hier nicht beantwortet wird, teilen Sie mir dies bitte mit, indem Sie mir eine E-Mail an workshop@beyondsimulations.com. Sollten Sie einen Fehler im Kursmaterial gefunden haben oder Vorschläge zur Verbesserung des Kurses haben, teilen Sie mir dies bitte ebenfalls sehr gerne mit!",
+    "crumbs": [
+      "FAQs"
+    ]
+  },
+  {
+    "objectID": "general/faqs.html#faqs",
+    "href": "general/faqs.html#faqs",
+    "title": "Häufig gestellte Fragen",
+    "section": "FAQs",
+    "text": "FAQs",
+    "crumbs": [
+      "FAQs"
+    ]
+  },
+  {
+    "objectID": "general/faqs.html#darf-ich-ein-blatt-mit-in-die-prüfung-nehmen",
+    "href": "general/faqs.html#darf-ich-ein-blatt-mit-in-die-prüfung-nehmen",
+    "title": "Häufig gestellte Fragen",
+    "section": "Darf ich ein Blatt mit in die Prüfung nehmen?",
+    "text": "Darf ich ein Blatt mit in die Prüfung nehmen?\nJa, Sie dürfen ein DIN A4-Blatt mit Notizen auf beiden Seiten mit in die Prüfung nehmen. Bitte beachten Sie, dass es sich um ein Blatt Papier handeln sollte, das handschriftlich beschrieben sein sollte.",
+    "crumbs": [
+      "FAQs"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Herzlich Willkommen!",
+    "section": "",
+    "text": "Beschreibung\nMoin Moin, mein Name ist Dr. Tobias Vlćek. Dieser Kurs ist eine Einführung in die Produktionswirtschaft auf Basis der ursprünglichen Vorlesung von Prof. Dr. Manitz. Ich habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.\n\n\nLernziele\nMein Ziel ist es, Ihnen die Grundlagen der Zeitreihenanalyse und Produktionsplanung näherzubringen. Diese Konzepte werden sowohl in der Wissenschaft als auch in der Industrie eingesetzt und sind gute Werkzeuge für die Produktionswirtschaft.\nNach Abschluss dieses Kurses werden Sie in der Lage sein:\n\nGrundlegende Zeitreihenprognosen durchzuführen\nProduktionsplanungsmodelle zu erstellen und zu analysieren\nDie Kernkonzepte der Produktionssteuerung zu verstehen\n\nEs sind keine fortgeschrittenen Kenntnisse oder Erfahrungen erforderlich, um den Inhalten zu folgen, obwohl Grundkenntnisse in statistischen Methoden, Operations Research und Mathematik hilfreich sind. Ferner entsprechen nicht alle Inhalte der Vorlesung dem jeweils letzten Stand der Forschung in der Produktionswirtschaft, da die Folien von Prof. Dr. Manitz stammen und bereits etwas älter sind.\n\n\nKursmodule\nDer Kerninhalt des Kurses ist in sechs Module gegliedert:\n\nPrognosen und Exponentielles Glätten - Einführung in Zeitreihenvorhersagen\nZeitreihenanalyse - Holt/Winters und Regressionsmodellen\nBeschäftigungsglättung - Kernkonzepte des Produktionsmanagements\nRessourcenplanung - Optimierung der Ressourcenzuweisung\nReihenfolgeplanung - Bestimmung optimaler Produktionssequenzen\nPrüfungsvorbereitung - Übungsaufgaben und Wiederholung\n\n\n\nTutorials\nDie Tutorials sind von mir auf Basis der Vorlesung von Prof. Dr. Manitz erstellt worden. Sie helfen Ihnen, die Konzepte aus der Vorlesung anzuwenden und zu verstehen. Die Klausur am Ende orientiert sich an den Übungen und wird die Themen der Vorlesung abdecken.\n\n\nErlaubte Hilfsmittel\nDa ich Verständnis statt Auswendiglernen fördern möchte, dürfen Sie in der Klausur neben einem Taschenrechner auch einen eigenhändig verfassten, beidseitig beschriebenen A4-Zettel mit Formeln verwenden.\n\n\n\n\n\n\nTip\n\n\n\nWichtig: Der Formelzettel muss handschriftlich erstellt werden. Digital erstellte und ausgedruckte Unterlagen sind nicht zugelassen.\n\n\n\n\nFragen und Unterstützung\nFür Ihre Fragen stehe ich jederzeit gerne zur Verfügung. Kontaktieren Sie mich einfach per E-Mail unter workshop@beyondsimulations.com.\nZusätzlich steht Ihnen auf dieser Seite ein Chatbot zur Verfügung, der auf den Inhalten der Vorlesung basiert und Ihnen bei inhaltlichen Fragen unterstützend zur Seite stehen kann. Er ist nicht perfekt und eher eine Beta-Version, aber ich hoffe, dass er Ihnen dennoch hilft.",
+    "crumbs": [
+      "Startseite"
+    ]
+  },
+  {
+    "objectID": "general/chat.html#wie-funktioniert-der-chatbot",
+    "href": "general/chat.html#wie-funktioniert-der-chatbot",
+    "title": "Chat mit der Kurs-KI",
+    "section": "Wie funktioniert der Chatbot?",
+    "text": "Wie funktioniert der Chatbot?\nDie Kurs-KI ist ein Chatbot, der die Dify Plattform verwendet, die bei Hetzner in Deutschland gehostet wird. Wenn Sie Fragen zum Kurs haben, können Sie gerne den Chatbot befragen. Beachten Sie, dass der Chatbot nicht perfekt ist und manchmal falsche Antworten geben kann. Für weitere Informationen darüber, wie die Daten verarbeitet werden, bitte sehen Sie sich die Datenschutzerklärung an.",
+    "crumbs": [
+      "Chat"
+    ]
+  },
+  {
+    "objectID": "general/privacy.html",
+    "href": "general/privacy.html",
+    "title": "Privacy Policy",
+    "section": "",
+    "text": "Welcome to Applied Optimization. This Privacy Policy explains how we collect, use, shares, and protects information in relation to our AI Chatbot service (the “Chatbot”) provided on this website.\nWe are committed to protecting your privacy. This policy outlines our practices concerning the data processed when you interact with our Chatbot. By using the Chatbot, you agree to the collection and use of information in accordance with this policy."
+  },
+  {
+    "objectID": "general/privacy.html#introduction",
+    "href": "general/privacy.html#introduction",
+    "title": "Privacy Policy",
+    "section": "",
+    "text": "Welcome to Applied Optimization. This Privacy Policy explains how we collect, use, shares, and protects information in relation to our AI Chatbot service (the “Chatbot”) provided on this website.\nWe are committed to protecting your privacy. This policy outlines our practices concerning the data processed when you interact with our Chatbot. By using the Chatbot, you agree to the collection and use of information in accordance with this policy."
+  },
+  {
+    "objectID": "general/privacy.html#data-controller",
+    "href": "general/privacy.html#data-controller",
+    "title": "Privacy Policy",
+    "section": "2. Data Controller",
+    "text": "2. Data Controller\nThe data controller responsible for your personal data is:\nBeyond Simulations GmbH\nAm Eich 9d\n22113 Oststeinbek\nGermany\nEmail: info@beyond-simulations.com"
+  },
+  {
+    "objectID": "general/privacy.html#information-we-collect",
+    "href": "general/privacy.html#information-we-collect",
+    "title": "Privacy Policy",
+    "section": "3. Information We Collect",
+    "text": "3. Information We Collect\nWhen you interact with our Chatbot, we collect and process the following types of information:\n\nChat Interactions: This includes the questions, prompts, and text you submit to the Chatbot (“Prompts”) and the responses generated by the Chatbot (“Responses”). We do not store any personal data and all prompts are anonymized.\nTechnical Data: We may automatically collect technical information associated with your interaction, such as timestamps, session identifiers for service functionality. This data is processed on our self-hosted server at Hetzner in Germany.\nUsage Data: We may collect aggregated and anonymized data about how the Chatbot is used to monitor performance and improve the service."
+  },
+  {
+    "objectID": "general/privacy.html#how-we-use-your-information",
+    "href": "general/privacy.html#how-we-use-your-information",
+    "title": "Privacy Policy",
+    "section": "4. How We Use Your Information",
+    "text": "4. How We Use Your Information\nWe use the collected information for the following purposes:\n\nTo Provide and Operate the Chatbot: To receive your Prompts, process them using AI models, and deliver Responses back to you.\nTo Route Requests: To manage communication between our Chatbot interface and the underlying AI models via intermediary services.\nFor Safety and Content Moderation: To analyze Prompts and/or potential Responses for harmful, inappropriate, or policy-violating content using designated services by Mistral AI acting as guardrails, aiming to ensure safer interactions.\nFor Service Improvement: To analyze usage patterns to understand user needs, troubleshoot issues, and enhance the Chatbot’s performance and capabilities.\nFor Security and Monitoring: To maintain the security of our service, prevent fraud, and monitor for potential misuse.\nTo Comply with Legal Obligations: To meet any applicable legal or regulatory requirements."
+  },
+  {
+    "objectID": "general/privacy.html#legal-basis-for-processing",
+    "href": "general/privacy.html#legal-basis-for-processing",
+    "title": "Privacy Policy",
+    "section": "5. Legal Basis for Processing",
+    "text": "5. Legal Basis for Processing\nWe process your personal data based on the following legal grounds:\n\nLegitimate Interests: Processing is necessary for our legitimate interests in operating and improving the Chatbot service and maintaining its security, provided these interests are not overridden by your data protection rights.\nConsent: In some cases, we might ask for your explicit consent for specific processing activities (e.g., using conversation data for fine-tuning models beyond basic service provision).\nLegal Obligation: Processing is necessary to comply with a legal obligation to which we are subject."
+  },
+  {
+    "objectID": "general/privacy.html#data-sharing-and-third-parties",
+    "href": "general/privacy.html#data-sharing-and-third-parties",
+    "title": "Privacy Policy",
+    "section": "6. Data Sharing and Third Parties",
+    "text": "6. Data Sharing and Third Parties\nTo provide the Chatbot service, your Prompts are processed by and shared with the following third-party services and infrastructure providers:\n\nChatbot Interface (Dify): The user interface for the Chatbot runs on our own instance of Dify hosted on Hetzner servers in Germany.\nLLM Observation (Langfuse): We use Langfuse to observe the usage of the LLM models we use. Your Prompts (and generated responses) pass through Langfuse to reach the selected LLM provider or guardrail service. The data is stored on our self-hosted server at Hetzner in Germany.\nHosting Provider (Hetzner): Our instance of Dify and Langfuse is self-hosted on servers provided by Hetzner Online GmbH. Hetzner acts as a data processor providing the infrastructure. We store application data and interaction logs on these servers, located within Germany. Review Hetzner’s privacy policy to understand how they handle data passing through their service: [Link to Hetzner Privacy Policy]\nMistral AI: We use Mistral AI models for two primary purposes: (1) as one of the LLM options to generate Responses to your Prompts, and (2) as a guardrail service to check Prompts and/or potential Responses (which may have been generated by either Google Gemini or Mistral AI itself) for safety, appropriateness, and compliance with content policies before a final response is delivered to you. When Mistral AI is used for either generation or guardrail checking, your data (relevant Prompts and/or potential Responses) is processed according to Mistral AI’s terms and privacy policy. Find more information here: [Link to Mistral AI Privacy Policy]\n\nImportant Note on Third-Party Processing: These LLM and guardrail providers process your data to generate Responses or perform safety checks. They may use data according to their own policies, potentially including service improvement, subject to their terms. We encourage you to review their respective privacy policies. We do not explicitly share personal identifiers like your name or email through the Chatbot interaction unless you voluntarily include such information in your Prompts."
+  },
+  {
+    "objectID": "general/privacy.html#data-storage-security-and-retention",
+    "href": "general/privacy.html#data-storage-security-and-retention",
+    "title": "Privacy Policy",
+    "section": "7. Data Storage, Security, and Retention",
+    "text": "7. Data Storage, Security, and Retention\n\nStorage: Chat interaction data (Prompts, Responses) and technical logs may be stored temporarily or persistently (depending on configuration) on our Dify and Langfuse instance hosted on Hetzner servers in Germany.\nSecurity: We implement reasonable technical and organizational measures to protect your data from unauthorized access, disclosure, alteration, or destruction. This includes using HTTPS encryption for data transmitted between your browser, our server, and the LLM providers. Access to the backend systems is restricted.\nRetention: We retain chat interaction data and technical logs only for as long as necessary to fulfill the purposes outlined in this policy, for troubleshooting, security logging, service improvement, or as required by law. Retention periods vary depending on the type of data and our operational needs."
+  },
+  {
+    "objectID": "general/privacy.html#your-data-protection-rights",
+    "href": "general/privacy.html#your-data-protection-rights",
+    "title": "Privacy Policy",
+    "section": "8. Your Data Protection Rights",
+    "text": "8. Your Data Protection Rights\nDepending on your location and applicable data protection laws, you may have the following rights regarding your personal data:\n\nRight to Access: You can request copies of your personal data that we hold.\nRight to Rectification: You can request correction of inaccurate or incomplete data.\nRight to Erasure (‘Right to be Forgotten’): You can request the deletion of your personal data under certain conditions.\nRight to Restrict Processing: You can request the limitation of how we process your data under certain conditions.\nRight to Data Portability: You can request that we transfer the data we have collected to another organization, or directly to you, under certain conditions.\nRight to Object: You can object to our processing of your personal data based on legitimate interests.\nRight to Withdraw Consent: If processing is based on consent, you can withdraw it at any time.\n\nTo exercise any of these rights, please contact us using the details provided in Section 2 (Data Controller). We may need to verify your identity before processing your request."
+  },
+  {
+    "objectID": "general/privacy.html#changes-to-this-privacy-policy",
+    "href": "general/privacy.html#changes-to-this-privacy-policy",
+    "title": "Privacy Policy",
+    "section": "9. Changes to This Privacy Policy",
+    "text": "9. Changes to This Privacy Policy\nWe may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new policy on this page and updating the “Last Updated” date at the top. We encourage you to review this policy periodically for any changes."
+  },
+  {
+    "objectID": "part-02/pw2-tutorial-02.html",
+    "href": "part-02/pw2-tutorial-02.html",
+    "title": "Übung 02",
+    "section": "",
+    "text": "Luigi’s Eisdiele in München hat saisonal stark schwankende Verkaufszahlen (in hundert Litern Eis). Es gibt vier Quartale pro Jahr. Luigi hat die Verkaufszahlen der letzten zwei Jahre gesammelt:\n\n\n\nJahr\nQuartal\nVerkauf (100L) \\(y_t\\)\n\n\n\n\n1\nQ1\n8\n\n\n1\nQ2\n20\n\n\n1\nQ3\n25\n\n\n1\nQ4\n10\n\n\n2\nQ1\n10\n\n\n2\nQ2\n24\n\n\n2\nQ3\n30\n\n\n2\nQ4\n12\n\n\n\nLuigi hat bereits (vereinfachte) Saisonindizes für die vier Quartale bestimmt:\n\nQ1: 0.6\nQ2: 1.4\nQ3: 1.7\nQ4: 0.8\n\nEr geht von einem multiplikativen Saisonmodell aus (\\(Y = T \\cdot S \\cdot I\\)).\nIhre Aufgaben:\n\nBereinigen Sie die Verkaufszahlen, indem Sie jeden Wert durch den entsprechenden Saisonindex teilen. Diese Werte \\(Y_d\\) repräsentieren die Trend-Komponente (plus Rest).\nAuf die bereinigten Daten \\(Y_d\\) wenden Sie nun eine Prognosemethode für Trenddaten an. Verwenden Sie hierfür die exponentielle Glättung mit Trendkorrektur.\n\nNutzen Sie einen Glättungsfaktor \\(\\alpha = 0.2\\).\nInitialisierungswerte für die bereinigten Daten (\\(Y_d\\)) zum Zeitpunkt \\(t=0\\):\n\nGeschätztes Niveau \\(\\widehat{a}_{d,0} = 13\\)\nGeschätzter Trend \\(\\widehat{b}_{d,0} = 0.5\\)\n\nBerechnen Sie zuerst \\(y_{d,0}^{(1)}\\) und \\(y_{d,0}^{(2)}\\) basierend auf \\(\\widehat{a}_{d,0}\\), \\(\\widehat{b}_{d,0}\\) und \\(\\alpha\\).\n\nPrognostizieren Sie die bereinigten Werte für die vier Quartale des nächsten Jahres (Jahr 3, Q1 bis Q4). Hier ist \\(t\\) der Index des letzten Beobachtungspunktes der bereinigten Reihe.\nSaisonalisieren Sie diese Prognosen, indem Sie sie mit den entsprechenden Saisonindizes multiplizieren, um die finalen Verkaufsprognosen zu erhalten.",
+    "crumbs": [
+      "02 Holt-Winters",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-02/pw2-tutorial-02.html#aufgabe-1-prognose-mit-trend-und-saison",
+    "href": "part-02/pw2-tutorial-02.html#aufgabe-1-prognose-mit-trend-und-saison",
+    "title": "Übung 02",
+    "section": "",
+    "text": "Luigi’s Eisdiele in München hat saisonal stark schwankende Verkaufszahlen (in hundert Litern Eis). Es gibt vier Quartale pro Jahr. Luigi hat die Verkaufszahlen der letzten zwei Jahre gesammelt:\n\n\n\nJahr\nQuartal\nVerkauf (100L) \\(y_t\\)\n\n\n\n\n1\nQ1\n8\n\n\n1\nQ2\n20\n\n\n1\nQ3\n25\n\n\n1\nQ4\n10\n\n\n2\nQ1\n10\n\n\n2\nQ2\n24\n\n\n2\nQ3\n30\n\n\n2\nQ4\n12\n\n\n\nLuigi hat bereits (vereinfachte) Saisonindizes für die vier Quartale bestimmt:\n\nQ1: 0.6\nQ2: 1.4\nQ3: 1.7\nQ4: 0.8\n\nEr geht von einem multiplikativen Saisonmodell aus (\\(Y = T \\cdot S \\cdot I\\)).\nIhre Aufgaben:\n\nBereinigen Sie die Verkaufszahlen, indem Sie jeden Wert durch den entsprechenden Saisonindex teilen. Diese Werte \\(Y_d\\) repräsentieren die Trend-Komponente (plus Rest).\nAuf die bereinigten Daten \\(Y_d\\) wenden Sie nun eine Prognosemethode für Trenddaten an. Verwenden Sie hierfür die exponentielle Glättung mit Trendkorrektur.\n\nNutzen Sie einen Glättungsfaktor \\(\\alpha = 0.2\\).\nInitialisierungswerte für die bereinigten Daten (\\(Y_d\\)) zum Zeitpunkt \\(t=0\\):\n\nGeschätztes Niveau \\(\\widehat{a}_{d,0} = 13\\)\nGeschätzter Trend \\(\\widehat{b}_{d,0} = 0.5\\)\n\nBerechnen Sie zuerst \\(y_{d,0}^{(1)}\\) und \\(y_{d,0}^{(2)}\\) basierend auf \\(\\widehat{a}_{d,0}\\), \\(\\widehat{b}_{d,0}\\) und \\(\\alpha\\).\n\nPrognostizieren Sie die bereinigten Werte für die vier Quartale des nächsten Jahres (Jahr 3, Q1 bis Q4). Hier ist \\(t\\) der Index des letzten Beobachtungspunktes der bereinigten Reihe.\nSaisonalisieren Sie diese Prognosen, indem Sie sie mit den entsprechenden Saisonindizes multiplizieren, um die finalen Verkaufsprognosen zu erhalten.",
+    "crumbs": [
+      "02 Holt-Winters",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-02/pw2-tutorial-02.html#aufgabe-2-saisonindizes-selbst-berechnen",
+    "href": "part-02/pw2-tutorial-02.html#aufgabe-2-saisonindizes-selbst-berechnen",
+    "title": "Übung 02",
+    "section": "Aufgabe 2: Saisonindizes selbst berechnen",
+    "text": "Aufgabe 2: Saisonindizes selbst berechnen\nDas Unternehmen “Frosty”, das auch die Eisdiele von Luigi beliefert, hat sich auf die Herstellung und den Verkauf von handgemachtem Eis spezialisiert. Die Geschäftsführerin hat festgestellt, dass die Verkaufszahlen (in tausend Euro) stark von der Jahreszeit abhängen. Um die Produktionsmengen besser planen und Marketingkampagnen gezielter ausrichten zu können, möchte sie die saisonalen Schwankungen genauer verstehen. Sie hat die Verkaufsdaten der letzten drei Jahre gesammelt:\n\n\n\nJahr\nQuartal\nVerkauf (Tsd. €) \\(y_t\\)\n\n\n\n\n1\nQ1\n150\n\n\n1\nQ2\n250\n\n\n1\nQ3\n350\n\n\n1\nQ4\n180\n\n\n2\nQ1\n170\n\n\n2\nQ2\n280\n\n\n2\nQ3\n390\n\n\n2\nQ4\n210\n\n\n3\nQ1\n190\n\n\n3\nQ2\n310\n\n\n3\nQ3\n430\n\n\n3\nQ4\n240\n\n\n\nDie Geschäftsführerin geht von einem multiplikativen Saisonmodell aus (\\(Y = T \\cdot C \\cdot S \\cdot I\\)) und möchte die Saisonindizes mit der “Ratio to Moving Average”-Methode bestimmen. Da es vier Quartale pro Jahr gibt, wird ein gleitender Durchschnitt der Ordnung 4 verwendet.\nIhre Aufgaben:\n\nBerechnen Sie den zentrierten gleitenden Durchschnitt (ZGD) der Ordnung 4 für die Verkaufsdaten.\nBestimmen Sie die Roh-Saisonfaktoren (\\(si_{tm}\\)), indem Sie die tatsächlichen Verkaufszahlen \\(y_{tm}\\) durch die entsprechenden ZGD-Werte teilen.\nBerechnen Sie die durchschnittlichen Saisonfaktoren (\\(s_m\\)) für jedes Quartal, indem Sie die Roh-Saisonfaktoren für das jeweilige Quartal über die Jahre mitteln.\nNormieren Sie die durchschnittlichen Saisonfaktoren, sodass ihre Summe der Anzahl der Saisons (hier 4) entspricht. Diese normierten Werte sind die finalen Saisonindizes (\\(\\widehat{s}_m\\)).",
+    "crumbs": [
+      "02 Holt-Winters",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-02/pw2-tutorial-02.html#aufgabe-3-holts-methode-für-trenddaten",
+    "href": "part-02/pw2-tutorial-02.html#aufgabe-3-holts-methode-für-trenddaten",
+    "title": "Übung 02",
+    "section": "Aufgabe 3: Holt’s Methode für Trenddaten",
+    "text": "Aufgabe 3: Holt’s Methode für Trenddaten\nDas kleine Startup “Deep Learning” im Herzen von Duisburg hat kürzlich ein neues KI-Tool für die Analyse von Textdaten auf den Markt gebracht. Die Kunden sind begeistert, und die Verkaufszahlen steigen stetig. Die Firma möchte nun die zukünftige Nachfrage besser planen können, um genügend Mitarbeiter zur Betreuung der Kunden zu haben und gleichzeitig Überstunden zu vermeiden. Die Firma hat die Verkaufszahlen der letzten 8 Monate sorgfältig dokumentiert:\n\n\n\nMonat (t)\nVerkäufe (\\(y_t\\))\n\n\n\n\n1\n50\n\n\n2\n52\n\n\n3\n58\n\n\n4\n69\n\n\n5\n70\n\n\n6\n72\n\n\n7\n77\n\n\n8\n83\n\n\n\nDeep Learning hat sich entschieden, das Verfahren von Holt zu verwenden, um eine Prognose zu erstellen. Dieses Verfahren berücksichtigt sowohl das aktuelle Niveau der Nachfrage als auch den Trend.\nIhre Aufgaben:\n\nVerwenden Sie das Verfahren von Holt, um die geglätteten Werte für das Niveau (\\(\\widehat{a}_t\\)) und den Trend (\\(\\widehat{b}_t\\)) für die Monate \\(t=1\\) bis \\(t=8\\) zu berechnen.\n\nNutzen Sie die folgenden Glättungsfaktoren:\n\n\\(\\alpha = 0.3\\) (für das Niveau)\n\\(\\beta = 0.2\\) (für den Trend)\n\nDie Initialisierungswerte zum Zeitpunkt \\(t=0\\) sind:\n\nGeschätztes Niveau \\(\\widehat{a}_{0} = 48\\) Verkäufe\nGeschätzter Trend \\(\\widehat{b}_{0} = 4\\) Verkäufe pro Monat\n\n\nErstellen Sie eine Prognose für die Verkaufszahlen der nächsten zwei Monate (Monat 9 und Monat 10).\nWas ist der Unterschied zwischen der Prognose aus der letzten Übung und dem Verfahren von Holt?\nWürden Sie denken, dass das Verfahren von Holt und Winters besser geeignet wäre, um die Verkaufszahlen zu prognostizieren?",
+    "crumbs": [
+      "02 Holt-Winters",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-04/pw2-tutorial-04.html",
+    "href": "part-04/pw2-tutorial-04.html",
+    "title": "Übung 04",
+    "section": "",
+    "text": "Die “Fahrzeugfertigung Zwickau GmbH” ist ein traditionsreicher Standort im Automobilbau und hat sich auf die Produktion von Komponenten und die Endmontage von Elektrofahrzeugen spezialisiert. Für die Einführung einer neuen Montagelinie zur Fertigung von Batteriemodulen für das Modell “Saxon-E” müssen die einzelnen Arbeitsschritte genau geplant werden. Das Projektmanagement-Team hat die folgende Liste von Arbeitsgängen (AG), deren Dauer in Stunden (Std.) und die direkten Vorgänger identifiziert:\n\n\n\n\n\n\n\n\n\nArbeitsgang\nBeschreibung\nDauer (Std.)\nDirekte Vorgänger\n\n\n\n\nA\nMaterialbereitstellung Rahmen\n3\n-\n\n\nB\nVormontage Zellhalterungen\n5\nA\n\n\nC\nEinbau Zellhalterungen in Rahmen\n4\nB\n\n\nD\nMaterialbereitstellung Elektronik\n2\n-\n\n\nE\nVormontage Steuerungseinheit\n6\nD\n\n\nF\nIntegration Steuerungseinheit\n3\nC, E\n\n\nG\nQualitätsprüfung & Endverschluss\n2\nF\n\n\n\nDer Projektstart (Beginn von A und D) ist zum Zeitpunkt 0. Der spätestzulässige Fertigstellungstermin für den gesamten Prozess (Ende von G) ist Stunde 25.\nIhre Aufgaben:\n\nErstellen Sie ein Netzplan-Diagramm für dieses Projekt.\nFühren Sie eine Vorwärtsrechnung durch, um die frühestmöglichen Anfangszeitpunkte (FAZ) und Endzeitpunkte (FEZ) für jeden Arbeitsgang zu bestimmen.\nFühren Sie eine Rückwärtsrechnung durch, um die spätestzulässigen Anfangszeitpunkte (SAZ) und Endzeitpunkte (SEZ) für jeden Arbeitsgang zu bestimmen. Gehen Sie davon aus, dass der FEZ des letzten Arbeitsgangs (G) dem spätestzulässigen Projektendtermin entspricht, falls er diesen nicht überschreitet. Andernfalls ist der spätestzulässige Endtermin des Projekts maßgebend für SEZ(G).\nBerechnen Sie die Gesamtpufferzeit (GP) für jeden Arbeitsgang.\nIdentifizieren Sie den kritischen Weg im Projekt.",
+    "crumbs": [
+      "04 Ressourcenplan",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-04/pw2-tutorial-04.html#aufgabe-1-montageplanung",
+    "href": "part-04/pw2-tutorial-04.html#aufgabe-1-montageplanung",
+    "title": "Übung 04",
+    "section": "",
+    "text": "Die “Fahrzeugfertigung Zwickau GmbH” ist ein traditionsreicher Standort im Automobilbau und hat sich auf die Produktion von Komponenten und die Endmontage von Elektrofahrzeugen spezialisiert. Für die Einführung einer neuen Montagelinie zur Fertigung von Batteriemodulen für das Modell “Saxon-E” müssen die einzelnen Arbeitsschritte genau geplant werden. Das Projektmanagement-Team hat die folgende Liste von Arbeitsgängen (AG), deren Dauer in Stunden (Std.) und die direkten Vorgänger identifiziert:\n\n\n\n\n\n\n\n\n\nArbeitsgang\nBeschreibung\nDauer (Std.)\nDirekte Vorgänger\n\n\n\n\nA\nMaterialbereitstellung Rahmen\n3\n-\n\n\nB\nVormontage Zellhalterungen\n5\nA\n\n\nC\nEinbau Zellhalterungen in Rahmen\n4\nB\n\n\nD\nMaterialbereitstellung Elektronik\n2\n-\n\n\nE\nVormontage Steuerungseinheit\n6\nD\n\n\nF\nIntegration Steuerungseinheit\n3\nC, E\n\n\nG\nQualitätsprüfung & Endverschluss\n2\nF\n\n\n\nDer Projektstart (Beginn von A und D) ist zum Zeitpunkt 0. Der spätestzulässige Fertigstellungstermin für den gesamten Prozess (Ende von G) ist Stunde 25.\nIhre Aufgaben:\n\nErstellen Sie ein Netzplan-Diagramm für dieses Projekt.\nFühren Sie eine Vorwärtsrechnung durch, um die frühestmöglichen Anfangszeitpunkte (FAZ) und Endzeitpunkte (FEZ) für jeden Arbeitsgang zu bestimmen.\nFühren Sie eine Rückwärtsrechnung durch, um die spätestzulässigen Anfangszeitpunkte (SAZ) und Endzeitpunkte (SEZ) für jeden Arbeitsgang zu bestimmen. Gehen Sie davon aus, dass der FEZ des letzten Arbeitsgangs (G) dem spätestzulässigen Projektendtermin entspricht, falls er diesen nicht überschreitet. Andernfalls ist der spätestzulässige Endtermin des Projekts maßgebend für SEZ(G).\nBerechnen Sie die Gesamtpufferzeit (GP) für jeden Arbeitsgang.\nIdentifizieren Sie den kritischen Weg im Projekt.",
+    "crumbs": [
+      "04 Ressourcenplan",
+      "Tutorium"
+    ]
+  },
+  {
+    "objectID": "part-04/pw2-tutorial-04.html#aufgabe-2-kapazitätsabgleich",
+    "href": "part-04/pw2-tutorial-04.html#aufgabe-2-kapazitätsabgleich",
+    "title": "Übung 04",
+    "section": "Aufgabe 2: Kapazitätsabgleich",
+    "text": "Aufgabe 2: Kapazitätsabgleich\nDie “Duisburg Flugzeugwerke GmbH” in Duisburg ist spezialisiert auf die Umrüstung von Passagierflugzeugen in Frachtflugzeuge (P2F - Passenger to Freighter). Bei der Umrüstung eines A320-Flugzeugs müssen mehrere neue Bodenstrukturelemente im Frachtraum installiert werden. Diese Arbeiten erfordern den Einsatz einer speziellen, hochpräzisen mobilen Nietanlage, von der im Hangar für dieses Projekt aktuell nur eine Einheit zur Verfügung steht (Kapazität = 1).\nDas Projektmanagement-Team hat folgende Arbeitsgänge (AG), deren Dauer in Tagen, die direkten Vorgänger und den Bedarf an der mobilen Nietanlage (NA) identifiziert:\n\n\n\n\n\n\n\n\n\n\nAG\nBeschreibung\nDauer (Tage)\nDirekte Vorgänger\nBenötigt Nietanlage (NA=1)\n\n\n\n\nA\nVorbereitung Sektion 1\n2\n-\nNein\n\n\nB\nVorbereitung Sektion 2\n1\n-\nNein\n\n\nC\nNietarbeiten Sektion 1\n3\nA\nJa\n\n\nD\nNietarbeiten Sektion 2\n4\nB\nJa\n\n\nE\nMontage Hilfsstruktur\n2\n-\nNein\n\n\nF\nFinale Niet-Verbindung\n3\nC, D, E\nJa\n\n\nG\nInspektion & Abschluss\n1\nF\nNein\n\n\n\nProjektstart ist zum Zeitpunkt 0.\nIhre Aufgaben:\n\nDurchlaufterminierung (ohne Kapazitätsbeschränkung):\n\nBestimmen Sie die frühestmöglichen Anfangs- (FAZ) und Endzeitpunkte (FEZ) für alle Arbeitsgänge.\nBestimmen Sie die spätestzulässigen Anfangs- (SAZ) und Endzeitpunkte (SEZ) für alle Arbeitsgänge. Nehmen Sie für die Rückwärtsrechnung an, dass SEZ(G) = FEZ(G) ist, um den kritischen Pfad zu identifizieren.\nBerechnen Sie die Gesamtpufferzeit (GP) und identifizieren Sie den/die kritischen Pfad(e).\nWie lange dauert das Projekt minimal ohne Kapazitätsengpässe?\n\nKapazitätsorientierte Planung (mit Nietanlage Kapazität = 1):\n\nIdentifizieren Sie die Arbeitsgänge, die die Nietanlage benötigen.\nErstellen Sie einen neuen Zeitplan (Start- und Endtermine für alle Arbeitsgänge), der die Kapazitätsbeschränkung der Nietanlage (maximal ein Arbeitsgang gleichzeitig) berücksichtigt. Versuchen Sie, die Arbeitsgänge so auf der Nietanlage einzuplanen, dass die neue Gesamtprojektdauer minimiert wird. Verwenden Sie die FAZ-Werte aus der unbeschränkten Planung als eine mögliche Priorität (frühester Start zuerst). Bei Gleichheit kann die Dauer oder eine andere logische Überlegung entscheiden.\nStellen Sie den Belegungsplan der Nietanlage und den resultierenden Projektplan skizzenhaft dar (z.B. als einfache Zeitachse oder Tabelle).\nWie lange dauert das Projekt nun unter Berücksichtigung des Engpasses? Was ist der neue kritische Pfad?",
+    "crumbs": [
+      "04 Ressourcenplan",
+      "Tutorium"
+    ]
+  }
+]
