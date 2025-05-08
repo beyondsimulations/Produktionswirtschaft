@@ -12,7 +12,7 @@ html:
 
 # Beschreibung
 
-Dieser Kurs ist eine Einführung in die Produktionswirtschaft auf Basis der ursprünglichen Vorlesung von Prof. Dr. Manitz. Ich habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.
+Moin Moin, mein Name ist Dr. Tobias Vlćek. Dieser Kurs ist eine Einführung in die Produktionswirtschaft auf Basis der ursprünglichen Vorlesung von Prof. Dr. Manitz. Ich habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.
 
 # Lernziele
 

@@ -7,13 +7,80 @@ format:
         theme: [sandstone, ../styles.scss]
         highlight-style: arrow
         linkcolor: "#a60000"
+        echo: false
+        code-overflow: wrap
     pdf: 
         documentclass: report
 ---
 
-## Aufgabe 1: Netzplan und Kapazitätsabgleich
+## Aufgabe 1: Montageplanung
 
-Die "Elbe Flugzeugwerke GmbH" in Dresden ist spezialisiert auf die Umrüstung von Passagierflugzeugen in Frachtflugzeuge (P2F - Passenger to Freighter). Bei der Umrüstung eines A320-Flugzeugs müssen mehrere neue Bodenstrukturelemente im Frachtraum installiert werden. Diese Arbeiten erfordern den Einsatz einer speziellen, hochpräzisen mobilen Nietanlage, von der im Hangar für dieses Projekt aktuell nur **eine** Einheit zur Verfügung steht (Kapazität = 1).
+Die "Fahrzeugfertigung Zwickau GmbH" ist ein traditionsreicher Standort im Automobilbau und hat sich auf die Produktion von Komponenten und die Endmontage von Elektrofahrzeugen spezialisiert. Für die Einführung einer neuen Montagelinie zur Fertigung von Batteriemodulen für das Modell "Saxon-E" müssen die einzelnen Arbeitsschritte genau geplant werden. Das Projektmanagement-Team hat die folgende Liste von Arbeitsgängen (AG), deren Dauer in Stunden (Std.) und die direkten Vorgänger identifiziert:
+
+| Arbeitsgang | Beschreibung                           | Dauer (Std.) | Direkte Vorgänger |
+|-------------|----------------------------------------|--------------|-------------------|
+| A           | Materialbereitstellung Rahmen          | 3            | -                 |
+| B           | Vormontage Zellhalterungen             | 5            | A                 |
+| C           | Einbau Zellhalterungen in Rahmen       | 4            | B                 |
+| D           | Materialbereitstellung Elektronik      | 2            | -                 |
+| E           | Vormontage Steuerungseinheit           | 6            | D                 |
+| F           | Integration Steuerungseinheit          | 3            | C, E              |
+| G           | Qualitätsprüfung & Endverschluss       | 2            | F                 |
+
+Der Projektstart (Beginn von A und D) ist zum Zeitpunkt 0. Der spätestzulässige Fertigstellungstermin für den gesamten Prozess (Ende von G) ist Stunde 25.
+
+**Ihre Aufgaben:**
+
+1.  Erstellen Sie ein Netzplan-Diagramm für dieses Projekt.
+2.  Führen Sie eine Vorwärtsrechnung durch, um die frühestmöglichen Anfangszeitpunkte (FAZ) und Endzeitpunkte (FEZ) für jeden Arbeitsgang zu bestimmen.
+3.  Führen Sie eine Rückwärtsrechnung durch, um die spätestzulässigen Anfangszeitpunkte (SAZ) und Endzeitpunkte (SEZ) für jeden Arbeitsgang zu bestimmen. Gehen Sie davon aus, dass der FEZ des letzten Arbeitsgangs (G) dem spätestzulässigen Projektendtermin entspricht, falls er diesen nicht überschreitet. Andernfalls ist der spätestzulässige Endtermin des Projekts maßgebend für SEZ(G).
+4.  Berechnen Sie die Gesamtpufferzeit (GP) für jeden Arbeitsgang.
+5.  Identifizieren Sie den kritischen Weg im Projekt.
+
+::: {.content-visible when-profile="solution"}
+
+**Lösungshinweise:**
+
+1.  **Netzplan:** Eine grafische Darstellung der Arbeitsgänge und ihrer Abhängigkeiten. (Skizze auf Papier)
+
+2.  **Vorwärtsrechnung:**
+    *   A: FAZ=0, FEZ=3
+    *   D: FAZ=0, FEZ=2
+    *   B: FAZ=max(FEZ(A))=3, FEZ=3+5=8
+    *   E: FAZ=max(FEZ(D))=2, FEZ=2+6=8
+    *   C: FAZ=max(FEZ(B))=8, FEZ=8+4=12
+    *   F: FAZ=max(FEZ(C)=12, FEZ(E)=8)=12, FEZ=12+3=15
+    *   G: FAZ=max(FEZ(F))=15, FEZ=15+2=17
+    Die minimale Projektdauer beträgt 17 Stunden.
+
+3.  **Rückwärtsrechnung (Annahme SEZ(G) = FEZ(G) = 17, um kritischen Pfad zu finden):**
+    *   G: SEZ=17, SAZ=17-2=15
+    *   F: SEZ=min(SAZ(G))=15, SAZ=15-3=12
+    *   C: SEZ=min(SAZ(F))=12, SAZ=12-4=8
+    *   E: SEZ=min(SAZ(F))=12, SAZ=12-6=6
+    *   B: SEZ=min(SAZ(C))=8, SAZ=8-5=3
+    *   A: SEZ=min(SAZ(B))=3, SAZ=3-3=0
+    *   D: SEZ=min(SAZ(E))=6, SAZ=6-2=4
+
+4.  **Gesamtpuffer (GP = SAZ - FAZ):**
+    *   A: GP = 0 - 0 = 0
+    *   B: GP = 3 - 3 = 0
+    *   C: GP = 8 - 8 = 0
+    *   D: GP = 4 - 0 = 4
+    *   E: GP = 6 - 2 = 4
+    *   F: GP = 12 - 12 = 0
+    *   G: GP = 15 - 15 = 0
+
+5.  **Kritischer Weg (GP=0):**
+    A → B → C → F → G. Die Dauer dieses Pfades ist 3+5+4+3+2 = 17 Stunden.
+
+**Hinweis:** Wenn der gegebene spätestzulässige Projektendtermin (hier 25 Stunden) für die Rückwärtsrechnung verwendet worden wäre (d.h. SEZ(G) = 25), dann wären alle Pufferzeiten positiv gewesen (z.B. GP(G) = SAZ(G) - FAZ(G) = (25-2) - 15 = 23 - 15 = 8). In diesem Fall gäbe es keinen Arbeitsgang mit Pufferzeit Null. Der "kritische Weg" wird typischerweise als der Pfad mit Pufferzeit Null definiert, was impliziert, dass das Projekt so früh wie möglich abgeschlossen wird.
+
+:::
+
+## Aufgabe 2: Kapazitätsabgleich
+
+Die "Duisburg Flugzeugwerke GmbH" in Duisburg ist spezialisiert auf die Umrüstung von Passagierflugzeugen in Frachtflugzeuge (P2F - Passenger to Freighter). Bei der Umrüstung eines A320-Flugzeugs müssen mehrere neue Bodenstrukturelemente im Frachtraum installiert werden. Diese Arbeiten erfordern den Einsatz einer speziellen, hochpräzisen mobilen Nietanlage, von der im Hangar für dieses Projekt aktuell nur **eine** Einheit zur Verfügung steht (Kapazität = 1).
 
 Das Projektmanagement-Team hat folgende Arbeitsgänge (AG), deren Dauer in Tagen, die direkten Vorgänger und den Bedarf an der mobilen Nietanlage (NA) identifiziert:
 
@@ -45,13 +112,16 @@ Projektstart ist zum Zeitpunkt 0.
 
 ::: {.content-visible when-profile="solution"}
 
-**Lösung mit Python:**
+**Lösungshinweise:**
 
 ```{python}
 #| label: fig-task2-calc
 #| fig-cap: "Netzplanberechnung und Kapazitätsabgleich für Flugzeugumbau"
 
 import pandas as pd
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.patches as mpatches
 
 # Definition der Arbeitsgänge für Aufgabe 2
 tasks_data_t2 = [
@@ -140,6 +210,54 @@ def calculate_cpm(task_list, fixed_starts=None):
     df_to_return = df_to_return.rename(columns={'index': 'AG'}) 
     return df_to_return
 
+# Neue Funktion zum Erstellen von Gantt-Diagrammen
+def plot_gantt_schedule(df, title, ax, task_col='AG', start_col='FAZ', end_col='FEZ', critical_col='Kritisch', duration_col='Dauer'):
+    """Erstellt ein Gantt-Diagramm für den Projektplan."""
+    
+    # Sortiere Tasks nach AG für eine konsistente Y-Achsen-Reihenfolge oder nach FAZ
+    # Hier verwenden wir die Reihenfolge im DataFrame, die typischerweise nach AG oder Verarbeitungsreihenfolge ist
+    # oder sortieren explizit, z.B. nach FAZ für eine chronologische Darstellung von oben nach unten.
+    df_plot = df.sort_values(by=start_col).copy()
+    
+    y_labels = df_plot[task_col].tolist()
+    y_pos = np.arange(len(y_labels))
+    
+    for i, task_id in enumerate(y_labels):
+        task_row = df_plot[df_plot[task_col] == task_id].iloc[0]
+        start_time = task_row[start_col]
+        # Dauer kann direkt aus der Spalte 'Dauer' genommen werden oder als FEZ - FAZ berechnet werden
+        # Stellen wir sicher, dass wir die tatsächliche Dauer des Tasks im Plan verwenden.
+        # Für geplante Tasks (fixed_starts) ist FEZ-FAZ die korrekte Dauer im Plan.
+        duration_in_plan = task_row[end_col] - task_row[start_col]
+        is_critical = task_row[critical_col]
+        
+        color = 'salmon' if is_critical else 'skyblue' # Farben für kritisch/nicht-kritisch
+        
+        ax.barh(y_pos[i], duration_in_plan, left=start_time, edgecolor='black', color=color, height=0.6, align='center')
+        
+        # Text im Balken: Task ID und Dauer
+        ax.text(start_time + duration_in_plan / 2, y_pos[i], f"{task_id} ({task_row[duration_col]})", 
+                va='center', ha='center', color='black', fontsize=9, fontweight='normal')
+
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(y_labels)
+    ax.invert_yaxis() # Tasks von oben nach unten in der Reihenfolge der y_labels (sortiert nach FAZ)
+    
+    ax.set_xlabel("Zeit (Tage)")
+    ax.set_title(title, fontsize=10)
+    ax.grid(True, axis='x', linestyle=':', linewidth=0.7)
+    
+    # X-Achsen-Ticks für bessere Lesbarkeit
+    max_time = df_plot[end_col].max()
+    ax.set_xticks(np.arange(0, max_time + 2, 1)) # Ticks jeden Tag
+    ax.set_xlim(0, max_time + 1)
+
+    # Legende für kritische Pfade
+    critical_patch = mpatches.Patch(color='salmon', label='Kritischer Arbeitsgang')
+    non_critical_patch = mpatches.Patch(color='skyblue', label='Nicht-kritischer Arbeitsgang')
+    ax.legend(handles=[critical_patch, non_critical_patch], loc='lower right', fontsize=8)
+
+
 # 1. Durchlaufterminierung (ohne Kapazitätsbeschränkung)
 print("1. Durchlaufterminierung (ohne Kapazitätsbeschränkung):")
 df_unconstrained = calculate_cpm(tasks_data_t2)
@@ -150,70 +268,18 @@ krit_weg_unconstrained_df = df_unconstrained[df_unconstrained['Kritisch']].sort_
 print(f"\nMinimale Projektdauer (unbeschränkt): {duration_unconstrained} Tage")
 print(f"Kritischer Weg (unbeschränkt): {' -> '.join(krit_weg_unconstrained_df['AG'].tolist())}")
 
-# 2. Kapazitätsorientierte Planung (Nietanlage Kapazität = 1)
-print("\n2. Kapazitätsorientierte Planung (Nietanlage Kapazität = 1):")
-tasks_requiring_na = [task for task in tasks_data_t2 if task['Bedarf_NA'] == 1]
+# Erstellung der Gantt-Diagramme am Ende der Berechnungen
+fig_gantt, ax_gantt_unconstrained = plt.subplots(figsize=(7, 5))
+fig_gantt.set_facecolor('white') # Hintergrund der Figur
 
-# Sortiere NA-Tasks nach ihrem unbeschränkten FAZ
-# Dazu holen wir die FAZ-Werte aus df_unconstrained
-na_task_faz = {row['AG']: row['FAZ'] for index, row in df_unconstrained.iterrows()}
-tasks_requiring_na_sorted = sorted(tasks_requiring_na, key=lambda t: na_task_faz[t['AG']])
-
-resource_free_at = 0
-na_schedule = []
-fixed_starts_constrained = {}
-
-# Temporäres Dictionary für FEZ-Werte, das während der NA-Planung aktualisiert wird
-temp_tasks_dict_for_na_planning = {task['AG']: task.copy() for task in tasks_data_t2}
-for index, row in df_unconstrained.iterrows(): # Initialisiere mit unbeschränkten FEZ
-    temp_tasks_dict_for_na_planning[row['AG']]['FEZ_current'] = row['FEZ']
-
-
-print("\nPlanung der Nietanlage-Belegung (Heuristik: frühester FAZ):")
-for na_task in tasks_requiring_na_sorted:
-    task_id = na_task['AG']
-    task_duration = na_task['Dauer']
-    
-    # FAZ des NA-Tasks basierend auf den aktuellen FEZ seiner Vorgänger
-    # (Vorgänger könnten sich durch vorherige NA-Belegungen verschoben haben)
-    if not na_task['Vorgänger']:
-        min_start_due_to_preds = 0
-    else:
-        min_start_due_to_preds = max(temp_tasks_dict_for_na_planning[p_id]['FEZ_current'] for p_id in na_task['Vorgänger'])
-        
-    constrained_start = max(min_start_due_to_preds, resource_free_at)
-    constrained_end = constrained_start + task_duration
-    resource_free_at = constrained_end
-    
-    na_schedule.append({'AG': task_id, 'Start': constrained_start, 'Ende': constrained_end})
-    fixed_starts_constrained[task_id] = {'start': constrained_start, 'end': constrained_end}
-    
-    # Update FEZ_current für diesen Task im temporären Dictionary
-    temp_tasks_dict_for_na_planning[task_id]['FEZ_current'] = constrained_end
-    
-    # Wichtig: Jetzt müssen die FEZ_current aller *nachfolgenden* Tasks im temp_tasks_dict_for_na_planning
-    # potenziell neu berechnet werden, falls sich dieser NA-Task verschoben hat.
-    # Für diese vereinfachte Heuristik im Python-Code verzichten wir auf die volle dynamische 
-    # Neuberechnung aller FEZ_current nach jedem einzelnen NA-Task und verlassen uns darauf, dass
-    # die `calculate_cpm` Funktion mit `fixed_starts` das Endergebnis korrekt herstellt.
-    # Die Studierenden machen dies bei der manuellen Planung iterativ.
-
-print("Belegungsplan Nietanlage:")
-for item in na_schedule:
-    print(f"- AG {item['AG']}: Start Tag {item['Start']}, Ende Tag {item['Ende']}")
-
-print("\nEndgültige Projektplanung (mit Kapazitätsbeschränkung):")
-df_constrained = calculate_cpm(tasks_data_t2, fixed_starts=fixed_starts_constrained)
-print(df_constrained[display_columns_cpm].to_string(index=False))
-
-duration_constrained = df_constrained.loc[df_constrained['AG'] == 'G', 'FEZ'].iloc[0]
-krit_weg_constrained_df = df_constrained[df_constrained['Kritisch']].sort_values(by='FAZ')
-print(f"\nMinimale Projektdauer (beschränkt): {duration_constrained} Tage")
-print(f"Kritischer Weg (beschränkt): {' -> '.join(krit_weg_constrained_df['AG'].tolist())}")
+plot_gantt_schedule(df_unconstrained, 
+                    'Gantt-Diagramm: Ohne Kapazitätsbeschränkung', 
+                    ax_gantt_unconstrained,
+                    task_col='AG', start_col='FAZ', end_col='FEZ', critical_col='Kritisch', duration_col='Dauer')
 
 ```
 
-**Erläuterung der Ergebnisse (manuelle Lösung):**
+**Erläuterung der Ergebnisse:**
 
 1.  **Durchlaufterminierung (ohne Kapazitätsbeschränkung):**
     *   Die Studierenden erstellen eine Tabelle mit FAZ, FEZ, SAZ, SEZ, GP für alle Arbeitsgänge.
@@ -261,9 +327,13 @@ print(f"Kritischer Weg (beschränkt): {' -> '.join(krit_weg_constrained_df['AG']
         *   F: FAZ=max(FEZ(C)=8, FEZ(D)=5, FEZ(E)=2)=8, FEZ=8+3=11 (durch NA geplant)
         *   G: FAZ=max(FEZ(F))=11, FEZ=11+1=12
     *   Neue minimale Projektdauer (beschränkt): 12 Tage.
-    *   Der neue kritische Pfad wird durch die Sequenz auf der Nietanlage und deren Vorgänger/Nachfolger bestimmt. Hier wäre es B -> D (auf NA) -> C (auf NA, wartet auf D und A) -> F (auf NA) -> G. Auch A ist Teil davon, da C auf A wartet. Pfad: A->C->F->G und B->D-> (Zwischen C und D ist die NA der Engpass). Der längste Pfad zum Start von F ist über C (Ende Tag 8).
-    *   Der Pfad über die Nietanlage (B-D, dann A-C, dann E, dann F, dann G) wird bestimmend.
-        Kritischer Pfad wird wahrscheinlich: B → D → (Warten auf NA für C) → C → F → G. Da C auch von A abhängt, ist A auch kritisch, wenn sein Pfad bis C länger oder gleich dem Pfad bis zum Start von C auf der NA ist.
-        Der kritische Pfad ist B → D → C → F → G (1+4+3+3+1 = 12) und A ist auch kritisch (GP=0), da C von A abhängt und durch die NA-Planung C's SAZ = FAZ = 5 ist. (SAZ(A) = FAZ(C)-Dauer(C) = 5-3 = 2, FEZ(A)=2, SAZ(A)=0, GP(A)=0).
+    *   Der kritische Pfad im beschränkten Plan ergibt sich aus der Abarbeitung der Nietanlagen-Tasks und deren Abhängigkeiten.
+        Er ist **B → D → C → F → G**. Die Projektdauer beträgt somit 12 Tage.
+        Die Arbeitsgänge D, C, und F werden nacheinander auf der Nietanlage ausgeführt und sind kritisch. B ist kritisch als direkter Vorgänger von D. G ist kritisch als direkter Nachfolger von F.
+    *   Task A (Dauer 2 Tage, Vorgänger von C) ist im beschränkten Plan **nicht kritisch**:
+        *   FAZ(A) = 0, FEZ(A) = 2.
+        *   Da C (Nachfolger von A) im beschränkten Plan an Tag 5 beginnt (FAZ(C)=5, SAZ(C)=5), muss A spätestens an Tag 5 beendet sein (SEZ(A)=5).
+        *   Der spätestzulässige Startzeitpunkt für A ist SAZ(A) = SEZ(A) - Dauer(A) = 5 - 2 = 3.
+        *   Der Gesamtpuffer für Task A ist GP(A) = SAZ(A) - FAZ(A) = 3 - 0 = 3 Tage.
 
 :::

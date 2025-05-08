@@ -7,6 +7,8 @@ format:
         theme: [sandstone, ../styles.scss]
         highlight-style: arrow
         linkcolor: "#a60000"
+        echo: false
+        code-overflow: wrap
     pdf: 
         documentclass: report
 ---

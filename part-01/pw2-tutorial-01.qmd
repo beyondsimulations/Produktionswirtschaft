@@ -7,6 +7,8 @@ format:
         theme: [sandstone, ../styles.scss]
         highlight-style: arrow
         linkcolor: "#a60000"
+        echo: false
+        code-overflow: wrap
     pdf: 
         documentclass: report
 
@@ -39,7 +41,7 @@ Eine traditionsreiche Konditorei aus dem Schwarzwald möchte den Verkauf ihrer b
 
 ::: {.content-visible when-profile="solution"}
 
-**Lösungshinweise (Python-Code zur Veranschaulichung):**
+**Lösungshinweise:**
 
 ```{python}
 #| label: fig-task1
@@ -109,11 +111,11 @@ Frau Weber geht davon aus, dass der Verkauf relativ konstant ist, aber tägliche
 1.  Berechnen Sie einen gleitenden Durchschnitt der Ordnung $n=3$ (3-Tage-Linie), um eine Prognose für Tag 11 zu erstellen ($p_{11}$). Der Prognosewert für Tag $t+1$ ist der Durchschnittswert zum Zeitpunkt $t$.
 2.  Wenden Sie die exponentielle Glättung erster Ordnung an, um eine Prognose für Tag 11 zu erstellen. Verwenden Sie einen Glättungsfaktor $\alpha = 0.2$. Als Startwert für den geglätteten Wert zum Zeitpunkt $t=0$ (Prognose für Tag 1, $p_1$) nehmen Sie den tatsächlichen Verkauf von Tag 1 ($y_1$).
 3.  Welche Prognose erscheint Ihnen intuitiv plausibler? Begründen Sie kurz.
-4.  Berechnen Sie den Prognosefehler mit der mittleren absoluten Abweichung (MAE) für den 8, 9 und 10 Tag.
+4.  Berechnen Sie den Prognosefehler mit der mittleren absoluten Abweichung (MAE) für alle 10 Tage.
 
 ::: {.content-visible when-profile="solution"}
 
-**Lösung (Python-Code):**
+**Lösungshinweise:**
 
 ```{python}
 import pandas as pd
@@ -211,39 +213,18 @@ Ein aufstrebender YouTuber hat in den letzten 8 Monaten einen stetigen Zuwachs a
 | 7         | 640                   |
 | 8         | 710                   |
 
-Er möchte die Methode der exponentiellen Glättung mit Trendkorrektur verwenden, wie sie im Skript vorgestellt wird. Nutzen Sie einen Glättungsfaktor $\alpha = 0.3$.
-
-**Initialisierungswerte (zur Berechnung von $y_0^{(1)}$ und $y_0^{(2)}$):**
-
-*   Geschätztes Niveau zum Zeitpunkt $t=0$: $\widehat{a}_0 = 480$
-*   Geschätzter Trend (Steigung) zum Zeitpunkt $t=0$: $\widehat{b}_0 = 25$
-
-**Formeln:**
-
-*   Initialisierung:
-    *   $y_{0}^{(1)}=\widehat{a}_{0}-\widehat{b}_{0} \cdot \frac{1-\alpha}{\alpha}$
-    *   $y_{0}^{(2)}=\widehat{a}_{0}-2 \cdot \widehat{b}_{0} \cdot \frac{1-\alpha}{\alpha}$
-
-*   Aktualisierung der gleitenden Durchschnitte (für $t=1, \dots, 8$):
-    *   $y_{t}^{(1)}=\alpha \cdot y_{t}+(1-\alpha) \cdot y_{t-1}^{(1)}$
-    *   $y_{t}^{(2)}=\alpha \cdot y_{t}^{(1)}+(1-\alpha) \cdot y_{t-1}^{(2)}$
-
-*   Aktualisierung der Parameter der Trendgeraden (für $t=1, \dots, 8$):
-    *   $\widehat{a}_{t}=2 \cdot y_{t}^{(1)}-y_{t}^{(2)}$
-    *   $\widehat{b}_{t}=\frac{\alpha}{1-\alpha} \cdot\left(y_{t}^{(1)}-y_{t}^{(2)}\right)$
-
-*   Prognosewert (basierend auf Werten von $t=8$):
-    *   $p_{8+i}=\widehat{a}_{8}+\widehat{b}_{8} \cdot i$
+Er möchte die Methode der exponentiellen Glättung mit Trendkorrektur verwenden, wie sie im Skript vorgestellt wird. Nutzen Sie einen Glättungsfaktor $\alpha = 0.3$. Das geschätzte Niveau zum Zeitpunkt $t=0$ ist $\widehat{a}_0 = 480$ und der Trend (Steigung) ist $\widehat{b}_0 = 25$.
 
 **Ihre Aufgaben:**
 
 1.  Berechnen Sie die initialen Werte $y_0^{(1)}$ und $y_0^{(2)}$.
 2.  Berechnen Sie iterativ $y_t^{(1)}$, $y_t^{(2)}$, $\widehat{a}_t$ und $\widehat{b}_t$ für die Monate $t=1$ bis $t=8$.
-3.  Erstellen Sie eine Prognose für die Anzahl neuer Abonnenten für Monat 9 ($p_{8+1}$) und Monat 10 ($p_{8+2}$).
+3.  Erstellen Sie eine Prognose für die Anzahl neuer Abonnenten für Monat 9 und Monat 10.
+4.  Berechnen Sie den Prognosefehler mit der mittleren quadratischen Abweichung (MSE) für Monat 7 und Monat 8.
 
 ::: {.content-visible when-profile="solution"}
 
-**Lösung (Python-Code):**
+**Lösungshinweise:**
 
 ```{python}
 import pandas as pd
@@ -285,15 +266,6 @@ b_hat_vals = [0.0] * (len(y_actual_t3) + 1)
 
 y1_vals[0] = y0_1
 y2_vals[0] = y0_2
-# a_hat_vals[0] = a0_hat (per Definition)
-# b_hat_vals[0] = b0_hat (per Definition)
-# Alternativ: a_hat_vals[0] = 2 * y1_vals[0] - y2_vals[0]
-# b_hat_vals[0] = (alpha_t3 / (1-alpha_t3)) * (y1_vals[0] - y2_vals[0]) if alpha_t3 != 1 else np.nan
-# Wir verwenden die gegebenen a0_hat und b0_hat als Basis für die ersten y0^(1), y0^(2)
-# und berechnen dann a_t, b_t ab t=1.
-# For plotting, it's better to store a_hat_0 explicitly if we want to show it.
-# However, the formulas for a_t and b_t start from t=1.
-# We will plot a_t from t=1 onwards as calculated.
 
 results_t3 = []
 print("\n2. Iterative Berechnung für t=1 bis 8:")
@@ -319,8 +291,6 @@ for t in range(1, len(y_actual_t3) + 1): # t from 1 to 8
     })
 
 df_results_t3 = pd.DataFrame(results_t3)
-# Add original y_t to df_results_t3 for easier plotting if needed, but df_task3 already has it.
-# We use df_results_t3 for calculated values.
 
 print("\nÜbersicht der Berechnungen:")
 print(df_results_t3.round(2))
@@ -342,7 +312,7 @@ print(f"Prognose für Monat 10 (p_8+2): {prognose_monat10:.2f}")
 # Plot für Aufgabe 3
 plt.figure(figsize=(7, 5))
 # Tatsächliche Werte
-plt.plot(df_task3['Monat'], df_task3['Abonnenten'], marker='o', linestyle='-', label='Tatsächliche Abonnenten $y_t$')
+plt.plot(df_task3['Monat'], df_task3['Abonnenten'], marker='o', linestyle='-', label='Tatsächliche Abonnenten y_t')
 
 # Geglättetes Niveau a_hat_t (ab t=1)
 # df_results_t3 contains a_hat_t for t=1 to 8
@@ -360,14 +330,32 @@ plt.plot(forecast_months, forecast_values, marker='*', linestyle=':', markersize
 # Für die Darstellung der Aufgabe ist es oft klarer, die konkreten Prognosepunkte zu zeigen.
 # Die a_hat_t Linie zeigt bereits die Entwicklung des Niveaus.
 
-plt.title(f'Prognose neuer Abonnenten ($\\alpha$={alpha_t3})')
-plt.xlabel('Monat $t$')
+plt.title(f'Prognose neuer Abonnenten (alpha={alpha_t3})')
+plt.xlabel('Monat t')
 plt.ylabel('Anzahl neuer Abonnenten')
 plt.xticks(list(range(1, 9)) + forecast_months)
 plt.grid(True)
 plt.tight_layout()
+plt.legend()
 plt.show()
 
 ```
+
+**Formeln:**
+
+*   Initialisierung:
+    *   $y_{0}^{(1)}=\widehat{a}_{0}-\widehat{b}_{0} \cdot \frac{1-\alpha}{\alpha}$
+    *   $y_{0}^{(2)}=\widehat{a}_{0}-2 \cdot \widehat{b}_{0} \cdot \frac{1-\alpha}{\alpha}$
+
+*   Aktualisierung der gleitenden Durchschnitte (für $t=1, \dots, 8$):
+    *   $y_{t}^{(1)}=\alpha \cdot y_{t}+(1-\alpha) \cdot y_{t-1}^{(1)}$
+    *   $y_{t}^{(2)}=\alpha \cdot y_{t}^{(1)}+(1-\alpha) \cdot y_{t-1}^{(2)}$
+
+*   Aktualisierung der Parameter der Trendgeraden (für $t=1, \dots, 8$):
+    *   $\widehat{a}_{t}=2 \cdot y_{t}^{(1)}-y_{t}^{(2)}$
+    *   $\widehat{b}_{t}=\frac{\alpha}{1-\alpha} \cdot\left(y_{t}^{(1)}-y_{t}^{(2)}\right)$
+
+*   Prognosewert (basierend auf Werten von $t=8$):
+    *   $p_{8+i}=\widehat{a}_{8}+\widehat{b}_{8} \cdot i$
 
 :::

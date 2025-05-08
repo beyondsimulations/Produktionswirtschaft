@@ -6,13 +6,15 @@ format:
         theme: [sandstone, ../styles.scss]
         highlight-style: arrow
         linkcolor: "#a60000"
+        echo: false
+        code-overflow: wrap
     pdf:
         documentclass: report
 ---
 
 ## Aufgabe 1: Optimierung der Montage
 
-Cyber Systems steht vor der Herausforderung, die Montage ihrer neuesten T-800 Endoskelett-Arme zu optimieren. In der Endmontage gibt es eine einzelne Station, die für die finale Qualitätsprüfung und Kalibrierung zuständig ist. Für eine Charge von 6 Armen sind die Bearbeitungszeiten (in Stunden) für diese Station bekannt. Die Aufträge sind in der Reihenfolge ihres Eintreffens (FCFS) nummeriert.
+Cyber Systems steht vor der Herausforderung, die Montage ihrer neuesten Endoskelett-Arme zu optimieren. In der Endmontage gibt es eine einzelne Station, die für die finale Qualitätsprüfung und Kalibrierung zuständig ist. Für eine Charge von 6 Armen sind die Bearbeitungszeiten (in Stunden) für diese Station bekannt. Die Aufträge sind in der Reihenfolge ihres Eintreffens (FCFS) nummeriert.
 
 | Auftrag (Arm-ID) | Bearbeitungszeit $a_p$ (Stunden) |
 |-----------------|---------------------------------|
@@ -25,21 +27,22 @@ Cyber Systems steht vor der Herausforderung, die Montage ihrer neuesten T-800 En
 
 **Ihre Aufgaben:**
 
-1.  Ermitteln Sie die Auftragsreihenfolge nach der **FCFS-Regel** (First Come, First Served). Berechnen Sie für diese Reihenfolge:
+1.  Ermitteln Sie die Auftragsreihenfolge nach der FCFS-Regel (First Come, First Served). Berechnen Sie für diese Reihenfolge:
     *   Den Fertigstellungszeitpunkt $F_p$ für jeden Auftrag.
     *   Die Durchlaufzeit $D_p$ für jeden Auftrag (da alle Aufträge zum Zeitpunkt 0 eintreffen, gilt $D_p = F_p$).
     *   Die mittlere Durchlaufzeit $\bar{D}$.
-2.  Ermitteln Sie die Auftragsreihenfolge nach der **KOZ-Regel** (Kürzeste Operationszeit-Regel, auch SPT-Regel). Berechnen Sie für diese Reihenfolge ebenfalls $F_p$, $D_p$ und $\bar{D}$.
+2.  Ermitteln Sie die Auftragsreihenfolge nach der KOZ-Regel (Kürzeste Operationszeit-Regel, auch SPT-Regel). Berechnen Sie für diese Reihenfolge ebenfalls $F_p$, $D_p$ und $\bar{D}$.
 3.  Vergleichen Sie die Ergebnisse der FCFS- und KOZ-Regel. Welche Regel führt zu einer geringeren mittleren Durchlaufzeit?
 4.  Diskutieren Sie kurz, warum die KOZ-Regel in Bezug auf die mittlere Durchlaufzeit optimal ist, aber welche potenziellen Nachteile sie haben könnte.
 
 ::: {.content-visible when-profile="solution"}
 
-**Lösungshinweise (Python-Code zur Veranschaulichung):**
+**Lösungshinweise:**
 
 ```{python}
 #| label: fig-task1
 #| fig-cap: "Bearbeitungsplan Endoskelett-Arme"
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -82,7 +85,7 @@ print("\n2. KOZ-Regel (Kürzeste Operationszeit):")
 print(df_koz_metrics)
 print(f"Mittlere Durchlaufzeit (KOZ): {mean_flow_time_koz:.2f} Stunden")
 
-print("""
+print(f"""
 3. Vergleich der Ergebnisse:
 Die FCFS-Regel führt zu einer mittleren Durchlaufzeit von {mean_flow_time_fcfs:.2f} Stunden.
 Die KOZ-Regel führt zu einer mittleren Durchlaufzeit von {mean_flow_time_koz:.2f} Stunden.
@@ -106,10 +109,10 @@ def plot_gantt(df, title, ax, order_col='Auftrag', time_col='Bearbeitungszeit_ap
     ax.grid(True, axis='x')
     ax.invert_yaxis() # Aufträge von oben nach unten
 
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 7), sharex=True)
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(7, 5), sharex=True)
 plot_gantt(df_fcfs_metrics, 'Gantt-Diagramm (FCFS-Regel)', ax1)
 plot_gantt(df_koz_metrics, 'Gantt-Diagramm (KOZ-Regel)', ax2)
-fig.suptitle('Vergleich FCFS vs. KOZ bei Cyberdyne Systems', fontsize=14)
+fig.suptitle('Vergleich FCFS vs. KOZ bei Cyber Systems', fontsize=14)
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 plt.show()
 
@@ -131,8 +134,8 @@ Wey Corp. steht unter Druck, kritische Navigationskomponenten für ihre nächste
 
 **Ihre Aufgaben:**
 
-1.  Sortieren Sie die Aufträge zunächst nach der **Liefertermin-Regel (EDD - Earliest Due Date)**. Erstellen Sie einen Plan und ermitteln Sie für jeden Auftrag den Fertigstellungszeitpunkt $F_p$ und die Verspätung $V_p = \max(0, F_p - LT_p)$. Wie viele Aufträge sind verspätet?
-2.  Wenden Sie nun das **Hodgson-Verfahren (auch Moore-Hodgson-Algorithmus genannt)** an, um die Anzahl der verspäteten Aufträge zu minimieren. 
+1.  Sortieren Sie die Aufträge zunächst nach der Liefertermin-Regel (EDD - Earliest Due Date). Erstellen Sie einen Plan und ermitteln Sie für jeden Auftrag den Fertigstellungszeitpunkt $F_p$ und die Verspätung $V_p = \max(0, F_p - LT_p)$. Wie viele Aufträge sind verspätet?
+2.  Wenden Sie nun das*Hodgson-Verfahren an, um die Anzahl der verspäteten Aufträge zu minimieren. 
 3.  Erstellen Sie den finalen Ablaufplan. Berechnen Sie für diesen Plan:
     *   Den Fertigstellungszeitpunkt $F_p$ für jeden Auftrag.
     *   Die Verspätung $V_p$ für jeden Auftrag.
@@ -142,11 +145,11 @@ Wey Corp. steht unter Druck, kritische Navigationskomponenten für ihre nächste
 
 ::: {.content-visible when-profile="solution"}
 
-**Lösungshinweise (Python-Code zur Veranschaulichung):**
+**Lösungshinweise:**
 
 ```{python}
 #| label: fig-task2
-#| fig-cap: "Produktionsplan Weyland-Yutani Komponenten"
+#| fig-cap: "Produktionsplan Komponenten"
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -162,7 +165,7 @@ data_task2 = {
 }
 df_task2 = pd.DataFrame(data_task2)
 
-print("Ursprüngliche Auftragsdaten Weyland-Yutani:")
+print("Ursprüngliche Auftragsdaten:")
 print(df_task2)
 
 def calculate_schedule_details(df_schedule):
@@ -267,7 +270,7 @@ Es kann jedoch vorkommen, dass die maximale oder gesamte Verspätung dadurch nic
 """.format(num_tardy_edd=num_tardy_edd, num_tardy_hodgson=num_tardy_hodgson))
 
 # Gantt-Chart für Hodgson-Plan
-fig_task2, ax_task2 = plt.subplots(figsize=(10, 3))
+fig_task2, ax_task2 = plt.subplots(figsize=(7, 5))
 start_time_hodgson = 0
 for i, row in df_hodgson_details.iterrows():
     ax_task2.barh(row['Auftrag'], row['Bearbeitungszeit_ap'], left=start_time_hodgson, edgecolor='black', color='darkcyan')
@@ -280,7 +283,7 @@ for i, row in df_hodgson_details.iterrows():
     start_time_hodgson = row['Fertigstellungszeit_Fp']
 
 ax_task2.set_xlabel("Zeit (Tage)")
-ax_task2.set_title('Gantt-Diagramm (Hodgson-Verfahren) - Weyland-Yutani')
+ax_task2.set_title('Gantt-Diagramm (Hodgson-Verfahren)')
 ax_task2.grid(True, axis='x')
 ax_task2.invert_yaxis()
 handles, labels = ax_task2.get_legend_handles_labels() # Für einmalige Legende
@@ -316,11 +319,11 @@ Für die anstehende Produktionscharge sind die Bearbeitungszeiten (in Stunden) f
 
 ::: {.content-visible when-profile="solution"}
 
-**Lösungshinweise (Python-Code zur Veranschaulichung):**
+**Lösungshinweise:**
 
 ```{python}
 #| label: fig-task3
-#| fig-cap: "Produktionsplan Stark Industries (Johnson-Algorithmus)"
+#| fig-cap: "Produktionsplan Johnson-Industries (Johnson-Algorithmus)"
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -336,7 +339,7 @@ data_task3 = {
 }
 df_task3 = pd.DataFrame(data_task3)
 
-print("Ursprüngliche Auftragsdaten Stark Industries:")
+print("Ursprüngliche Auftragsdaten:")
 print(df_task3)
 
 # Johnson-Algorithmus
@@ -448,7 +451,7 @@ print("\n3. Belegungsdaten für Gantt-Diagramm:")
 print(df_gantt_johnson)
 
 # Gantt-Chart Visualisierung
-fig_task3, ax_task3 = plt.subplots(figsize=(12, 4))
+fig_task3, ax_task3 = plt.subplots(figsize=(7, 5))
 colors = {'Maschine A': 'skyblue', 'Maschine B': 'lightcoral'}
 
 job_order_for_plot = df_johnson_sequence['Auftrag'].tolist()
@@ -474,7 +477,7 @@ ax_task3.invert_yaxis() # Display jobs from top to bottom in sequence order
 
 ax_task3.set_xlabel("Zeit (Stunden)")
 ax_task3.set_ylabel("Auftrag (Bearbeitungsreihenfolge)")
-ax_task3.set_title(f'Gantt-Diagramm Stark Industries (Makespan: {makespan_johnson}h)')
+ax_task3.set_title(f'Gantt-Diagramm Johnson-Industries (Makespan: {makespan_johnson}h)')
 
 # Create custom legend
 from matplotlib.patches import Patch

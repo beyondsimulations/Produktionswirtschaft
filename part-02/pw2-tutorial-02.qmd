@@ -7,6 +7,8 @@ format:
         theme: [sandstone, ../styles.scss]
         highlight-style: arrow
         linkcolor: "#a60000"
+        echo: false
+        code-overflow: wrap
     pdf: 
         documentclass: report
 
@@ -45,7 +47,7 @@ Ihre Aufgaben:
         *   Geschätztes Niveau $\widehat{a}_{d,0} = 13$
         *   Geschätzter Trend $\widehat{b}_{d,0} = 0.5$
     *   Berechnen Sie zuerst $y_{d,0}^{(1)}$ und $y_{d,0}^{(2)}$ basierend auf $\widehat{a}_{d,0}$, $\widehat{b}_{d,0}$ und $\alpha$.
-3.  Prognostizieren Sie die bereinigten Werte ($\widehat{a}_{d,t} + \widehat{b}_{d,t} \cdot i$) für die vier Quartale des nächsten Jahres (Jahr 3, Q1 bis Q4). Hier ist $t$ der Index des letzten Beobachtungspunktes der bereinigten Reihe.
+3.  Prognostizieren Sie die bereinigten Werte für die vier Quartale des nächsten Jahres (Jahr 3, Q1 bis Q4). Hier ist $t$ der Index des letzten Beobachtungspunktes der bereinigten Reihe.
 4.  Saisonalisieren Sie diese Prognosen, indem Sie sie mit den entsprechenden Saisonindizes multiplizieren, um die finalen Verkaufsprognosen zu erhalten.
 
 ::: {.content-visible when-profile="solution"}
@@ -176,15 +178,15 @@ plt.figure(figsize=(7, 5))
 plt.plot(df_task4['Periode'], df_task4['Verkauf'], marker='o', linestyle='-', label='Tatsächlicher Verkauf $Y_t$')
 
 # Désaisonierte Verkäufe
-plt.plot(df_task4['Periode'], df_task4['Verkauf_desaisoniert'], marker='s', linestyle='--', label='Désaisonierter Verkauf $Y_d = Y_t/S_t$')
+plt.plot(df_task4['Periode'], df_task4['Verkauf_desaisoniert'], marker='s', linestyle='--', label='Désaisonierter Verkauf')
 
 # Trend der désaisonierten Daten (a_d_hat_t)
-# plt.plot(df_task4['Periode'], df_task4['a_d_hat_t'], marker='x', linestyle=':', label='Geglättetes Niveau (Trend) der dés. Daten $\widehat{a}_{d,t}$')
+plt.plot(df_task4['Periode'], df_task4['a_d_hat_t'], marker='x', linestyle=':', label='Geglättetes Niveau (Trend) der dés. Daten')
 
 # Resaisonierte Prognosen für Jahr 3
-plt.plot(df_prognosen_desaisoniert_j3['Periode'], df_prognosen_desaisoniert_j3['Prognose_Final'], marker='*', linestyle='-', color='red', markersize=10, label='Resaisonierte Prognose $P_{t+i} = (\widehat{a}_{d,t} + \widehat{b}_{d,t} \cdot i) \cdot S_{t+i}$')
+plt.plot(df_prognosen_desaisoniert_j3['Periode'], df_prognosen_desaisoniert_j3['Prognose_Final'], marker='*', linestyle='-', color='red', markersize=10, label='Resaisonierte Prognose')
 
-plt.title(f'Eisverkauf: Ist, Désaisoniert und Prognose (Holt-Winters Mult., $\\alpha$={alpha_t4})')
+plt.title(f'Eisverkauf: Ist, Désaisoniert und Prognose')
 plt.xlabel('Periode (Quartal)')
 plt.ylabel('Verkauf (100 Liter)')
 
@@ -222,7 +224,7 @@ Das Unternehmen "Frosty", das auch die Eisdiele von Luigi beliefert, hat sich au
 | 3    | Q3      | 430                    |
 | 3    | Q4      | 240                    |
 
-Die Geschäftsführerin geht von einem **multiplikativen Saisonmodell** aus ($Y = T \cdot C \cdot S \cdot I$) und möchte die Saisonindizes mit der **"Ratio to Moving Average"-Methode** bestimmen. Da es vier Quartale pro Jahr gibt, wird ein gleitender Durchschnitt der Ordnung 4 verwendet.
+Die Geschäftsführerin geht von einem multiplikativen Saisonmodell aus ($Y = T \cdot C \cdot S \cdot I$) und möchte die Saisonindizes mit der "Ratio to Moving Average"-Methode bestimmen. Da es vier Quartale pro Jahr gibt, wird ein gleitender Durchschnitt der Ordnung 4 verwendet.
 
 Ihre Aufgaben:
 
@@ -296,7 +298,7 @@ print(f"Summe der normierten Saisonindizes: {durchschnittliche_sf['Saisonindex_N
 
 # Plot für Aufgabe 3 (Optional, aber hilfreich zur Visualisierung)
 plt.figure(figsize=(8, 5))
-plt.plot(df_task3['Periode'], df_task3['Verkauf'], marker='o', linestyle='-', label='Tatsächlicher Verkauf $Y_t$')
+plt.plot(df_task3['Periode'], df_task3['Verkauf'], marker='o', linestyle='-', label='Tatsächlicher Verkauf Y_t')
 plt.plot(df_task3['Periode'], df_task3['ZGD4'], marker='s', linestyle='--', label='Zentrierter GD (Ordnung 4)')
 
 plt.title('FrostyFun Eisverkauf und Trendkomponente (ZGD)')
@@ -437,12 +439,12 @@ df_prognosen_t2_future = pd.DataFrame(prognosen_t2_future)
 
 # Plot für Aufgabe 2
 plt.figure(figsize=(7, 5))
-plt.plot(df_task2['Monat'], df_task2['Verkauf'], marker='o', linestyle='-', label='Tatsächlicher Verkauf $y_t$')
-# plt.plot(df_results_t2['t'], df_results_t2['p_t'], marker='x', linestyle='--', color='gray', label='Ein-Schritt-Prognose $p_t = \widehat{a}_{t-1}+\widehat{b}_{t-1}$')
-plt.plot(df_results_t2['t'], df_results_t2['a_hat_t'], marker='s', linestyle=':', label='Geschätztes Niveau $\widehat{a}_t$')
-plt.plot(df_prognosen_t2_future['Monat'], df_prognosen_t2_future['Prognose'], marker='*', linestyle='-', color='red', markersize=10, label='Zukunftsprognose $p_{8+i}$')
+plt.plot(df_task2['Monat'], df_task2['Verkauf'], marker='o', linestyle='-', label='Tatsächlicher Verkauf')
+plt.plot(df_results_t2['t'], df_results_t2['p_t'], marker='x', linestyle='--', color='gray', label='Ein-Schritt-Prognose')
+plt.plot(df_results_t2['t'], df_results_t2['a_hat_t'], marker='s', linestyle=':', label='Geschätztes Niveau')
+plt.plot(df_prognosen_t2_future['Monat'], df_prognosen_t2_future['Prognose'], marker='*', linestyle='-', color='red', markersize=10, label='Zukunftsprognose')
 
-plt.title(f'Deep Learning: Ist, Niveau und Prognose (Holt, $\\alpha$={alpha_t2}, $\\beta$={beta_t2})')
+plt.title(f'Deep Learning: Ist, Niveau und Prognose (Holt, alpha={alpha_t2}, beta={beta_t2})')
 plt.xlabel('Monat')
 plt.ylabel('Verkauf (Verkäufe)')
 all_months = list(df_task2['Monat']) + list(df_prognosen_t2_future['Monat'])
@@ -454,14 +456,14 @@ plt.show()
 
 print("""
 3. Der Hauptunterschied liegt in der Art und Weise, wie das Niveau und der Trend der Zeitreihe geschätzt und geglättet werden.
-Das Verfahren aus Übung 1 (Exponentielle Glättung mit Trendkorrektur)verwendet einen einzigen Glättungsfaktor ($\alpha$).
-Das Niveau und der Trend werden durch eine doppelte exponentielle Glättung derselben Zeitreihe abgeleitet. Aus diesen beiden Reihen werden dann die Schätzungen für Niveau ($\widehat{a}t$) und Trend ($\widehat{b}_t$) berechnet.
-Die Reaktion auf Änderungen im Niveau und im Trend ist somit durch denselben Parameter $\alpha$ gekoppelt.
-Das Verfahren von Holt verwendet zwei separate Glättungsfaktoren: $\alpha$ für das Niveau und $\beta$ für den Trend.
-Das Niveau ($\widehat{a}t$) wird direkt aus dem aktuellen Beobachtungswert ($y_t$) und der vorherigen Schätzung für Niveau und Trend ($\widehat{a}{t-1}+\widehat{b}{t-1}$) berechnet.
-Der Trend ($\widehat{b}t$) wird direkt aus der Veränderung des Niveaus ($\widehat{a}_t - \widehat{a}{t-1}$) und der vorherigen Trendschätzung ($\widehat{b}{t-1}$) berechnet.
+Das Verfahren aus Übung 1 (Exponentielle Glättung mit Trendkorrektur)verwendet einen einzigen Glättungsfaktor.
+Das Niveau und der Trend werden durch eine doppelte exponentielle Glättung derselben Zeitreihe abgeleitet. Aus diesen beiden Reihen werden dann die Schätzungen für Niveau und Trend berechnet.
+Die Reaktion auf Änderungen im Niveau und im Trend ist somit durch denselben Parameter alpha gekoppelt.
+Das Verfahren von Holt verwendet zwei separate Glättungsfaktoren: alpha für das Niveau und beta für den Trend.
+Das Niveau wird direkt aus dem aktuellen Beobachtungswert y_t und der vorherigen Schätzung für Niveau und Trend (a_t-1 + b_t-1) berechnet.
+Der Trend (b_t) wird direkt aus der Veränderung des Niveaus (a_t - a_t-1) und der vorherigen Trendschätzung (b_t-1) berechnet.
 Dies ermöglicht eine flexiblere Anpassung, da man unabhängig voneinander festlegen kann, wie stark die Glättung auf Veränderungen im Niveau bzw. im Trend reagieren soll. 
-Wenn sich beispielsweise das Grundniveau schnell ändert, der Trend aber relativ stabil ist, kann man unterschiedliche Werte für $\alpha$ und $\beta$ wählen.
+Wenn sich beispielsweise das Grundniveau schnell ändert, der Trend aber relativ stabil ist, kann man unterschiedliche Werte für alpha und beta wählen.
 Zusammenfassend lässt sich sagen, dass das Verfahren von Holt durch die Verwendung von zwei getrennten Glättungsfaktoren eine differenziertere Anpassung an Niveau und Trend einer Zeitreihe erlaubt als die exponentielle Glättung mit Trendkorrektur, die nur einen Glättungsfaktor nutzt.
 """)
 print("""
