@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-04-14">
 
-<title>Privacy Policy – Produktionswirtschaft</title>
+<title>Übung 02 – Produktionswirtschaft</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-689fc875c3a293fcb1b951c2696ee1e3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-83278b0c96aa0e1b23f6aa04ea126aa9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ac881602332e3938779ca5fc3517c7d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -70,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script defer="" src="https://umami.byndsim.com/getinfo" data-website-id="c9696f17-b99d-4e18-b36c-20af187a680b"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -82,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Privacy Policy</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-02/pw2-lecture-02.pdf">02 Holt-Winters</a></li><li class="breadcrumb-item"><a href="../part-02/pw2-tutorial-02.html">Tutorium</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -96,9 +124,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="https://images.beyondsimulations.com/logo/logo_pw2.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
-      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Produktionswirtschaft</a> 
+    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -156,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-02/pw2-tutorial-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-02/pw2-tutorial-02.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -256,25 +284,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a></li>
-  <li><a href="#data-controller" id="toc-data-controller" class="nav-link" data-scroll-target="#data-controller">2. Data Controller</a></li>
-  <li><a href="#information-we-collect" id="toc-information-we-collect" class="nav-link" data-scroll-target="#information-we-collect">3. Information We Collect</a></li>
-  <li><a href="#how-we-use-your-information" id="toc-how-we-use-your-information" class="nav-link" data-scroll-target="#how-we-use-your-information">4. How We Use Your Information</a></li>
-  <li><a href="#legal-basis-for-processing" id="toc-legal-basis-for-processing" class="nav-link" data-scroll-target="#legal-basis-for-processing">5. Legal Basis for Processing</a></li>
-  <li><a href="#data-sharing-and-third-parties" id="toc-data-sharing-and-third-parties" class="nav-link" data-scroll-target="#data-sharing-and-third-parties">6. Data Sharing and Third Parties</a></li>
-  <li><a href="#data-storage-security-and-retention" id="toc-data-storage-security-and-retention" class="nav-link" data-scroll-target="#data-storage-security-and-retention">7. Data Storage, Security, and Retention</a></li>
-  <li><a href="#your-data-protection-rights" id="toc-your-data-protection-rights" class="nav-link" data-scroll-target="#your-data-protection-rights">8. Your Data Protection Rights</a></li>
-  <li><a href="#changes-to-this-privacy-policy" id="toc-changes-to-this-privacy-policy" class="nav-link" data-scroll-target="#changes-to-this-privacy-policy">9. Changes to This Privacy Policy</a></li>
+  <li><a href="#aufgabe-1-prognose-mit-trend-und-saison" id="toc-aufgabe-1-prognose-mit-trend-und-saison" class="nav-link active" data-scroll-target="#aufgabe-1-prognose-mit-trend-und-saison">Aufgabe 1: Prognose mit Trend und Saison</a></li>
+  <li><a href="#aufgabe-2-saisonindizes-selbst-berechnen" id="toc-aufgabe-2-saisonindizes-selbst-berechnen" class="nav-link" data-scroll-target="#aufgabe-2-saisonindizes-selbst-berechnen">Aufgabe 2: Saisonindizes selbst berechnen</a></li>
+  <li><a href="#aufgabe-3-holts-methode-für-trenddaten" id="toc-aufgabe-3-holts-methode-für-trenddaten" class="nav-link" data-scroll-target="#aufgabe-3-holts-methode-für-trenddaten">Aufgabe 3: Holt’s Methode für Trenddaten</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="pw2-tutorial-02.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-02/pw2-lecture-02.pdf">02 Holt-Winters</a></li><li class="breadcrumb-item"><a href="../part-02/pw2-tutorial-02.html">Tutorium</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Privacy Policy</h1>
-<p class="subtitle lead">How we handle your data</p>
+<h1 class="title">Übung 02</h1>
+<p class="subtitle lead">Prognosen und Exponentielles Glätten</p>
 </div>
 
 
@@ -282,12 +304,6 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">April 14, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -297,86 +313,233 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">1. Introduction</h2>
-<p>Welcome to Applied Optimization. This Privacy Policy explains how we collect, use, shares, and protects information in relation to our AI Chatbot service (the “Chatbot”) provided on this website.</p>
-<p>We are committed to protecting your privacy. This policy outlines our practices concerning the data processed when you interact with our Chatbot. By using the Chatbot, you agree to the collection and use of information in accordance with this policy.</p>
-</section>
-<section id="data-controller" class="level2">
-<h2 class="anchored" data-anchor-id="data-controller">2. Data Controller</h2>
-<p>The data controller responsible for your personal data is:</p>
-<p>Beyond Simulations GmbH<br>
-Am Eich 9d<br>
-22113 Oststeinbek<br>
-Germany</p>
-<p>Email: <a href="mailto:info@beyond-simulations.com">info@beyond-simulations.com</a></p>
-</section>
-<section id="information-we-collect" class="level2">
-<h2 class="anchored" data-anchor-id="information-we-collect">3. Information We Collect</h2>
-<p>When you interact with our Chatbot, we collect and process the following types of information:</p>
+<section id="aufgabe-1-prognose-mit-trend-und-saison" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-1-prognose-mit-trend-und-saison">Aufgabe 1: Prognose mit Trend und Saison</h2>
+<p>Luigi’s Eisdiele in München hat saisonal stark schwankende Verkaufszahlen (in hundert Litern Eis). Es gibt vier Quartale pro Jahr. Luigi hat die Verkaufszahlen der letzten <strong>zwei</strong> Jahre gesammelt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Jahr</th>
+<th>Quartal</th>
+<th>Verkauf (100L) <span class="math inline">\(y_t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Q1</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Q2</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>Q3</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Q4</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Q1</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Q2</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Q3</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Q4</td>
+<td>12</td>
+</tr>
+</tbody>
+</table>
+<p>Luigi hat bereits (vereinfachte) <strong>Saisonindizes</strong> für die vier Quartale bestimmt:</p>
 <ul>
-<li><strong>Chat Interactions:</strong> This includes the questions, prompts, and text you submit to the Chatbot (“Prompts”) and the responses generated by the Chatbot (“Responses”). We do not store any personal data and all prompts are anonymized.</li>
-<li><strong>Technical Data:</strong> We may automatically collect technical information associated with your interaction, such as timestamps, session identifiers for service functionality. This data is processed on our self-hosted server at Hetzner in Germany.</li>
-<li><strong>Usage Data:</strong> We may collect aggregated and anonymized data about how the Chatbot is used to monitor performance and improve the service.</li>
+<li>Q1: 0.6</li>
+<li>Q2: 1.4</li>
+<li>Q3: 1.7</li>
+<li>Q4: 0.8</li>
 </ul>
-</section>
-<section id="how-we-use-your-information" class="level2">
-<h2 class="anchored" data-anchor-id="how-we-use-your-information">4. How We Use Your Information</h2>
-<p>We use the collected information for the following purposes:</p>
+<p>Er geht von einem multiplikativen Saisonmodell aus (<span class="math inline">\(Y = T \cdot S \cdot I\)</span>).</p>
+<p>Ihre Aufgaben:</p>
+<ol type="1">
+<li>Bereinigen Sie die Verkaufszahlen, indem Sie jeden Wert durch den entsprechenden Saisonindex teilen. Diese Werte <span class="math inline">\(Y_d\)</span> repräsentieren die Trend-Komponente (plus Rest).</li>
+<li>Auf die bereinigten Daten <span class="math inline">\(Y_d\)</span> wenden Sie nun eine Prognosemethode für Trenddaten an. Verwenden Sie hierfür die exponentielle Glättung mit Trendkorrektur.
 <ul>
-<li><strong>To Provide and Operate the Chatbot:</strong> To receive your Prompts, process them using AI models, and deliver Responses back to you.</li>
-<li><strong>To Route Requests:</strong> To manage communication between our Chatbot interface and the underlying AI models via intermediary services.</li>
-<li><strong>For Safety and Content Moderation:</strong> To analyze Prompts and/or potential Responses for harmful, inappropriate, or policy-violating content using designated services by Mistral AI acting as guardrails, aiming to ensure safer interactions.</li>
-<li><strong>For Service Improvement:</strong> To analyze usage patterns to understand user needs, troubleshoot issues, and enhance the Chatbot’s performance and capabilities.</li>
-<li><strong>For Security and Monitoring:</strong> To maintain the security of our service, prevent fraud, and monitor for potential misuse.</li>
-<li><strong>To Comply with Legal Obligations:</strong> To meet any applicable legal or regulatory requirements.</li>
-</ul>
-</section>
-<section id="legal-basis-for-processing" class="level2">
-<h2 class="anchored" data-anchor-id="legal-basis-for-processing">5. Legal Basis for Processing</h2>
-<p>We process your personal data based on the following legal grounds:</p>
+<li>Nutzen Sie einen Glättungsfaktor <span class="math inline">\(\alpha = 0.2\)</span>.</li>
+<li>Initialisierungswerte für die bereinigten Daten (<span class="math inline">\(Y_d\)</span>) zum Zeitpunkt <span class="math inline">\(t=0\)</span>:
 <ul>
-<li><strong>Legitimate Interests:</strong> Processing is necessary for our legitimate interests in operating and improving the Chatbot service and maintaining its security, provided these interests are not overridden by your data protection rights.</li>
-<li><strong>Consent:</strong> In some cases, we might ask for your explicit consent for specific processing activities (e.g., using conversation data for fine-tuning models beyond basic service provision).</li>
-<li><strong>Legal Obligation:</strong> Processing is necessary to comply with a legal obligation to which we are subject.</li>
-</ul>
+<li>Geschätztes Niveau <span class="math inline">\(\widehat{a}_{d,0} = 13\)</span></li>
+<li>Geschätzter Trend <span class="math inline">\(\widehat{b}_{d,0} = 0.5\)</span></li>
+</ul></li>
+<li>Berechnen Sie zuerst <span class="math inline">\(y_{d,0}^{(1)}\)</span> und <span class="math inline">\(y_{d,0}^{(2)}\)</span> basierend auf <span class="math inline">\(\widehat{a}_{d,0}\)</span>, <span class="math inline">\(\widehat{b}_{d,0}\)</span> und <span class="math inline">\(\alpha\)</span>.</li>
+</ul></li>
+<li>Prognostizieren Sie die bereinigten Werte für die vier Quartale des nächsten Jahres (Jahr 3, Q1 bis Q4). Hier ist <span class="math inline">\(t\)</span> der Index des letzten Beobachtungspunktes der bereinigten Reihe.</li>
+<li>Saisonalisieren Sie diese Prognosen, indem Sie sie mit den entsprechenden Saisonindizes multiplizieren, um die finalen Verkaufsprognosen zu erhalten.</li>
+</ol>
 </section>
-<section id="data-sharing-and-third-parties" class="level2">
-<h2 class="anchored" data-anchor-id="data-sharing-and-third-parties">6. Data Sharing and Third Parties</h2>
-<p>To provide the Chatbot service, your Prompts are processed by and shared with the following third-party services and infrastructure providers:</p>
+<section id="aufgabe-2-saisonindizes-selbst-berechnen" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-2-saisonindizes-selbst-berechnen">Aufgabe 2: Saisonindizes selbst berechnen</h2>
+<p>Das Unternehmen “Frosty”, das auch die Eisdiele von Luigi beliefert, hat sich auf die Herstellung und den Verkauf von handgemachtem Eis spezialisiert. Die Geschäftsführerin hat festgestellt, dass die Verkaufszahlen (in tausend Euro) stark von der Jahreszeit abhängen. Um die Produktionsmengen besser planen und Marketingkampagnen gezielter ausrichten zu können, möchte sie die saisonalen Schwankungen genauer verstehen. Sie hat die Verkaufsdaten der letzten <strong>drei</strong> Jahre gesammelt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Jahr</th>
+<th>Quartal</th>
+<th>Verkauf (Tsd. €) <span class="math inline">\(y_t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Q1</td>
+<td>150</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Q2</td>
+<td>250</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>Q3</td>
+<td>350</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>Q4</td>
+<td>180</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Q1</td>
+<td>170</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Q2</td>
+<td>280</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>Q3</td>
+<td>390</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Q4</td>
+<td>210</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Q1</td>
+<td>190</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Q2</td>
+<td>310</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Q3</td>
+<td>430</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>Q4</td>
+<td>240</td>
+</tr>
+</tbody>
+</table>
+<p>Die Geschäftsführerin geht von einem multiplikativen Saisonmodell aus (<span class="math inline">\(Y = T \cdot C \cdot S \cdot I\)</span>) und möchte die Saisonindizes mit der “Ratio to Moving Average”-Methode bestimmen. Da es vier Quartale pro Jahr gibt, wird ein gleitender Durchschnitt der Ordnung 4 verwendet.</p>
+<p>Ihre Aufgaben:</p>
+<ol type="1">
+<li>Berechnen Sie den zentrierten gleitenden Durchschnitt (ZGD) der Ordnung 4 für die Verkaufsdaten.</li>
+<li>Bestimmen Sie die Roh-Saisonfaktoren (<span class="math inline">\(si_{tm}\)</span>), indem Sie die tatsächlichen Verkaufszahlen <span class="math inline">\(y_{tm}\)</span> durch die entsprechenden ZGD-Werte teilen.</li>
+<li>Berechnen Sie die durchschnittlichen Saisonfaktoren (<span class="math inline">\(s_m\)</span>) für jedes Quartal, indem Sie die Roh-Saisonfaktoren für das jeweilige Quartal über die Jahre mitteln.</li>
+<li>Normieren Sie die durchschnittlichen Saisonfaktoren, sodass ihre Summe der Anzahl der Saisons (hier 4) entspricht. Diese normierten Werte sind die finalen Saisonindizes (<span class="math inline">\(\widehat{s}_m\)</span>).</li>
+</ol>
+</section>
+<section id="aufgabe-3-holts-methode-für-trenddaten" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-3-holts-methode-für-trenddaten">Aufgabe 3: Holt’s Methode für Trenddaten</h2>
+<p>Das kleine Startup “Deep Learning” im Herzen von Duisburg hat kürzlich ein neues KI-Tool für die Analyse von Textdaten auf den Markt gebracht. Die Kunden sind begeistert, und die Verkaufszahlen steigen stetig. Die Firma möchte nun die zukünftige Nachfrage besser planen können, um genügend Mitarbeiter zur Betreuung der Kunden zu haben und gleichzeitig Überstunden zu vermeiden. Die Firma hat die Verkaufszahlen der letzten 8 Monate sorgfältig dokumentiert:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Monat (t)</th>
+<th>Verkäufe (<span class="math inline">\(y_t\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>50</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>52</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>58</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>69</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>70</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>72</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>77</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>83</td>
+</tr>
+</tbody>
+</table>
+<p>Deep Learning hat sich entschieden, das <strong>Verfahren von Holt</strong> zu verwenden, um eine Prognose zu erstellen. Dieses Verfahren berücksichtigt sowohl das aktuelle Niveau der Nachfrage als auch den Trend.</p>
+<p><strong>Ihre Aufgaben:</strong></p>
+<ol type="1">
+<li>Verwenden Sie das Verfahren von Holt, um die geglätteten Werte für das Niveau (<span class="math inline">\(\widehat{a}_t\)</span>) und den Trend (<span class="math inline">\(\widehat{b}_t\)</span>) für die Monate <span class="math inline">\(t=1\)</span> bis <span class="math inline">\(t=8\)</span> zu berechnen.
 <ul>
-<li><strong>Chatbot Interface (Dify):</strong> The user interface for the Chatbot runs on our own instance of Dify hosted on Hetzner servers in Germany.</li>
-<li><strong>LLM Observation (Langfuse):</strong> We use Langfuse to observe the usage of the LLM models we use. Your Prompts (and generated responses) pass through Langfuse to reach the selected LLM provider or guardrail service. The data is stored on our self-hosted server at Hetzner in Germany.</li>
-<li><strong>Hosting Provider (Hetzner):</strong> Our instance of Dify and Langfuse is self-hosted on servers provided by Hetzner Online GmbH. Hetzner acts as a data processor providing the infrastructure. We store application data and interaction logs on these servers, located within Germany. Review Hetzner’s privacy policy to understand how they handle data passing through their service: [Link to Hetzner Privacy Policy]</li>
-<li><strong>Mistral AI:</strong> We use Mistral AI models for two primary purposes: (1) as one of the LLM options to generate Responses to your Prompts, and (2) <strong>as a guardrail service</strong> to check Prompts and/or potential Responses (which may have been generated by either Google Gemini or Mistral AI itself) for safety, appropriateness, and compliance with content policies <em>before</em> a final response is delivered to you. When Mistral AI is used for either generation or guardrail checking, your data (relevant Prompts and/or potential Responses) is processed according to Mistral AI’s terms and privacy policy. Find more information here: [Link to Mistral AI Privacy Policy]</li>
-</ul>
-<p><strong>Important Note on Third-Party Processing:</strong> These LLM and guardrail providers process your data to generate Responses or perform safety checks. They may use data according to their own policies, potentially including service improvement, subject to their terms. We encourage you to review their respective privacy policies. We do not explicitly share personal identifiers like your name or email through the Chatbot interaction unless you voluntarily include such information in your Prompts.</p>
-</section>
-<section id="data-storage-security-and-retention" class="level2">
-<h2 class="anchored" data-anchor-id="data-storage-security-and-retention">7. Data Storage, Security, and Retention</h2>
+<li>Nutzen Sie die folgenden Glättungsfaktoren:
 <ul>
-<li><strong>Storage:</strong> Chat interaction data (Prompts, Responses) and technical logs may be stored temporarily or persistently (depending on configuration) on our Dify and Langfuse instance hosted on Hetzner servers in Germany.</li>
-<li><strong>Security:</strong> We implement reasonable technical and organizational measures to protect your data from unauthorized access, disclosure, alteration, or destruction. This includes using HTTPS encryption for data transmitted between your browser, our server, and the LLM providers. Access to the backend systems is restricted.</li>
-<li><strong>Retention:</strong> We retain chat interaction data and technical logs only for as long as necessary to fulfill the purposes outlined in this policy, for troubleshooting, security logging, service improvement, or as required by law. Retention periods vary depending on the type of data and our operational needs.</li>
-</ul>
-</section>
-<section id="your-data-protection-rights" class="level2">
-<h2 class="anchored" data-anchor-id="your-data-protection-rights">8. Your Data Protection Rights</h2>
-<p>Depending on your location and applicable data protection laws, you may have the following rights regarding your personal data:</p>
+<li><span class="math inline">\(\alpha = 0.3\)</span> (für das Niveau)</li>
+<li><span class="math inline">\(\beta = 0.2\)</span> (für den Trend)</li>
+</ul></li>
+<li>Die Initialisierungswerte zum Zeitpunkt <span class="math inline">\(t=0\)</span> sind:
 <ul>
-<li><strong>Right to Access:</strong> You can request copies of your personal data that we hold.</li>
-<li><strong>Right to Rectification:</strong> You can request correction of inaccurate or incomplete data.</li>
-<li><strong>Right to Erasure (‘Right to be Forgotten’):</strong> You can request the deletion of your personal data under certain conditions.</li>
-<li><strong>Right to Restrict Processing:</strong> You can request the limitation of how we process your data under certain conditions.</li>
-<li><strong>Right to Data Portability:</strong> You can request that we transfer the data we have collected to another organization, or directly to you, under certain conditions.</li>
-<li><strong>Right to Object:</strong> You can object to our processing of your personal data based on legitimate interests.</li>
-<li><strong>Right to Withdraw Consent:</strong> If processing is based on consent, you can withdraw it at any time.</li>
-</ul>
-<p>To exercise any of these rights, please contact us using the details provided in Section 2 (Data Controller). We may need to verify your identity before processing your request.</p>
-</section>
-<section id="changes-to-this-privacy-policy" class="level2">
-<h2 class="anchored" data-anchor-id="changes-to-this-privacy-policy">9. Changes to This Privacy Policy</h2>
-<p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new policy on this page and updating the “Last Updated” date at the top. We encourage you to review this policy periodically for any changes.</p>
+<li>Geschätztes Niveau <span class="math inline">\(\widehat{a}_{0} = 48\)</span> Verkäufe</li>
+<li>Geschätzter Trend <span class="math inline">\(\widehat{b}_{0} = 4\)</span> Verkäufe pro Monat</li>
+</ul></li>
+</ul></li>
+<li>Erstellen Sie eine Prognose für die Verkaufszahlen der nächsten <strong>zwei</strong> Monate (Monat 9 und Monat 10).</li>
+<li>Was ist der Unterschied zwischen der Prognose aus der letzten Übung und dem Verfahren von Holt?</li>
+<li>Würden Sie denken, dass das Verfahren von Holt und Winters besser geeignet wäre, um die Verkaufszahlen zu prognostizieren?</li>
+</ol>
 
 
 </section>
@@ -811,7 +974,7 @@ Germany</p>
     </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link active" href="../general/privacy.html" aria-current="page">
+    <a class="nav-link" href="../general/privacy.html">
 <p>Privacy Policy</p>
 </a>
   </li>  
@@ -838,7 +1001,7 @@ Germany</p>
 </script>
 <style>
   #dify-chatbot-bubble-button {
-    background-color: #646B91 !important;
+    background-color: #F29325 !important;
   }
   #dify-chatbot-bubble-window {
     width: 24rem !important;
