@@ -16,7 +16,7 @@ format:
 
 ## Aufgabe 1: Prognose mit Trend und Saison
 
-Luigi's Eisdiele in München hat saisonal stark schwankende Verkaufszahlen (in hundert Litern Eis). Es gibt vier Quartale pro Jahr. Luigi hat die Verkaufszahlen der letzten **zwei** Jahre gesammelt:
+Luigi's Eisdiele in Duisburg hat saisonal stark schwankende Verkaufszahlen (in hundert Litern Eis). Es gibt vier Quartale pro Jahr. Luigi hat die Verkaufszahlen der letzten **zwei** Jahre gesammelt:
 
 | Jahr | Quartal | Verkauf (100L) $y_t$ |
 |------|---------|----------------------|
@@ -207,7 +207,7 @@ plt.show()
 
 ## Aufgabe 2: Saisonindizes selbst berechnen
 
-Das Unternehmen "Frosty", das auch die Eisdiele von Luigi beliefert, hat sich auf die Herstellung und den Verkauf von handgemachtem Eis spezialisiert. Die Geschäftsführerin hat festgestellt, dass die Verkaufszahlen (in tausend Euro) stark von der Jahreszeit abhängen. Um die Produktionsmengen besser planen und Marketingkampagnen gezielter ausrichten zu können, möchte sie die saisonalen Schwankungen genauer verstehen. Sie hat die Verkaufsdaten der letzten **drei** Jahre gesammelt:
+Das Unternehmen Frosty, das auch die Eisdiele von Luigi beliefert, hat sich auf die Herstellung und den Verkauf von handgemachtem Eis spezialisiert. Die Geschäftsführerin hat festgestellt, dass die Verkaufszahlen (in tausend Euro) stark von der Jahreszeit abhängen. Um die Produktionsmengen besser planen und Marketingkampagnen gezielter ausrichten zu können, möchte sie die saisonalen Schwankungen genauer verstehen. Sie hat die Verkaufsdaten der letzten **drei** Jahre gesammelt:
 
 | Jahr | Quartal | Verkauf (Tsd. €) $y_t$ |
 |------|---------|------------------------|

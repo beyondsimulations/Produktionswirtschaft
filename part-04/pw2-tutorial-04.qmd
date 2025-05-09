@@ -15,7 +15,7 @@ format:
 
 ## Aufgabe 1: Montageplanung
 
-Die "Fahrzeugfertigung Zwickau GmbH" ist ein traditionsreicher Standort im Automobilbau und hat sich auf die Produktion von Komponenten und die Endmontage von Elektrofahrzeugen spezialisiert. Für die Einführung einer neuen Montagelinie zur Fertigung von Batteriemodulen für das Modell "Saxon-E" müssen die einzelnen Arbeitsschritte genau geplant werden. Das Projektmanagement-Team hat die folgende Liste von Arbeitsgängen (AG), deren Dauer in Stunden (Std.) und die direkten Vorgänger identifiziert:
+Die Fahrzeugfertigung Zwickau GmbH ist ein traditionsreicher Standort im Automobilbau und hat sich auf die Produktion von Komponenten und die Endmontage von Elektrofahrzeugen spezialisiert. Für die Einführung einer neuen Montagelinie zur Fertigung von Batteriemodulen für das Modell "Saxon-E" müssen die einzelnen Arbeitsschritte genau geplant werden. Das Projektmanagement-Team hat die folgende Liste von Arbeitsgängen (AG), deren Dauer in Stunden (Std.) und die direkten Vorgänger identifiziert:
 
 | Arbeitsgang | Beschreibung                           | Dauer (Std.) | Direkte Vorgänger |
 |-------------|----------------------------------------|--------------|-------------------|
@@ -80,7 +80,7 @@ Der Projektstart (Beginn von A und D) ist zum Zeitpunkt 0. Der spätestzulässig
 
 ## Aufgabe 2: Kapazitätsabgleich
 
-Die "Duisburg Flugzeugwerke GmbH" in Duisburg ist spezialisiert auf die Umrüstung von Passagierflugzeugen in Frachtflugzeuge (P2F - Passenger to Freighter). Bei der Umrüstung eines A320-Flugzeugs müssen mehrere neue Bodenstrukturelemente im Frachtraum installiert werden. Diese Arbeiten erfordern den Einsatz einer speziellen, hochpräzisen mobilen Nietanlage, von der im Hangar für dieses Projekt aktuell nur **eine** Einheit zur Verfügung steht (Kapazität = 1).
+Die Duisburg Flugzeugwerke GmbH ist spezialisiert auf die Umrüstung von Passagierflugzeugen in Frachtflugzeuge (P2F - Passenger to Freighter). Bei der Umrüstung eines A320-Flugzeugs müssen mehrere neue Bodenstrukturelemente im Frachtraum installiert werden. Diese Arbeiten erfordern den Einsatz einer speziellen, hochpräzisen mobilen Nietanlage, von der im Hangar für dieses Projekt aktuell nur **eine** Einheit zur Verfügung steht (Kapazität = 1).
 
 Das Projektmanagement-Team hat folgende Arbeitsgänge (AG), deren Dauer in Tagen, die direkten Vorgänger und den Bedarf an der mobilen Nietanlage (NA) identifiziert:
 

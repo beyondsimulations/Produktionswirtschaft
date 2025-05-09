@@ -16,7 +16,7 @@ format:
 
 ## Aufgabe 1: Zerlegung einer Zeitreihe
 
-Eine traditionsreiche Konditorei aus dem Schwarzwald möchte den Verkauf ihrer berühmten Schwarzwälder Kirschtorte besser verstehen, um Zutatenbestellungen und Personalplanung zu optimieren. Die Verkaufszahlen der letzten zwei Jahre (in Stück pro Monat) sind wie folgt:
+Eine traditionsreiche Manufaktur aus Essen möchte den Verkauf ihrer berühmten Torten besser verstehen, um Zutatenbestellungen und Personalplanung zu optimieren. Die Verkaufszahlen der letzten zwei Jahre (in Stück pro Monat) sind wie folgt:
 
 | Monat      | Jahr 1 | Jahr 2 |
 |------------|--------|--------|
@@ -65,7 +65,7 @@ df_task1['Periode'] = range(1, len(df_task1) + 1)
 
 plt.figure(figsize=(7, 5))
 plt.plot(df_task1['Periode'], df_task1['Verkauf'], marker='o', linestyle='-')
-plt.title('Verkauf Schwarzwälder Kirschtorte')
+plt.title('Verkauf Torten')
 plt.xlabel('Periode (Monat)')
 plt.ylabel('Verkaufte Stück')
 plt.xticks(df_task1['Periode'], [f"{m}-{j}" for m,j in zip(df_task1['Monat'], df_task1['Jahr'])], rotation=45, ha="right")
@@ -89,9 +89,9 @@ Man könnte z.B. einen gleitenden Durchschnitt berechnen (z.B. 12-Monate MA, zen
 
 ## Aufgabe 2: Prognose ohne Trend
 
-Bäckermeisterin Anna Weber in Freiburg möchte die Nachfrage nach ihren beliebten Roggenbrötchen für den nächsten Tag vorhersagen, um Überproduktion oder Engpässe zu vermeiden. Sie hat die Verkaufszahlen der letzten 10 Tage notiert:
+Ein 3D-Druck Star aus Duisburg möchte die Nachfrage nach seinen 3D-Druckteilen für den nächsten Tag vorhersagen, um Überproduktion oder Engpässe zu vermeiden. Er hat die Verkaufszahlen der letzten 10 Tage notiert:
 
-| Tag | Verkaufte Roggenbrötchen ($y_t$) |
+| Tag | Verkaufte 3D-Druckteile ($y_t$) |
 |-----|---------------------------------|
 | 1   | 120                             |
 | 2   | 125                             |
@@ -104,7 +104,7 @@ Bäckermeisterin Anna Weber in Freiburg möchte die Nachfrage nach ihren beliebt
 | 9   | 126                             |
 | 10  | 124                             |
 
-Frau Weber geht davon aus, dass der Verkauf relativ konstant ist, aber täglichen Schwankungen unterliegt (d.h. kein klarer Trend, konstantes Niveau).
+Die Firmageht davon aus, dass der Verkauf relativ konstant ist, aber täglichen Schwankungen unterliegt (d.h. kein klarer Trend, konstantes Niveau).
 
 **Ihre Aufgaben:**
 
@@ -177,7 +177,7 @@ plt.plot(df_task2.index, df_task2['ExpGlättung (y_t^(1))'], marker='^', linesty
 plt.plot(11, prognose_ma_tag11, marker='s', color='blue', markersize=10, label=f'Prognose Tag 11 (MA{n_ma}): {prognose_ma_tag11:.2f}')
 plt.plot(11, prognose_exp_tag11, marker='^', color='green', markersize=10, label=f'Prognose Tag 11 (Exp. Glättung): {prognose_exp_tag11:.2f}')
 
-plt.title('Prognose Roggenbrötchenverkauf')
+plt.title('Prognose 3D-Druckteilverkauf')
 plt.xlabel('Tag')
 plt.ylabel('Verkaufte Stück')
 plt.xticks(list(range(1, 11)) + [11]) # Ensure Tag 11 is shown
