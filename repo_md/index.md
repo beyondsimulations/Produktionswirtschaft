@@ -3,11 +3,9 @@
 
 # Beschreibung
 
-Moin Moin, mein Name ist Dr. Tobias Vlćek. Dieser Kurs ist eine Einführung 
-in die Produktionswirtschaft auf Basis der ursprünglichen Vorlesung von Prof. Dr. Manitz. 
-Ich habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht
-angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue
-Übungen.
+Dieser Kurs behandelt das Modul Produktionswirtschaft 2 auf Basis der ursprünglichen Vorlesung von Prof. Dr. Manitz. 
+Ich, Tobias Vlćek, habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. 
+Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.
 
 # Lernziele
 
@@ -39,7 +37,7 @@ Der Kerninhalt des Kurses ist in sechs Module gegliedert:
 3.  **Beschäftigungsglättung** - Kernkonzepte des Produktionsmanagements
 4.  **Ressourcenplanung** - Optimierung der Ressourcenzuweisung
 5.  **Reihenfolgeplanung** - Bestimmung optimaler Produktionssequenzen
-6.  **Prüfungsvorbereitung** - Übungsaufgaben und Wiederholung
+6.  **Recap** - Wiederholung und offene Fragen
 
 # Tutorials
 
