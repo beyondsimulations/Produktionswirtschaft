@@ -1,5 +1,5 @@
 ---
-title: "Herzlich Willkommen zu Produktionswirtschaft 2!"
+title: "Produktionswirtschaft 2!"
 subtitle: "Universität Duisburg-Essen - Sommersemester 2025"
 
 html:
