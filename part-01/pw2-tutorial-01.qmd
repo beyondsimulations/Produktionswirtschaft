@@ -89,7 +89,7 @@ Man könnte z.B. einen gleitenden Durchschnitt berechnen (z.B. 12-Monate MA, zen
 
 ## Aufgabe 2: Prognose ohne Trend
 
-Ein 3D-Druck Star aus Duisburg möchte die Nachfrage nach seinen 3D-Druckteilen für den nächsten Tag vorhersagen, um Überproduktion oder Engpässe zu vermeiden. Er hat die Verkaufszahlen der letzten 10 Tage notiert:
+Eine 3D-Druck Firma aus Duisburg möchte die Nachfrage nach seinen 3D-Druckteilen für den nächsten Tag vorhersagen, um Überproduktion oder Engpässe zu vermeiden. Er hat die Verkaufszahlen der letzten 10 Tage notiert:
 
 | Tag | Verkaufte 3D-Druckteile ($y_t$) |
 |-----|---------------------------------|
