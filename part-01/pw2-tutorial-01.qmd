@@ -103,7 +103,7 @@ Eine 3D-Druck Firma aus Duisburg möchte die Nachfrage nach seinen 3D-Druckteile
 | 9   | 126                             |
 | 10  | 124                             |
 
-Die Firmageht davon aus, dass der Verkauf relativ konstant ist, aber täglichen Schwankungen unterliegt (d.h. kein klarer Trend, konstantes Niveau).
+Die Firma geht davon aus, dass der Verkauf relativ konstant ist, aber täglichen Schwankungen unterliegt (d.h. kein klarer Trend, konstantes Niveau).
 
 **Ihre Aufgaben:**
 
