@@ -1,11 +1,13 @@
-# Herzlich Willkommen!
+# Produktionswirtschaft 2!
 
 
 # Beschreibung
 
-Dieser Kurs behandelt das Modul Produktionswirtschaft 2 auf Basis der ursprünglichen Vorlesung von Prof. Dr. Manitz. 
-Ich, Tobias Vlćek, habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. 
-Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.
+Dieser Kurs behandelt das Modul Produktionswirtschaft 2 auf Basis der
+ursprünglichen Vorlesung von Prof. Dr. Manitz. Ich habe den Kurs
+kurzfristig übernommen und die Materialien deswegen lediglich leicht
+angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue
+Übungen.
 
 # Lernziele
 
@@ -61,7 +63,7 @@ verfassten, beidseitig beschriebenen A4-Zettel mit Formeln verwenden.
 
 Für Ihre Fragen stehe ich jederzeit gerne zur Verfügung. Kontaktieren
 Sie mich einfach per E-Mail unter
-[workshop@beyondsimulations.com](mailto:workshop@beyondsimulations.com?subject=Produktionswirtschaft%3A%20%3CIhr%20Betreff%3E).
+[tobias.vlcek@uni-due.de](mailto:tobias.vlcek@uni-due.de?subject=Produktionswirtschaft%3A%20%3CIhr%20Betreff%3E).
 
 Zusätzlich steht Ihnen auf dieser Seite ein Chatbot zur Verfügung, der
 auf den Inhalten der Vorlesung basiert und Ihnen bei inhaltlichen Fragen

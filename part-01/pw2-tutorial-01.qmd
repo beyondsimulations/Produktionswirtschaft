@@ -110,7 +110,7 @@ Die Firma geht davon aus, dass der Verkauf relativ konstant ist, aber täglichen
 1.  Berechnen Sie einen gleitenden Durchschnitt der Ordnung $n=3$ (3-Tage-Linie), um eine Prognose für Tag 11 zu erstellen ($p_{11}$). Der Prognosewert für Tag $t+1$ ist der Durchschnittswert zum Zeitpunkt $t$.
 2.  Wenden Sie die exponentielle Glättung erster Ordnung an, um eine Prognose für Tag 11 zu erstellen. Verwenden Sie einen Glättungsfaktor $\alpha = 0.2$. Als Startwert für den geglätteten Wert zum Zeitpunkt $t=0$ (Prognose für Tag 1, $p_1$) nehmen Sie den tatsächlichen Verkauf von Tag 1 ($y_1$).
 3.  Welche Prognose erscheint Ihnen intuitiv plausibler? Begründen Sie kurz.
-4.  Berechnen Sie den Prognosefehler mit der mittleren absoluten Abweichung (MAE) für alle 10 Tage.
+4.  Berechnen Sie den Prognosefehler mit der mittleren absoluten Abweichung für die letzten 4 Tage für beide Verfahren.
 
 ::: {.content-visible when-profile="solution"}
 
