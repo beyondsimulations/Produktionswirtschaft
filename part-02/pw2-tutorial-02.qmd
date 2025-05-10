@@ -454,7 +454,8 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-print("""
+```
+
 3. Der Hauptunterschied liegt in der Art und Weise, wie das Niveau und der Trend der Zeitreihe geschätzt und geglättet werden.
 Das Verfahren aus Übung 1 (Exponentielle Glättung mit Trendkorrektur)verwendet einen einzigen Glättungsfaktor.
 Das Niveau und der Trend werden durch eine doppelte exponentielle Glättung derselben Zeitreihe abgeleitet. Aus diesen beiden Reihen werden dann die Schätzungen für Niveau und Trend berechnet.
@@ -465,13 +466,8 @@ Der Trend (b_t) wird direkt aus der Veränderung des Niveaus (a_t - a_t-1) und d
 Dies ermöglicht eine flexiblere Anpassung, da man unabhängig voneinander festlegen kann, wie stark die Glättung auf Veränderungen im Niveau bzw. im Trend reagieren soll. 
 Wenn sich beispielsweise das Grundniveau schnell ändert, der Trend aber relativ stabil ist, kann man unterschiedliche Werte für alpha und beta wählen.
 Zusammenfassend lässt sich sagen, dass das Verfahren von Holt durch die Verwendung von zwei getrennten Glättungsfaktoren eine differenziertere Anpassung an Niveau und Trend einer Zeitreihe erlaubt als die exponentielle Glättung mit Trendkorrektur, die nur einen Glättungsfaktor nutzt.
-""")
-print("""
+
 4. Das Verfahren von Holt-Winters erweitert das Holt-Verfahren um eine saisonale Komponente. Es ist also besonders dann geeignet, wenn die Zeitreihe nicht nur einen Trend, sondern auch wiederkehrende saisonale Muster aufweist (z.B. quartalsweise oder monatliche Schwankungen, die sich jedes Jahr ähnlich wiederholen).
 Diese Daten zeigen einen deutlichen Trend (steigende Verkaufszahlen). Ob auch eine signifikante Saisonalität vorliegt, lässt sich anhand von nur 8 Monaten Daten schwer beurteilen. Für die Identifizierung von saisonalen Mustern benötigt man in der Regel Daten über mehrere Saisons hinweg (z.B. mindestens 2-3 Jahre bei monatlichen Daten, um zu sehen, ob sich bestimmte Monate systematisch von anderen unterscheiden).
 Mit den aktuell vorliegenden 8 Datenpunkten ist das Verfahren von Holt eine gute Wahl, da es den sichtbaren Trend adressiert. Um zu entscheiden, ob Holt-Winters besser wäre, müssten mehr Daten gesammelt werden. Wenn sich dann klare saisonale Muster zeigen, wäre Holt-Winters eine sinnvolle Erweiterung. Andernfalls ist Holt ausreichend.
-""")
-
-```
-
 :::
