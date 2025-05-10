@@ -8,8 +8,8 @@ format:
         linkcolor: "#a60000"
         echo: false
         code-overflow: wrap
-    pdf:
-        documentclass: report
+    typst:
+        papersize: a4
 ---
 
 ## Aufgabe 1: Optimierung der Montage
