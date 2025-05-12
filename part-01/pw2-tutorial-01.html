@@ -393,6 +393,23 @@ window.Quarto = {
 <li>Beschreiben Sie die Hauptkomponenten (Trend, Saison, Zyklus, irreguläre Schwankungen), die Sie in den Verkaufszahlen vermuten. Wie würden Sie diese qualitativ charakterisieren? (z.B. steigender Trend, saisonale Spitzen im Sommer und zu Weihnachten).</li>
 <li>Skizzieren Sie, wie Sie vorgehen würden, um die Trend- und Saisonkomponenten grob zu schätzen, basierend auf den im Skript vorgestellten Ideen.</li>
 </ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task1" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-task1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-01_files/figure-html/fig-task1-output-1.png" width="689" height="491" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Verkauf Schwarzwälder Kirschtorte
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Qualitative Beschreibung der Komponenten: - Trend (T): Es scheint einen ansteigenden Trend zu geben, da die Verkäufe im zweiten Jahr generell höher sind als im ersten. - Saison (S): Es gibt klare saisonale Schwankungen. Die Verkäufe sind in den Sommermonaten (Juni-August) tendenziell höher. Auch im Frühjahr (z.B. April/Mai) und im Dezember (Weihnachtsgeschäft) gibt es Spitzen. Die geringsten Verkäufe sind zu Jahresbeginn. - Zyklus (C): Mit nur zwei Jahren Daten ist es schwierig, eine mittelfristige zyklische Komponente (z.B. Konjunkturzyklen) zuverlässig zu identifizieren. - Irreguläre Schwankungen (I): Es gibt monatliche Schwankungen, die nicht perfekt durch Trend und Saison erklärt werden können und als zufällige Restschwankungen interpretiert werden.</p>
+<p>Für eine quantitative Analyse (optional, nicht von Hand im Detail gefordert): Man könnte z.B. einen gleitenden Durchschnitt berechnen (z.B. 12-Monate MA, zentriert), um die glatte Komponente T+C zu schätzen. Anschließend könnte man die Verhältnisse der Originaldaten zum gleitenden Durchschnitt berechnen (Y/(T+C) = S*I), um saisonale Faktoren S zu isolieren und zu mitteln.</p>
 </section>
 <section id="aufgabe-2-prognose-ohne-trend" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-2-prognose-ohne-trend">Aufgabe 2: Prognose ohne Trend</h2>
@@ -455,6 +472,51 @@ window.Quarto = {
 <li>Welche Prognose erscheint Ihnen intuitiv plausibler? Begründen Sie kurz.</li>
 <li>Berechnen Sie den Prognosefehler mit der mittleren absoluten Abweichung für die letzten 4 Tage für beide Verfahren.</li>
 </ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="04468bd9" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Tabelle mit 3-Tage gleitendem Durchschnitt:
+     Verkauf         MA3
+Tag                     
+1        120         NaN
+2        125         NaN
+3        115  120.000000
+4        122  120.666667
+5        118  118.333333
+6        128  122.666667
+7        123  123.000000
+8        119  123.333333
+9        126  122.666667
+10       124  123.000000
+Prognose für Tag 11 (Gleitender Durchschnitt n=3): 123.00
+
+Tabelle mit exponentieller Glättung (alpha=0.2, y_0^(1) = y_1):
+     Verkauf         MA3  ExpGlättung (y_t^(1))
+Tag                                            
+1        120         NaN             120.000000
+2        125         NaN             121.000000
+3        115  120.000000             119.800000
+4        122  120.666667             120.240000
+5        118  118.333333             119.792000
+6        128  122.666667             121.433600
+7        123  123.000000             121.746880
+8        119  123.333333             121.197504
+9        126  122.666667             122.158003
+10       124  123.000000             122.526403
+Prognose für Tag 11 (Exponentielle Glättung, alpha=0.2): 122.53</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pw2-tutorial-01_files/figure-html/cell-3-output-2.png" width="689" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Begründung Plausibilität: Der gleitende Durchschnitt (123.00) basiert ausschließlich auf den letzten drei Beobachtungen und gewichtet diese gleich. Die exponentielle Glättung (122.62 mit alpha=0.2) berücksichtigt alle vergangenen Beobachtungen, wobei die jüngsten ein höheres Gewicht erhalten. Ein Alpha von 0.2 bedeutet eine relativ starke Glättung, d.h. die Prognose reagiert eher träge auf neue Werte. Beide Prognosen liegen eng beieinander. Wenn man davon ausgeht, dass die letzten Tage sehr repräsentativ für die nahe Zukunft sind und es keine Ausreißer gab, könnte der MA(3) passend sein. Wenn man eine stabilere, stärker geglättete Prognose bevorzugt, die weniger von einzelnen Ausschlägen beeinflusst wird, ist die exponentielle Glättung mit niedrigem Alpha eine gute Wahl.</li>
+</ol>
 </section>
 <section id="aufgabe-3-prognose-mit-trend" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-3-prognose-mit-trend">Aufgabe 3: Prognose mit Trend</h2>
@@ -509,6 +571,75 @@ window.Quarto = {
 <li>Erstellen Sie eine Prognose für die Anzahl neuer Abonnenten für Monat 9 und Monat 10.</li>
 <li>Berechnen Sie den Prognosefehler mit der mittleren quadratischen Abweichung (MSE) für Monat 7 und Monat 8.</li>
 </ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="90e6575c" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Abonnentendaten TechTom:
+   Monat  Abonnenten
+0      1         500
+1      2         530
+2      3         520
+3      4         580
+4      5         620
+5      6         670
+6      7         640
+7      8         710
+
+Initialisierung:
+y_0^(1) = 421.67
+y_0^(2) = 363.33
+
+2. Iterative Berechnung für t=1 bis 8:
+t=0: y1_0=421.67, y2_0=363.33, a_hat_0=480.00, b_hat_0=25.00 (gegeben)
+
+Übersicht der Berechnungen:
+   t  y_t    y1_t    y2_t  a_hat_t  b_hat_t
+0  1  500  445.17  387.88   502.45    24.55
+1  2  530  470.62  412.70   528.53    24.82
+2  3  520  485.43  434.52   536.34    21.82
+3  4  580  513.80  458.31   569.30    23.78
+4  5  620  545.66  484.51   606.81    26.21
+5  6  670  582.96  514.05   651.88    29.54
+6  7  640  600.07  539.86   660.29    25.81
+7  8  710  633.05  567.81   698.29    27.96
+
+Letzte Parameter (t=8):
+a_hat_8 = 698.29
+b_hat_8 = 27.96
+
+Prognose für Monat 9 (p_8+1): 726.25
+Prognose für Monat 10 (p_8+2): 754.21</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pw2-tutorial-01_files/figure-html/cell-4-output-2.png" width="689" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Formeln:</strong></p>
+<ul>
+<li>Initialisierung:
+<ul>
+<li><span class="math inline">\(y_{0}^{(1)}=\widehat{a}_{0}-\widehat{b}_{0} \cdot \frac{1-\alpha}{\alpha}\)</span></li>
+<li><span class="math inline">\(y_{0}^{(2)}=\widehat{a}_{0}-2 \cdot \widehat{b}_{0} \cdot \frac{1-\alpha}{\alpha}\)</span></li>
+</ul></li>
+<li>Aktualisierung der gleitenden Durchschnitte (für <span class="math inline">\(t=1, \dots, 8\)</span>):
+<ul>
+<li><span class="math inline">\(y_{t}^{(1)}=\alpha \cdot y_{t}+(1-\alpha) \cdot y_{t-1}^{(1)}\)</span></li>
+<li><span class="math inline">\(y_{t}^{(2)}=\alpha \cdot y_{t}^{(1)}+(1-\alpha) \cdot y_{t-1}^{(2)}\)</span></li>
+</ul></li>
+<li>Aktualisierung der Parameter der Trendgeraden (für <span class="math inline">\(t=1, \dots, 8\)</span>):
+<ul>
+<li><span class="math inline">\(\widehat{a}_{t}=2 \cdot y_{t}^{(1)}-y_{t}^{(2)}\)</span></li>
+<li><span class="math inline">\(\widehat{b}_{t}=\frac{\alpha}{1-\alpha} \cdot\left(y_{t}^{(1)}-y_{t}^{(2)}\right)\)</span></li>
+</ul></li>
+<li>Prognosewert (basierend auf Werten von <span class="math inline">\(t=8\)</span>):
+<ul>
+<li><span class="math inline">\(p_{8+i}=\widehat{a}_{8}+\widehat{b}_{8} \cdot i\)</span></li>
+</ul></li>
+</ul>
 
 
 </section>

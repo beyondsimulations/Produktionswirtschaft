@@ -351,10 +351,46 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Erstellen Sie ein Netzplan-Diagramm für dieses Projekt.</li>
 <li>Führen Sie eine Vorwärtsrechnung durch, um die frühestmöglichen Anfangszeitpunkte (FAZ) und Endzeitpunkte (FEZ) für jeden Arbeitsgang zu bestimmen.</li>
-<li>Führen Sie eine Rückwärtsrechnung durch, um die spätestzulässigen Anfangszeitpunkte (SAZ) und Endzeitpunkte (SEZ) für jeden Arbeitsgang zu bestimmen. Gehen Sie davon aus, dass der FEZ des letzten Arbeitsgangs (G) dem spätestzulässigen Projektendtermin entspricht, falls er diesen nicht überschreitet. Andernfalls ist der spätestzulässige Endtermin des Projekts maßgebend für SEZ(G).</li>
+<li>Führen Sie eine Rückwärtsrechnung durch, um die spätestzulässigen Anfangszeitpunkte (SAZ) und Endzeitpunkte (SEZ) für jeden Arbeitsgang zu bestimmen. Gehen Sie davon aus, dass der SEZ des letzten Arbeitsgangs (G) dem spätestzulässigen Projektendtermin entspricht, falls er diesen nicht überschreitet. Andernfalls ist der spätestzulässige Endtermin des Projekts maßgebend für SEZ(G).</li>
 <li>Berechnen Sie die Gesamtpufferzeit (GP) für jeden Arbeitsgang.</li>
 <li>Identifizieren Sie den kritischen Weg im Projekt.</li>
 </ol>
+<p><strong>Lösungshinweise:</strong></p>
+<ol type="1">
+<li><p><strong>Netzplan:</strong> Eine grafische Darstellung der Arbeitsgänge und ihrer Abhängigkeiten. (Skizze auf Papier)</p></li>
+<li><p><strong>Vorwärtsrechnung:</strong></p>
+<ul>
+<li>A: FAZ=0, FEZ=3</li>
+<li>D: FAZ=0, FEZ=2</li>
+<li>B: FAZ=max(FEZ(A))=3, FEZ=3+5=8</li>
+<li>E: FAZ=max(FEZ(D))=2, FEZ=2+6=8</li>
+<li>C: FAZ=max(FEZ(B))=8, FEZ=8+4=12</li>
+<li>F: FAZ=max(FEZ(C)=12, FEZ(E)=8)=12, FEZ=12+3=15</li>
+<li>G: FAZ=max(FEZ(F))=15, FEZ=15+2=17 Die minimale Projektdauer beträgt 17 Stunden.</li>
+</ul></li>
+<li><p><strong>Rückwärtsrechnung (Annahme SEZ(G) = FEZ(G) = 17, um kritischen Pfad zu finden):</strong></p>
+<ul>
+<li>G: SEZ=17, SAZ=17-2=15</li>
+<li>F: SEZ=min(SAZ(G))=15, SAZ=15-3=12</li>
+<li>C: SEZ=min(SAZ(F))=12, SAZ=12-4=8</li>
+<li>E: SEZ=min(SAZ(F))=12, SAZ=12-6=6</li>
+<li>B: SEZ=min(SAZ(C))=8, SAZ=8-5=3</li>
+<li>A: SEZ=min(SAZ(B))=3, SAZ=3-3=0</li>
+<li>D: SEZ=min(SAZ(E))=6, SAZ=6-2=4</li>
+</ul></li>
+<li><p><strong>Gesamtpuffer (GP = SAZ - FAZ):</strong></p>
+<ul>
+<li>A: GP = 0 - 0 = 0</li>
+<li>B: GP = 3 - 3 = 0</li>
+<li>C: GP = 8 - 8 = 0</li>
+<li>D: GP = 4 - 0 = 4</li>
+<li>E: GP = 6 - 2 = 4</li>
+<li>F: GP = 12 - 12 = 0</li>
+<li>G: GP = 15 - 15 = 0</li>
+</ul></li>
+<li><p><strong>Kritischer Weg (GP=0):</strong> A → B → C → F → G. Die Dauer dieses Pfades ist 3+5+4+3+2 = 17 Stunden.</p></li>
+</ol>
+<p><strong>Hinweis:</strong> Wenn der gegebene spätestzulässige Projektendtermin (hier 25 Stunden) für die Rückwärtsrechnung verwendet worden wäre (d.h. SEZ(G) = 25), dann wären alle Pufferzeiten positiv gewesen (z.B. GP(G) = SAZ(G) - FAZ(G) = (25-2) - 15 = 23 - 15 = 8). In diesem Fall gäbe es keinen Arbeitsgang mit Pufferzeit Null. Der “kritische Weg” wird typischerweise als der Pfad mit Pufferzeit Null definiert, was impliziert, dass das Projekt so früh wie möglich abgeschlossen wird.</p>
 </section>
 <section id="aufgabe-2-kapazitätsabgleich" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-2-kapazitätsabgleich">Aufgabe 2: Kapazitätsabgleich</h2>
@@ -446,6 +482,109 @@ ul.task-list li input[type="checkbox"] {
 <li>Stellen Sie den Belegungsplan der Nietanlage und den resultierenden Projektplan skizzenhaft dar (z.B. als einfache Zeitachse oder Tabelle).</li>
 <li>Wie lange dauert das Projekt nun unter Berücksichtigung des Engpasses? Was ist der neue kritische Pfad?</li>
 </ol></li>
+</ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task2-calc" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>1. Durchlaufterminierung (ohne Kapazitätsbeschränkung):
+AG  Dauer  FAZ  FEZ  SAZ  SEZ  GP  Kritisch
+ A      2    0    2    0    2   0      True
+ B      1    0    1    0    1   0      True
+ C      3    2    5    2    5   0      True
+ D      4    1    5    1    5   0      True
+ E      2    0    2    3    5   3     False
+ F      3    5    8    5    8   0      True
+ G      1    8    9    8    9   0      True
+
+Minimale Projektdauer (unbeschränkt): 9 Tage
+Kritischer Weg (unbeschränkt): A -&gt; B -&gt; D -&gt; C -&gt; F -&gt; G</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-task2-calc" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task2-calc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-04_files/figure-html/fig-task2-calc-output-2.png" width="568" height="447" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task2-calc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Netzplanberechnung und Kapazitätsabgleich für Flugzeugumbau
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Erläuterung der Ergebnisse:</strong></p>
+<ol type="1">
+<li><strong>Durchlaufterminierung (ohne Kapazitätsbeschränkung):</strong>
+<ul>
+<li>Die Studierenden erstellen eine Tabelle mit FAZ, FEZ, SAZ, SEZ, GP für alle Arbeitsgänge.</li>
+<li>Beispielhafte unbeschränkte Werte (manuell zu berechnen):
+<ul>
+<li>A: FAZ=0, FEZ=2</li>
+<li>B: FAZ=0, FEZ=1</li>
+<li>E: FAZ=0, FEZ=2</li>
+<li>C: FAZ=max(FEZ(A))=2, FEZ=2+3=5</li>
+<li>D: FAZ=max(FEZ(B))=1, FEZ=1+4=5</li>
+<li>F: FAZ=max(FEZ(C)=5, FEZ(D)=5, FEZ(E)=2)=5, FEZ=5+3=8</li>
+<li>G: FAZ=max(FEZ(F))=8, FEZ=8+1=9</li>
+</ul></li>
+<li>Minimale Projektdauer (unbeschränkt): 9 Tage.</li>
+<li>Kritischer Pfad (unbeschränkt, nach manueller Berechnung, wenn SEZ(G)=FEZ(G)=9):
+<ul>
+<li>SEZ(G)=9, SAZ(G)=8</li>
+<li>SEZ(F)=SAZ(G)=8, SAZ(F)=5</li>
+<li>SEZ(C)=SAZ(F)=5, SAZ(C)=2</li>
+<li>SEZ(D)=SAZ(F)=5, SAZ(D)=1</li>
+<li>SEZ(E)=SAZ(F)=5, SAZ(E)=3</li>
+<li>SEZ(A)=SAZ(C)=2, SAZ(A)=0</li>
+<li>SEZ(B)=SAZ(D)=1, SAZ(B)=0</li>
+<li>GP(A)=0, GP(B)=0, GP(C)=0, GP(D)=0, GP(E)=3, GP(F)=0, GP(G)=0.</li>
+<li>Kritische Pfade: A-C-F-G und B-D-F-G.</li>
+</ul></li>
+</ul></li>
+<li><strong>Kapazitätsorientierte Planung (Nietanlage Kapazität = 1):</strong>
+<ul>
+<li>Arbeitsgänge mit NA-Bedarf: C, D, F.</li>
+<li>Unbeschränkte FAZ-Werte: FAZ(C)=2, FAZ(D)=1, FAZ(F)=5.</li>
+<li>Priorisierung für NA (z.B. nach FAZ): D (startet früher oder gleichzeitig mit C), dann C, dann F.
+<ul>
+<li><strong>AG D (Dauer 4):</strong> Kann frühestens an Tag 1 starten (nach B). FAZ(B)=1. NA ist frei.
+<ul>
+<li>Start D: Tag 1, Ende D: Tag 1+4=5. NA belegt bis Ende Tag 5.</li>
+</ul></li>
+<li><strong>AG C (Dauer 3):</strong> Kann frühestens an Tag 2 starten (nach A). FAZ(A)=2. NA ist aber erst ab Tag 5 frei (nach D).
+<ul>
+<li>Start C: max(FAZ(A)=2, NA_frei=5) = Tag 5. Ende C: Tag 5+3=8. NA belegt bis Ende Tag 8.</li>
+</ul></li>
+<li><strong>AG F (Dauer 3):</strong> Benötigt C, D, E.
+<ul>
+<li>FEZ(C) ist jetzt Tag 8 (verschoben).</li>
+<li>FEZ(D) ist Tag 5.</li>
+<li>FEZ(E) ist Tag 2 (unverändert).</li>
+<li>Frühestmöglicher Start für F (Vorgänger): max(8, 5, 2) = Tag 8.</li>
+<li>NA ist frei ab Ende Tag 8 (nach C).</li>
+<li>Start F: max(Vorbedingung_Start=8, NA_frei=8) = Tag 8. Ende F: Tag 8+3=11.</li>
+</ul></li>
+</ul></li>
+<li>Neuer Projektplan:
+<ul>
+<li>A: FAZ=0, FEZ=2</li>
+<li>B: FAZ=0, FEZ=1</li>
+<li>E: FAZ=0, FEZ=2</li>
+<li>D: FAZ=1, FEZ=5 (durch NA geplant)</li>
+<li>C: FAZ=5, FEZ=8 (durch NA geplant, startet nach D auf NA und nach A)</li>
+<li>F: FAZ=max(FEZ(C)=8, FEZ(D)=5, FEZ(E)=2)=8, FEZ=8+3=11 (durch NA geplant)</li>
+<li>G: FAZ=max(FEZ(F))=11, FEZ=11+1=12</li>
+</ul></li>
+<li>Neue minimale Projektdauer (beschränkt): 12 Tage.</li>
+<li>Der kritische Pfad im beschränkten Plan ergibt sich aus der Abarbeitung der Nietanlagen-Tasks und deren Abhängigkeiten. Er ist <strong>B → D → C → F → G</strong>. Die Projektdauer beträgt somit 12 Tage. Die Arbeitsgänge D, C, und F werden nacheinander auf der Nietanlage ausgeführt und sind kritisch. B ist kritisch als direkter Vorgänger von D. G ist kritisch als direkter Nachfolger von F.</li>
+<li>Task A (Dauer 2 Tage, Vorgänger von C) ist im beschränkten Plan <strong>nicht kritisch</strong>:
+<ul>
+<li>FAZ(A) = 0, FEZ(A) = 2.</li>
+<li>Da C (Nachfolger von A) im beschränkten Plan an Tag 5 beginnt (FAZ(C)=5, SAZ(C)=5), muss A spätestens an Tag 5 beendet sein (SEZ(A)=5).</li>
+<li>Der spätestzulässige Startzeitpunkt für A ist SAZ(A) = SEZ(A) - Dauer(A) = 5 - 2 = 3.</li>
+<li>Der Gesamtpuffer für Task A ist GP(A) = SAZ(A) - FAZ(A) = 3 - 0 = 3 Tage.</li>
+</ul></li>
+</ul></li>
 </ol>
 
 

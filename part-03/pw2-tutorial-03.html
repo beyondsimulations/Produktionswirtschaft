@@ -396,6 +396,35 @@ window.Quarto = {
 <li>Die gesamten Lagerkosten, die für die in Periode 1 gehaltenen Endbestände anfallen.</li>
 </ol></li>
 </ol>
+<p><strong>Lösungshinweise (Python-Code zur Veranschaulichung der Berechnungen für Teilaufgabe 3):</strong></p>
+<div id="fig-task1-sol" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="1">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task1-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-stdout">
+<pre><code>--- Lösung für Teilaufgabe 1.3 ---
+1.3.a) Lagerbestände am Ende von Periode 1:
+L_K1 = 20 + 90 - 100 = 10 Stück
+L_M1 = 10 + 70 - 70 = 10 Stück
+
+1.3.b) Personelle Kapazität Periode 1:
+Bedarf personelle Kapazität = 1.0*90 + 1.2*70 = 174.0 Einheiten
+Reguläre personelle Kapazität (250) ist ausreichend.
+
+1.3.c) Technische Kapazität Periode 1:
+Bedarf technische Kapazität = 1.5*90 + 2.0*70 = 275.0 Einheiten
+Technische Kapazität (400) ist ausreichend.
+
+1.3.d) Lagerkosten für in Periode 1 gehaltene Endbestände:
+Lagerkosten = 5*10 + 5*10 = 100 GE
+
+Zusammenfassung Aufgabe 1.3: Geplante Kosten (Überstunden + Lager) für Periode 1 = 100.0 GE</code></pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-task1-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="aufgabe-2-erweiterung-um-make-or-buy-entscheidungen" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-2-erweiterung-um-make-or-buy-entscheidungen">Aufgabe 2: Erweiterung um Make-or-Buy-Entscheidungen</h2>
@@ -431,6 +460,39 @@ Berechnen Sie für Periode 1 (unter Verwendung der relevanten Daten aus Aufgabe 
 <li>Die gesamten relevanten Kosten gemäß diesem Plan.</li>
 </ol></li>
 </ol>
+<p><strong>Lösungshinweise (Python-Code zur Veranschaulichung der Berechnungen für Teilaufgabe 2.2):</strong></p>
+<div id="fig-task2-sol" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="2">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task2-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output cell-output-stdout">
+<pre><code>--- Lösung für Teilaufgabe 2.2 ---
+2.2.a) Lagerbestände am Ende von Periode 1:
+L_K1 = 20 + 50 + 50 - 100 = 20 Stück
+L_M1 = 10 + 40 + 30 - 70 = 10 Stück
+
+2.2.b) Personelle Kapazität Periode 1 (Eigenfertigung):
+Bedarf personelle Kapazität = 1.0*50 + 1.2*40 = 98.0 Einheiten
+Reguläre personelle Kapazität (250) ist ausreichend. (Bedarf: 98.0 Einheiten)
+
+2.2.c) Technische Kapazität Periode 1 (Eigenfertigung):
+Bedarf technische Kapazität = 1.5*50 + 2.0*40 = 155.0 Einheiten
+Technische Kapazität (400) ist ausreichend.
+
+2.2.d) Kosten für Fremdbezug in Periode 1:
+Fremdbezugskosten = 85*50 + 100*30 = 7250 GE
+
+Lagerkosten für in Periode 1 gehaltene Endbestände:
+Lagerkosten P1 = 5*20 + 5*10 = 150 GE
+
+2.2.e) Gesamte relevante Kosten (Lager + Überstunden + Fremdbezug) für Periode 1:
+Gesamtkosten P1 = 150 (Lager) + 0.0 (Überstunden) + 7250 (Fremdbezug) = 7400.0 GE</code></pre>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-task2-sol-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2
+</figcaption>
+</figure>
+</div>
 
 
 </section>

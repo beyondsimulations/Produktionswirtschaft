@@ -391,6 +391,71 @@ window.Quarto = {
 <li>Prognostizieren Sie die bereinigten Werte für die vier Quartale des nächsten Jahres (Jahr 3, Q1 bis Q4). Hier ist <span class="math inline">\(t\)</span> der Index des letzten Beobachtungspunktes der bereinigten Reihe.</li>
 <li>Saisonalisieren Sie diese Prognosen, indem Sie sie mit den entsprechenden Saisonindizes multiplizieren, um die finalen Verkaufsprognosen zu erhalten.</li>
 </ol>
+<p><strong>Lösung (Python-Code):</strong></p>
+<div id="f33aed83" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Verkaufsdaten Gelato Paradiso:
+   Jahr QuartalStr  Verkauf  Periode  Saisonindex
+0     1         Q1        8        1          0.6
+1     1         Q2       20        2          1.4
+2     1         Q3       25        3          1.7
+3     1         Q4       10        4          0.8
+4     2         Q1       10        5          0.6
+5     2         Q2       24        6          1.4
+6     2         Q3       30        7          1.7
+7     2         Q4       12        8          0.8
+
+Désaisonierte Verkaufsdaten (Y_d):
+   Jahr QuartalStr  Verkauf  Saisonindex  Verkauf_desaisoniert
+0     1         Q1        8          0.6                 13.33
+1     1         Q2       20          1.4                 14.29
+2     1         Q3       25          1.7                 14.71
+3     1         Q4       10          0.8                 12.50
+4     2         Q1       10          0.6                 16.67
+5     2         Q2       24          1.4                 17.14
+6     2         Q3       30          1.7                 17.65
+7     2         Q4       12          0.8                 15.00
+
+Initialisierung für désaisonierte Daten Y_d:
+y_d,0^(1) = 11.00
+y_d,0^(2) = 9.00
+
+Holt's Methode auf désaisonierten Daten Y_d (t=1 bis 8):
+   Periode  y_d_t  y1_d_t  y2_d_t  a_d_hat_t  b_d_hat_t
+0        1  13.33   11.47    9.49      13.44       0.49
+1        2  14.29   12.03   10.00      14.06       0.51
+2        3  14.71   12.57   10.51      14.62       0.51
+3        4  12.50   12.55   10.92      14.18       0.41
+4        5  16.67   13.38   11.41      15.34       0.49
+5        6  17.14   14.13   11.96      16.30       0.54
+6        7  17.65   14.83   12.53      17.13       0.58
+7        8  15.00   14.87   13.00      16.73       0.47
+
+Letzte Parameter für Y_d (t=8):
+a_d_hat_8 = 16.73
+b_d_hat_8 = 0.47
+
+Prognostizierte désaisonierte Werte Y_d für Jahr 3:
+Jahr 3, Q1 (Periode 9): 17.20
+Jahr 3, Q2 (Periode 10): 17.67
+Jahr 3, Q3 (Periode 11): 18.14
+Jahr 3, Q4 (Periode 12): 18.60
+
+Finale Verkaufsprognosen für Jahr 3 (resaisoniert):
+   Periode QuartalStr  Prognose_Desaisoniert  Saisonindex  Prognose_Final
+0        9         Q1                  17.20          0.6           10.32
+1       10         Q2                  17.67          1.4           24.74
+2       11         Q3                  18.14          1.7           30.83
+3       12         Q4                  18.60          0.8           14.88</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pw2-tutorial-02_files/figure-html/cell-2-output-2.png" width="689" height="490" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="aufgabe-2-saisonindizes-selbst-berechnen" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-2-saisonindizes-selbst-berechnen">Aufgabe 2: Saisonindizes selbst berechnen</h2>
@@ -474,6 +539,85 @@ window.Quarto = {
 <li>Berechnen Sie die durchschnittlichen Saisonfaktoren (<span class="math inline">\(s_m\)</span>) für jedes Quartal, indem Sie die Roh-Saisonfaktoren für das jeweilige Quartal über die Jahre mitteln.</li>
 <li>Normieren Sie die durchschnittlichen Saisonfaktoren, sodass ihre Summe der Anzahl der Saisons (hier 4) entspricht. Diese normierten Werte sind die finalen Saisonindizes (<span class="math inline">\(\widehat{s}_m\)</span>).</li>
 </ol>
+<p><strong>Lösung (Python-Code):</strong></p>
+<div id="ee57a36e" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Verkaufsdaten FrostyFun Eiscreme:
+    Jahr QuartalStr  Verkauf  Periode
+0      1         Q1      150        1
+1      1         Q2      250        2
+2      1         Q3      350        3
+3      1         Q4      180        4
+4      2         Q1      170        5
+5      2         Q2      280        6
+6      2         Q3      390        7
+7      2         Q4      210        8
+8      3         Q1      190        9
+9      3         Q2      310       10
+10     3         Q3      430       11
+11     3         Q4      240       12
+
+Verkaufsdaten mit GD4 und ZGD4:
+    Periode  Verkauf    GD4    ZGD4
+0         1      150    NaN     NaN
+1         2      250    NaN     NaN
+2         3      350    NaN     NaN
+3         4      180  232.5  235.00
+4         5      170  237.5  241.25
+5         6      280  245.0  250.00
+6         7      390  255.0  258.75
+7         8      210  262.5  265.00
+8         9      190  267.5  271.25
+9        10      310  275.0  280.00
+10       11      430  285.0  288.75
+11       12      240  292.5     NaN
+
+Verkaufsdaten mit Roh-Saisonfaktoren:
+    Periode QuartalStr  Verkauf    ZGD4  Roh_SF
+3         4         Q4      180  235.00   0.766
+4         5         Q1      170  241.25   0.705
+5         6         Q2      280  250.00   1.120
+6         7         Q3      390  258.75   1.507
+7         8         Q4      210  265.00   0.792
+8         9         Q1      190  271.25   0.700
+9        10         Q2      310  280.00   1.107
+10       11         Q3      430  288.75   1.489
+
+Durchschnittliche Saisonfaktoren (s_m):
+   QuartalNum  s_m_durchschnitt
+0           1             0.703
+1           2             1.114
+2           3             1.498
+3           4             0.779
+
+Summe der durchschnittlichen SF: 4.094
+Normierungsfaktor: 0.977
+
+Finale normierte Saisonindizes:
+   QuartalNum  s_m_durchschnitt  Saisonindex_Normiert
+0           1             0.703                 0.687
+1           2             1.114                 1.088
+2           3             1.498                 1.464
+3           4             0.779                 0.761
+Summe der normierten Saisonindizes: 4.00</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pw2-tutorial-02_files/figure-html/cell-3-output-2.png" width="789" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Übersicht der finalen Saisonindizes:
+Q1    0.687
+Q2    1.088
+Q3    1.464
+Q4    0.761
+dtype: float64</code></pre>
+</div>
+</div>
 </section>
 <section id="aufgabe-3-holts-methode-für-trenddaten" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-3-holts-methode-für-trenddaten">Aufgabe 3: Holt’s Methode für Trenddaten</h2>
@@ -539,6 +683,51 @@ window.Quarto = {
 <li>Erstellen Sie eine Prognose für die Verkaufszahlen der nächsten <strong>zwei</strong> Monate (Monat 9 und Monat 10).</li>
 <li>Was ist der Unterschied zwischen der Prognose aus der letzten Übung und dem Verfahren von Holt?</li>
 <li>Würden Sie denken, dass das Verfahren von Holt und Winters besser geeignet wäre, um die Verkaufszahlen zu prognostizieren?</li>
+</ol>
+<p><strong>Lösung (Python-Code):</strong></p>
+<div id="354949d1" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Verkaufsdaten Deep Learning:
+   Monat  Verkauf
+0      1       50
+1      2       52
+2      3       58
+3      4       69
+4      5       70
+5      6       72
+6      7       77
+7      8       83
+
+Berechnung mit Holt's Methode (t=1 bis 8):
+   t  y_t    p_t  a_hat_t  b_hat_t
+0  1   50  52.00    51.40     3.88
+1  2   52  55.28    54.30     3.68
+2  3   58  57.98    57.99     3.68
+3  4   69  61.67    63.87     4.12
+4  5   70  67.99    68.60     4.24
+5  6   72  72.84    72.59     4.19
+6  7   77  76.78    76.85     4.21
+7  8   83  81.05    81.64     4.32
+
+Letzte Parameter (t=8):
+a_hat_8 = 81.64
+b_hat_8 = 4.32
+
+Prognosen für die nächsten 2 Monate:
+Monat 9: 85.96 Verkäufe
+Monat 10: 90.29 Verkäufe</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pw2-tutorial-02_files/figure-html/cell-4-output-2.png" width="689" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><p>Der Hauptunterschied liegt in der Art und Weise, wie das Niveau und der Trend der Zeitreihe geschätzt und geglättet werden. Das Verfahren aus Übung 1 (Exponentielle Glättung mit Trendkorrektur)verwendet einen einzigen Glättungsfaktor. Das Niveau und der Trend werden durch eine doppelte exponentielle Glättung derselben Zeitreihe abgeleitet. Aus diesen beiden Reihen werden dann die Schätzungen für Niveau und Trend berechnet. Die Reaktion auf Änderungen im Niveau und im Trend ist somit durch denselben Parameter alpha gekoppelt. Das Verfahren von Holt verwendet zwei separate Glättungsfaktoren: alpha für das Niveau und beta für den Trend. Das Niveau wird direkt aus dem aktuellen Beobachtungswert y_t und der vorherigen Schätzung für Niveau und Trend (a_t-1 + b_t-1) berechnet. Der Trend (b_t) wird direkt aus der Veränderung des Niveaus (a_t - a_t-1) und der vorherigen Trendschätzung (b_t-1) berechnet. Dies ermöglicht eine flexiblere Anpassung, da man unabhängig voneinander festlegen kann, wie stark die Glättung auf Veränderungen im Niveau bzw. im Trend reagieren soll. Wenn sich beispielsweise das Grundniveau schnell ändert, der Trend aber relativ stabil ist, kann man unterschiedliche Werte für alpha und beta wählen. Zusammenfassend lässt sich sagen, dass das Verfahren von Holt durch die Verwendung von zwei getrennten Glättungsfaktoren eine differenziertere Anpassung an Niveau und Trend einer Zeitreihe erlaubt als die exponentielle Glättung mit Trendkorrektur, die nur einen Glättungsfaktor nutzt.</p></li>
+<li><p>Das Verfahren von Holt-Winters erweitert das Holt-Verfahren um eine saisonale Komponente. Es ist also besonders dann geeignet, wenn die Zeitreihe nicht nur einen Trend, sondern auch wiederkehrende saisonale Muster aufweist (z.B. quartalsweise oder monatliche Schwankungen, die sich jedes Jahr ähnlich wiederholen). Diese Daten zeigen einen deutlichen Trend (steigende Verkaufszahlen). Ob auch eine signifikante Saisonalität vorliegt, lässt sich anhand von nur 8 Monaten Daten schwer beurteilen. Für die Identifizierung von saisonalen Mustern benötigt man in der Regel Daten über mehrere Saisons hinweg (z.B. mindestens 2-3 Jahre bei monatlichen Daten, um zu sehen, ob sich bestimmte Monate systematisch von anderen unterscheiden). Mit den aktuell vorliegenden 8 Datenpunkten ist das Verfahren von Holt eine gute Wahl, da es den sichtbaren Trend adressiert. Um zu entscheiden, ob Holt-Winters besser wäre, müssten mehr Daten gesammelt werden. Wenn sich dann klare saisonale Muster zeigen, wäre Holt-Winters eine sinnvolle Erweiterung. Andernfalls ist Holt ausreichend.</p></li>
 </ol>
 
 

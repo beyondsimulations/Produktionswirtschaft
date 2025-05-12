@@ -362,6 +362,63 @@ window.Quarto = {
 <li>Vergleichen Sie die Ergebnisse der FCFS- und KOZ-Regel. Welche Regel führt zu einer geringeren mittleren Durchlaufzeit?</li>
 <li>Diskutieren Sie kurz, warum die KOZ-Regel in Bezug auf die mittlere Durchlaufzeit optimal ist, aber welche potenziellen Nachteile sie haben könnte.</li>
 </ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task1" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ursprüngliche Auftragsdaten:
+  Auftrag  Bearbeitungszeit_ap
+0    A001                    3
+1    A002                    5
+2    A003                    2
+3    A004                    8
+4    A005                    4
+5    A006                    6
+
+1. FCFS-Regel:
+  Auftrag  Bearbeitungszeit_ap  Fertigstellungszeit_Fp  Durchlaufzeit_Dp
+0    A001                    3                       3                 3
+1    A002                    5                       8                 8
+2    A003                    2                      10                10
+3    A004                    8                      18                18
+4    A005                    4                      22                22
+5    A006                    6                      28                28
+Mittlere Durchlaufzeit (FCFS): 14.83 Stunden
+
+2. KOZ-Regel (Kürzeste Operationszeit):
+  Auftrag  Bearbeitungszeit_ap  Fertigstellungszeit_Fp  Durchlaufzeit_Dp
+0    A003                    2                       2                 2
+1    A001                    3                       5                 5
+2    A005                    4                       9                 9
+3    A002                    5                      14                14
+4    A006                    6                      20                20
+5    A004                    8                      28                28
+Mittlere Durchlaufzeit (KOZ): 13.00 Stunden
+
+3. Vergleich der Ergebnisse:
+Die FCFS-Regel führt zu einer mittleren Durchlaufzeit von 14.83 Stunden.
+Die KOZ-Regel führt zu einer mittleren Durchlaufzeit von 13.00 Stunden.
+Die KOZ-Regel ist in diesem Fall besser und reduziert die mittlere Durchlaufzeit.
+
+4. Diskussion zur KOZ-Regel:
+Die KOZ-Regel minimiert die mittlere Durchlaufzeit (und damit auch die mittlere Wartezeit und den mittleren Bestand), weil sie dafür sorgt, dass Aufträge schnell abgeschlossen werden und die Anzahl der wartenden Aufträge rasch reduziert wird. Jeder Auftrag, der früher fertiggestellt wird, trägt weniger zur Summe der Durchlaufzeiten bei.
+Potenzielle Nachteile:
+- Aufträge mit langer Bearbeitungszeit könnten sehr lange warten müssen ("Aushungern" langer Aufträge), was zu einer hohen Varianz der Durchlaufzeiten führen kann.
+- Wenn Liefertermine eine Rolle spielen, werden diese von der KOZ-Regel nicht berücksichtigt, was zu Verspätungen bei wichtigen Aufträgen führen kann, auch wenn diese eine lange Bearbeitungszeit haben.
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-task1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-05_files/figure-html/fig-task1-output-2.png" width="689" height="494" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Bearbeitungsplan Endoskelett-Arme
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="aufgabe-2-einhaltung-von-produktionsfristen" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-2-einhaltung-von-produktionsfristen">Aufgabe 2: Einhaltung von Produktionsfristen</h2>
@@ -410,7 +467,7 @@ window.Quarto = {
 <p><strong>Ihre Aufgaben:</strong></p>
 <ol type="1">
 <li>Sortieren Sie die Aufträge zunächst nach der Liefertermin-Regel (EDD - Earliest Due Date). Erstellen Sie einen Plan und ermitteln Sie für jeden Auftrag den Fertigstellungszeitpunkt <span class="math inline">\(F_p\)</span> und die Verspätung <span class="math inline">\(V_p = \max(0, F_p - LT_p)\)</span>. Wie viele Aufträge sind verspätet?</li>
-<li>Wenden Sie nun das*Hodgson-Verfahren an, um die Anzahl der verspäteten Aufträge zu minimieren.</li>
+<li>Wenden Sie nun das Hodgson-Verfahren an, um die Anzahl der verspäteten Aufträge zu minimieren.</li>
 <li>Erstellen Sie den finalen Ablaufplan. Berechnen Sie für diesen Plan:
 <ul>
 <li>Den Fertigstellungszeitpunkt <span class="math inline">\(F_p\)</span> für jeden Auftrag.</li>
@@ -420,6 +477,119 @@ window.Quarto = {
 </ul></li>
 <li>Vergleichen Sie das Ergebnis des Hodgson-Verfahrens mit dem der reinen Liefertermin-Regel hinsichtlich der Anzahl verspäteter Aufträge.</li>
 </ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task2" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ursprüngliche Auftragsdaten:
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp
+0     C01                    3               7
+1     C02                    5              10
+2     C03                    2               5
+3     C04                    6              12
+4     C05                    4               8
+
+1. Reine Liefertermin-Regel (EDD):
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fertigstellungszeit_Fp  \
+0     C03                    2               5                       2   
+1     C01                    3               7                       5   
+2     C05                    4               8                       9   
+3     C02                    5              10                      14   
+4     C04                    6              12                      20   
+
+   Verspaetung_Vp  
+0               0  
+1               0  
+2               1  
+3               4  
+4               8  
+Anzahl verspäteter Aufträge (EDD): 3
+Maximale Verspätung (EDD): 8
+Gesamte Verspätung (EDD): 13
+
+2. Hodgson-Verfahren (Schrittweise):
+
+Iteration 1:
+Aktuelle Reihenfolge in R (nach EDD sortiert mit Fp, Vp):
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fp_temp  Vp_temp
+0     C03                    2               5        2        0
+1     C01                    3               7        5        0
+2     C05                    4               8        9        1
+3     C02                    5              10       14        4
+4     C04                    6              12       20        8
+Erster verspäteter Auftrag: C05
+Betrachte Teilmenge für Entfernung (bis einschl. erster Verspäteter):
+  Auftrag  Bearbeitungszeit_ap
+0     C03                    2
+1     C01                    3
+2     C05                    4
+Entferne Auftrag 'C05' (Bearbeitungszeit: 4)
+Aktuelles R_set (Original Indizes): [0, 1, 2, 3]
+Aktuelles S_set (Original Indizes): [4]
+
+Iteration 2:
+Aktuelle Reihenfolge in R (nach EDD sortiert mit Fp, Vp):
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fp_temp  Vp_temp
+0     C03                    2               5        2        0
+1     C01                    3               7        5        0
+2     C02                    5              10       10        0
+3     C04                    6              12       16        4
+Erster verspäteter Auftrag: C04
+Betrachte Teilmenge für Entfernung (bis einschl. erster Verspäteter):
+  Auftrag  Bearbeitungszeit_ap
+0     C03                    2
+1     C01                    3
+2     C02                    5
+3     C04                    6
+Entferne Auftrag 'C04' (Bearbeitungszeit: 6)
+Aktuelles R_set (Original Indizes): [0, 1, 2]
+Aktuelles S_set (Original Indizes): [4, 3]
+
+Iteration 3:
+Aktuelle Reihenfolge in R (nach EDD sortiert mit Fp, Vp):
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fp_temp  Vp_temp
+0     C03                    2               5        2        0
+1     C01                    3               7        5        0
+2     C02                    5              10       10        0
+Keine verspäteten Aufträge in R_set gefunden. Hodgson-Algorithmus abgeschlossen für R_set.
+
+3. &amp; 4. Finaler Ablaufplan nach Hodgson-Verfahren:
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fertigstellungszeit_Fp  \
+0     C03                    2               5                       2   
+1     C01                    3               7                       5   
+2     C02                    5              10                      10   
+3     C05                    4               8                      14   
+4     C04                    6              12                      20   
+
+   Verspaetung_Vp  
+0               0  
+1               0  
+2               0  
+3               6  
+4               8  
+Anzahl verspäteter Aufträge (Hodgson): 2
+Maximale Verspätung (Hodgson): 8
+Gesamte Verspätung (Hodgson): 14
+
+5. Vergleich:
+Die reine Liefertermin-Regel (EDD) führte zu 3 verspäteten Aufträgen.
+Das Hodgson-Verfahren führt zu 2 verspäteten Aufträgen.
+Das Hodgson-Verfahren ist darauf ausgelegt, die *Anzahl* der verspäteten Aufträge zu minimieren, was hier gelungen ist. 
+Es kann jedoch vorkommen, dass die maximale oder gesamte Verspätung dadurch nicht zwingend minimal wird oder sich sogar erhöht.
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-task2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-05_files/figure-html/fig-task2-output-2.png" width="686" height="491" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Produktionsplan Komponenten
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="aufgabe-3-produktionsoptimierung" class="level2">
 <h2 class="anchored" data-anchor-id="aufgabe-3-produktionsoptimierung">Aufgabe 3: Produktionsoptimierung</h2>
@@ -468,10 +638,64 @@ window.Quarto = {
 </table>
 <p><strong>Ihre Aufgaben:</strong></p>
 <ol type="1">
-<li>Wenden Sie den <strong>Johnson-Algorithmus</strong> an, um die optimale Auftragsreihenfolge zu bestimmen, die den Makespan minimiert. Dokumentieren Sie Ihre Schritte zur Herleitung der Reihenfolge. Geben Sie die finale, optimale Auftragsreihenfolge an.</li>
+<li>Wenden Sie den Johnson-Algorithmus an, um die optimale Auftragsreihenfolge zu bestimmen, die den Makespan minimiert. Dokumentieren Sie Ihre Schritte zur Herleitung der Reihenfolge. Geben Sie die finale, optimale Auftragsreihenfolge an.</li>
 <li>Erstellen Sie einen detaillierten Belegungsplan (Gantt-Diagramm) für die ermittelte Reihenfolge. Zeichnen Sie die Belegung für Maschine A und Maschine B.</li>
 <li>Berechnen Sie den minimalen Makespan (Gesamtfertigungszeit) für diese Auftragscharge.</li>
 </ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task3" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ursprüngliche Auftragsdaten:
+  Auftrag  Zeit_M1  Zeit_M2
+0  ARC-01        5        2
+1  REP-02        1        6
+2  UNI-03        9        7
+3  THR-04        3        8
+4  STA-05       10        4
+
+Schritte des Johnson-Algorithmus:
+Schritt 1: Kürzeste Zeit 1 (Maschine A) für Auftrag REP-02. Platziere vorn an Position 1.
+Schritt 2: Kürzeste Zeit 2 (Maschine B) für Auftrag ARC-01. Platziere hinten an Position 5.
+Schritt 3: Kürzeste Zeit 3 (Maschine A) für Auftrag THR-04. Platziere vorn an Position 2.
+Schritt 4: Kürzeste Zeit 4 (Maschine B) für Auftrag STA-05. Platziere hinten an Position 4.
+Schritt 5: Kürzeste Zeit 7 (Maschine B) für Auftrag UNI-03. Platziere hinten an Position 3.
+
+2. Finale optimale Auftragsreihenfolge nach Johnson:
+  Auftrag  Zeit_M1  Zeit_M2
+0  REP-02        1        6
+1  THR-04        3        8
+2  UNI-03        9        7
+3  STA-05       10        4
+4  ARC-01        5        2
+
+4. Minimaler Makespan: 30 Stunden
+
+3. Belegungsdaten für Gantt-Diagramm:
+  Auftrag    Maschine  Start  Dauer  Ende
+0  REP-02  Maschine A      0      1     1
+1  REP-02  Maschine B      1      6     7
+2  THR-04  Maschine A      1      3     4
+3  THR-04  Maschine B      7      8    15
+4  UNI-03  Maschine A      4      9    13
+5  UNI-03  Maschine B     15      7    22
+6  STA-05  Maschine A     13     10    23
+7  STA-05  Maschine B     23      4    27
+8  ARC-01  Maschine A     23      5    28
+9  ARC-01  Maschine B     28      2    30</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-task3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-05_files/figure-html/fig-task3-output-2.png" width="689" height="491" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Produktionsplan Johnson-Industries (Johnson-Algorithmus)
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
