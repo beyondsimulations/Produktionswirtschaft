@@ -135,7 +135,7 @@ Wey Corp. steht unter Druck, kritische Navigationskomponenten für ihre nächste
 **Ihre Aufgaben:**
 
 1.  Sortieren Sie die Aufträge zunächst nach der Liefertermin-Regel (EDD - Earliest Due Date). Erstellen Sie einen Plan und ermitteln Sie für jeden Auftrag den Fertigstellungszeitpunkt $F_p$ und die Verspätung $V_p = \max(0, F_p - LT_p)$. Wie viele Aufträge sind verspätet?
-2.  Wenden Sie nun das*Hodgson-Verfahren an, um die Anzahl der verspäteten Aufträge zu minimieren. 
+2.  Wenden Sie nun das Hodgson-Verfahren an, um die Anzahl der verspäteten Aufträge zu minimieren. 
 3.  Erstellen Sie den finalen Ablaufplan. Berechnen Sie für diesen Plan:
     *   Den Fertigstellungszeitpunkt $F_p$ für jeden Auftrag.
     *   Die Verspätung $V_p$ für jeden Auftrag.
@@ -313,7 +313,7 @@ Für die anstehende Produktionscharge sind die Bearbeitungszeiten (in Stunden) f
 
 **Ihre Aufgaben:**
 
-1.  Wenden Sie den **Johnson-Algorithmus** an, um die optimale Auftragsreihenfolge zu bestimmen, die den Makespan minimiert. Dokumentieren Sie Ihre Schritte zur Herleitung der Reihenfolge. Geben Sie die finale, optimale Auftragsreihenfolge an.
+1.  Wenden Sie den Johnson-Algorithmus an, um die optimale Auftragsreihenfolge zu bestimmen, die den Makespan minimiert. Dokumentieren Sie Ihre Schritte zur Herleitung der Reihenfolge. Geben Sie die finale, optimale Auftragsreihenfolge an.
 2.  Erstellen Sie einen detaillierten Belegungsplan (Gantt-Diagramm) für die ermittelte Reihenfolge. Zeichnen Sie die Belegung für Maschine A und Maschine B.
 3.  Berechnen Sie den minimalen Makespan (Gesamtfertigungszeit) für diese Auftragscharge.
 
@@ -483,7 +483,7 @@ ax_task3.set_title(f'Gantt-Diagramm Johnson-Industries (Makespan: {makespan_john
 from matplotlib.patches import Patch
 legend_elements = [Patch(facecolor=colors['Maschine A'], edgecolor='black', label='Maschine A'),
                    Patch(facecolor=colors['Maschine B'], edgecolor='black', label='Maschine B')]
-ax_task3.legend(handles=legend_elements, loc='lower right')
+ax_task3.legend(handles=legend_elements, loc='upper right')
 
 ax_task3.grid(True, axis='x', linestyle=':')
 plt.tight_layout()
