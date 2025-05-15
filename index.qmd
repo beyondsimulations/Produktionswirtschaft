@@ -14,6 +14,11 @@ html:
 
 Dieser Kurs behandelt das Modul Produktionswirtschaft 2 auf Basis der ursprünglichen Vorlesung von Prof. Dr. Manitz. Ich habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.
 
+# Neuigkeiten
+
+Unser Termin am 20. Mai findet, wie gemeinsam besprochen, online um 13:00 Uhr statt. [Hier der Link zum Termin](https://meet.google.com/pne-bktr-nxt).
+Darüber hinaus habe ich noch einige Updates am Chatbot zum Kurs vorgenommen, er sollte jetzt wesentlich hilfreicher sein. Wichtig ist, dass Sie bei Fragen dem Chatbot möglichst den genauen Kontext zur Aufgabe geben, also entweder die konkrete Aufgabenstellung, an der Sie gerade arbeiten oder einen etwas längeren Text. Ansonsten versteht er nicht, an welchem Thema genau Sie arbeiten und kann nicht wirklich helfen.
+
 # Lernziele
 
 Mein Ziel ist es, Ihnen die Grundlagen der Zeitreihenanalyse und Produktionsplanung näherzubringen. Diese Konzepte werden sowohl in der Wissenschaft als auch in der Industrie eingesetzt und sind gute Werkzeuge für die Produktionswirtschaft.
