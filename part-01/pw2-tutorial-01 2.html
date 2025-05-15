@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Produktionswirtschaft 2! – Produktionswirtschaft</title>
+<title>Übung 01 – Produktionswirtschaft</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ac881602332e3938779ca5fc3517c7d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ac881602332e3938779ca5fc3517c7d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script defer="" src="https://umami.byndsim.com/getinfo" data-website-id="c9696f17-b99d-4e18-b36c-20af187a680b"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Startseite</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-01/pw2-lecture-01.pdf">01 Zeitreihen</a></li><li class="breadcrumb-item"><a href="../part-01/pw2-tutorial-01.html">Tutorium</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       <img src="https://images.beyondsimulations.com/logo/logo_pw2.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
@@ -108,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Startseite</span></a>
   </div>
 </li>
@@ -126,13 +155,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-01/pw2-lecture-01.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-01/pw2-lecture-01.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-01/pw2-tutorial-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-01/pw2-tutorial-01.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -149,13 +178,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-02/pw2-lecture-02.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-02/pw2-lecture-02.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-02/pw2-tutorial-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-02/pw2-tutorial-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -172,13 +201,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-03/pw2-lecture-03.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-03/pw2-lecture-03.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-03/pw2-tutorial-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-03/pw2-tutorial-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -195,13 +224,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-04/pw2-lecture-04.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-04/pw2-lecture-04.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-04/pw2-tutorial-04.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-04/pw2-tutorial-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -218,13 +247,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-05/pw2-lecture-05.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-05/pw2-lecture-05.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-05/pw2-tutorial-05.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-05/pw2-tutorial-05.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -235,13 +264,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./general/faqs.html" class="sidebar-item-text sidebar-link">
+  <a href="../general/faqs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQs</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./general/chat.html" class="sidebar-item-text sidebar-link">
+  <a href="../general/chat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chat</span></a>
   </div>
 </li>
@@ -255,23 +284,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#beschreibung" id="toc-beschreibung" class="nav-link active" data-scroll-target="#beschreibung">Beschreibung</a></li>
-  <li><a href="#neuigkeiten" id="toc-neuigkeiten" class="nav-link" data-scroll-target="#neuigkeiten">Neuigkeiten</a></li>
-  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele">Lernziele</a></li>
-  <li><a href="#kursmodule" id="toc-kursmodule" class="nav-link" data-scroll-target="#kursmodule">Kursmodule</a></li>
-  <li><a href="#tutorials" id="toc-tutorials" class="nav-link" data-scroll-target="#tutorials">Tutorials</a></li>
-  <li><a href="#erlaubte-hilfsmittel" id="toc-erlaubte-hilfsmittel" class="nav-link" data-scroll-target="#erlaubte-hilfsmittel">Erlaubte Hilfsmittel</a></li>
-  <li><a href="#fragen-und-unterstützung" id="toc-fragen-und-unterstützung" class="nav-link" data-scroll-target="#fragen-und-unterstützung">Fragen und Unterstützung</a></li>
+  <li><a href="#aufgabe-1-zerlegung-einer-zeitreihe" id="toc-aufgabe-1-zerlegung-einer-zeitreihe" class="nav-link active" data-scroll-target="#aufgabe-1-zerlegung-einer-zeitreihe">Aufgabe 1: Zerlegung einer Zeitreihe</a></li>
+  <li><a href="#aufgabe-2-prognose-ohne-trend" id="toc-aufgabe-2-prognose-ohne-trend" class="nav-link" data-scroll-target="#aufgabe-2-prognose-ohne-trend">Aufgabe 2: Prognose ohne Trend</a></li>
+  <li><a href="#aufgabe-3-prognose-mit-trend" id="toc-aufgabe-3-prognose-mit-trend" class="nav-link" data-scroll-target="#aufgabe-3-prognose-mit-trend">Aufgabe 3: Prognose mit Trend</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="pw2-tutorial-01.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-01/pw2-lecture-01.pdf">01 Zeitreihen</a></li><li class="breadcrumb-item"><a href="../part-01/pw2-tutorial-01.html">Tutorium</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Produktionswirtschaft 2!</h1>
-<p class="subtitle lead">Universität Duisburg-Essen - Sommersemester 2025</p>
+<h1 class="title">Übung 01</h1>
+<p class="subtitle lead">Prognosen und Exponentielles Glätten</p>
 </div>
 
 
@@ -288,62 +313,333 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="beschreibung" class="level1">
-<h1>Beschreibung</h1>
-<p>Dieser Kurs behandelt das Modul Produktionswirtschaft 2 auf Basis der ursprünglichen Vorlesung von Prof.&nbsp;Dr.&nbsp;Manitz. Ich habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.</p>
-</section>
-<section id="neuigkeiten" class="level1">
-<h1>Neuigkeiten</h1>
-<p>Unser Termin am 20. Mai findet, wie gemeinsam besprochen, online um 13:00 Uhr statt. Anbei der Link zum Termin: https://meet.google.com/pne-bktr-nxt. Darüber hinaus habe ich noch einige Updates am Chatbot zum Kurs vorgenommen, er sollte jetzt wesentlich hilfreicher sein. Wichtig ist, dass Ihr bei Fragen dem Chatbot möglichst den genauen Kontext zur Aufgabe gebt, also entwender die konkrete Aufgabenstellung, an der Ihr gerade arbeitet oder einen etwas längeren Text. Ansonsten versteht er nicht, an welchem Thema genau Ihr arbeitet und kann nicht wirklich helfen.</p>
-</section>
-<section id="lernziele" class="level1">
-<h1>Lernziele</h1>
-<p>Mein Ziel ist es, Ihnen die Grundlagen der Zeitreihenanalyse und Produktionsplanung näherzubringen. Diese Konzepte werden sowohl in der Wissenschaft als auch in der Industrie eingesetzt und sind gute Werkzeuge für die Produktionswirtschaft.</p>
-<p>Nach Abschluss dieses Kurses werden Sie in der Lage sein:</p>
-<ul>
-<li>Grundlegende Zeitreihenprognosen durchzuführen</li>
-<li>Produktionsplanungsmodelle zu erstellen und zu analysieren</li>
-<li>Die Kernkonzepte der Produktionssteuerung zu verstehen</li>
-</ul>
-<p>Es sind keine fortgeschrittenen Kenntnisse oder Erfahrungen erforderlich, um den Inhalten zu folgen, obwohl Grundkenntnisse in statistischen Methoden, Operations Research und Mathematik hilfreich sind. Ferner entsprechen nicht alle Inhalte der Vorlesung dem jeweils letzten Stand der Forschung in der Produktionswirtschaft, da die Folien von Prof.&nbsp;Dr.&nbsp;Manitz stammen und bereits etwas älter sind.</p>
-</section>
-<section id="kursmodule" class="level1">
-<h1>Kursmodule</h1>
-<p>Der Kerninhalt des Kurses ist in sechs Module gegliedert:</p>
+<section id="aufgabe-1-zerlegung-einer-zeitreihe" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-1-zerlegung-einer-zeitreihe">Aufgabe 1: Zerlegung einer Zeitreihe</h2>
+<p>Eine traditionsreiche Manufaktur aus Essen möchte den Verkauf ihrer berühmten Torten besser verstehen, um Zutatenbestellungen und Personalplanung zu optimieren. Die Verkaufszahlen der letzten zwei Jahre (in Stück pro Monat) sind wie folgt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Monat</th>
+<th>Jahr 1</th>
+<th>Jahr 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Januar</td>
+<td>80</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td>Februar</td>
+<td>75</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td>März</td>
+<td>90</td>
+<td>105</td>
+</tr>
+<tr class="even">
+<td>April</td>
+<td>110</td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td>Mai</td>
+<td>130</td>
+<td>150</td>
+</tr>
+<tr class="even">
+<td>Juni</td>
+<td>150</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>Juli</td>
+<td>160</td>
+<td>190</td>
+</tr>
+<tr class="even">
+<td>August</td>
+<td>155</td>
+<td>180</td>
+</tr>
+<tr class="odd">
+<td>September</td>
+<td>120</td>
+<td>140</td>
+</tr>
+<tr class="even">
+<td>Oktober</td>
+<td>100</td>
+<td>115</td>
+</tr>
+<tr class="odd">
+<td>November</td>
+<td>85</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Dezember</td>
+<td>100</td>
+<td>120</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ihre Aufgaben:</strong></p>
 <ol type="1">
-<li><strong>Prognosen und Exponentielles Glätten</strong> - Einführung in Zeitreihenvorhersagen</li>
-<li><strong>Zeitreihenanalyse</strong> - Holt/Winters und Regressionsmodellen</li>
-<li><strong>Beschäftigungsglättung</strong> - Kernkonzepte des Produktionsmanagements</li>
-<li><strong>Ressourcenplanung</strong> - Optimierung der Ressourcenzuweisung</li>
-<li><strong>Reihenfolgeplanung</strong> - Bestimmung optimaler Produktionssequenzen</li>
-<li><strong>Recap</strong> - Wiederholung und offene Fragen</li>
+<li>Stellen Sie die Zeitreihe grafisch dar (eine einfache Skizze auf Papier genügt).</li>
+<li>Beschreiben Sie die Hauptkomponenten (Trend, Saison, Zyklus, irreguläre Schwankungen), die Sie in den Verkaufszahlen vermuten. Wie würden Sie diese qualitativ charakterisieren? (z.B. steigender Trend, saisonale Spitzen im Sommer und zu Weihnachten).</li>
+<li>Skizzieren Sie, wie Sie vorgehen würden, um die Trend- und Saisonkomponenten grob zu schätzen, basierend auf den im Skript vorgestellten Ideen.</li>
+</ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task1" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-task1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-01_files/figure-html/fig-task1-output-1.png" width="689" height="491" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Verkauf Schwarzwälder Kirschtorte
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Qualitative Beschreibung der Komponenten: - Trend (T): Es scheint einen ansteigenden Trend zu geben, da die Verkäufe im zweiten Jahr generell höher sind als im ersten. - Saison (S): Es gibt klare saisonale Schwankungen. Die Verkäufe sind in den Sommermonaten (Juni-August) tendenziell höher. Auch im Frühjahr (z.B. April/Mai) und im Dezember (Weihnachtsgeschäft) gibt es Spitzen. Die geringsten Verkäufe sind zu Jahresbeginn. - Zyklus (C): Mit nur zwei Jahren Daten ist es schwierig, eine mittelfristige zyklische Komponente (z.B. Konjunkturzyklen) zuverlässig zu identifizieren. - Irreguläre Schwankungen (I): Es gibt monatliche Schwankungen, die nicht perfekt durch Trend und Saison erklärt werden können und als zufällige Restschwankungen interpretiert werden.</p>
+<p>Für eine quantitative Analyse (optional, nicht von Hand im Detail gefordert): Man könnte z.B. einen gleitenden Durchschnitt berechnen (z.B. 12-Monate MA, zentriert), um die glatte Komponente T+C zu schätzen. Anschließend könnte man die Verhältnisse der Originaldaten zum gleitenden Durchschnitt berechnen (Y/(T+C) = S*I), um saisonale Faktoren S zu isolieren und zu mitteln.</p>
+</section>
+<section id="aufgabe-2-prognose-ohne-trend" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-2-prognose-ohne-trend">Aufgabe 2: Prognose ohne Trend</h2>
+<p>Eine 3D-Druck Firma aus Duisburg möchte die Nachfrage nach seinen 3D-Druckteilen für den nächsten Tag vorhersagen, um Überproduktion oder Engpässe zu vermeiden. Er hat die Verkaufszahlen der letzten 10 Tage notiert:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tag</th>
+<th>Verkaufte 3D-Druckteile (<span class="math inline">\(y_t\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>120</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>115</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>122</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>118</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>123</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>119</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>126</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>124</td>
+</tr>
+</tbody>
+</table>
+<p>Die Firma geht davon aus, dass der Verkauf relativ konstant ist, aber täglichen Schwankungen unterliegt (d.h. kein klarer Trend, konstantes Niveau).</p>
+<p><strong>Ihre Aufgaben:</strong></p>
+<ol type="1">
+<li>Berechnen Sie einen gleitenden Durchschnitt der Ordnung <span class="math inline">\(n=3\)</span> (3-Tage-Linie), um eine Prognose für Tag 11 zu erstellen (<span class="math inline">\(p_{11}\)</span>). Der Prognosewert für Tag <span class="math inline">\(t+1\)</span> ist der Durchschnittswert zum Zeitpunkt <span class="math inline">\(t\)</span>.</li>
+<li>Wenden Sie die exponentielle Glättung erster Ordnung an, um eine Prognose für Tag 11 zu erstellen. Verwenden Sie einen Glättungsfaktor <span class="math inline">\(\alpha = 0.2\)</span>. Als Startwert für den geglätteten Wert zum Zeitpunkt <span class="math inline">\(t=0\)</span> (Prognose für Tag 1, <span class="math inline">\(p_1\)</span>) nehmen Sie den tatsächlichen Verkauf von Tag 1 (<span class="math inline">\(y_1\)</span>).</li>
+<li>Welche Prognose erscheint Ihnen intuitiv plausibler? Begründen Sie kurz.</li>
+<li>Berechnen Sie den Prognosefehler mit der mittleren absoluten Abweichung für die letzten 4 Tage für beide Verfahren.</li>
+</ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="04468bd9" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Tabelle mit 3-Tage gleitendem Durchschnitt:
+     Verkauf         MA3
+Tag                     
+1        120         NaN
+2        125         NaN
+3        115  120.000000
+4        122  120.666667
+5        118  118.333333
+6        128  122.666667
+7        123  123.000000
+8        119  123.333333
+9        126  122.666667
+10       124  123.000000
+Prognose für Tag 11 (Gleitender Durchschnitt n=3): 123.00
+
+Tabelle mit exponentieller Glättung (alpha=0.2, y_0^(1) = y_1):
+     Verkauf         MA3  ExpGlättung (y_t^(1))
+Tag                                            
+1        120         NaN             120.000000
+2        125         NaN             121.000000
+3        115  120.000000             119.800000
+4        122  120.666667             120.240000
+5        118  118.333333             119.792000
+6        128  122.666667             121.433600
+7        123  123.000000             121.746880
+8        119  123.333333             121.197504
+9        126  122.666667             122.158003
+10       124  123.000000             122.526403
+Prognose für Tag 11 (Exponentielle Glättung, alpha=0.2): 122.53</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pw2-tutorial-01_files/figure-html/cell-3-output-2.png" width="689" height="491" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Begründung Plausibilität: Der gleitende Durchschnitt (123.00) basiert ausschließlich auf den letzten drei Beobachtungen und gewichtet diese gleich. Die exponentielle Glättung (122.62 mit alpha=0.2) berücksichtigt alle vergangenen Beobachtungen, wobei die jüngsten ein höheres Gewicht erhalten. Ein Alpha von 0.2 bedeutet eine relativ starke Glättung, d.h. die Prognose reagiert eher träge auf neue Werte. Beide Prognosen liegen eng beieinander. Wenn man davon ausgeht, dass die letzten Tage sehr repräsentativ für die nahe Zukunft sind und es keine Ausreißer gab, könnte der MA(3) passend sein. Wenn man eine stabilere, stärker geglättete Prognose bevorzugt, die weniger von einzelnen Ausschlägen beeinflusst wird, ist die exponentielle Glättung mit niedrigem Alpha eine gute Wahl.</li>
 </ol>
 </section>
-<section id="tutorials" class="level1">
-<h1>Tutorials</h1>
-<p>Die Tutorials sind von mir auf Basis der Vorlesung von Prof.&nbsp;Dr.&nbsp;Manitz erstellt worden. Sie helfen Ihnen, die Konzepte aus der Vorlesung anzuwenden und zu verstehen. Die Klausur am Ende orientiert sich an den Übungen und wird die Themen der Vorlesung abdecken.</p>
-</section>
-<section id="erlaubte-hilfsmittel" class="level1">
-<h1>Erlaubte Hilfsmittel</h1>
-<p>Da ich Verständnis statt Auswendiglernen fördern möchte, dürfen Sie in der Klausur neben einem Taschenrechner auch einen eigenhändig verfassten, beidseitig beschriebenen A4-Zettel mit Formeln verwenden.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="aufgabe-3-prognose-mit-trend" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-3-prognose-mit-trend">Aufgabe 3: Prognose mit Trend</h2>
+<p>Ein aufstrebender YouTuber hat in den letzten 8 Monaten einen stetigen Zuwachs an neuen Abonnenten verzeichnet. Er möchte die Entwicklung für die nächsten zwei Monate prognostizieren, um seine Content-Strategie anzupassen.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Monat <span class="math inline">\(t\)</span></th>
+<th>Neue Abonnenten <span class="math inline">\(y_t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>530</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>520</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>580</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>620</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>670</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>640</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>710</td>
+</tr>
+</tbody>
+</table>
+<p>Er möchte die Methode der exponentiellen Glättung mit Trendkorrektur verwenden, wie sie im Skript vorgestellt wird. Nutzen Sie einen Glättungsfaktor <span class="math inline">\(\alpha = 0.3\)</span>. Das geschätzte Niveau zum Zeitpunkt <span class="math inline">\(t=0\)</span> ist <span class="math inline">\(\widehat{a}_0 = 480\)</span> und der Trend (Steigung) ist <span class="math inline">\(\widehat{b}_0 = 25\)</span>.</p>
+<p><strong>Ihre Aufgaben:</strong></p>
+<ol type="1">
+<li>Berechnen Sie die initialen Werte <span class="math inline">\(y_0^{(1)}\)</span> und <span class="math inline">\(y_0^{(2)}\)</span>.</li>
+<li>Berechnen Sie iterativ <span class="math inline">\(y_t^{(1)}\)</span>, <span class="math inline">\(y_t^{(2)}\)</span>, <span class="math inline">\(\widehat{a}_t\)</span> und <span class="math inline">\(\widehat{b}_t\)</span> für die Monate <span class="math inline">\(t=1\)</span> bis <span class="math inline">\(t=8\)</span>.</li>
+<li>Erstellen Sie eine Prognose für die Anzahl neuer Abonnenten für Monat 9 und Monat 10.</li>
+<li>Berechnen Sie den Prognosefehler mit der mittleren quadratischen Abweichung (MSE) für Monat 7 und Monat 8.</li>
+</ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="90e6575c" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Abonnentendaten TechTom:
+   Monat  Abonnenten
+0      1         500
+1      2         530
+2      3         520
+3      4         580
+4      5         620
+5      6         670
+6      7         640
+7      8         710
+
+Initialisierung:
+y_0^(1) = 421.67
+y_0^(2) = 363.33
+
+2. Iterative Berechnung für t=1 bis 8:
+t=0: y1_0=421.67, y2_0=363.33, a_hat_0=480.00, b_hat_0=25.00 (gegeben)
+
+Übersicht der Berechnungen:
+   t  y_t    y1_t    y2_t  a_hat_t  b_hat_t
+0  1  500  445.17  387.88   502.45    24.55
+1  2  530  470.62  412.70   528.53    24.82
+2  3  520  485.43  434.52   536.34    21.82
+3  4  580  513.80  458.31   569.30    23.78
+4  5  620  545.66  484.51   606.81    26.21
+5  6  670  582.96  514.05   651.88    29.54
+6  7  640  600.07  539.86   660.29    25.81
+7  8  710  633.05  567.81   698.29    27.96
+
+Letzte Parameter (t=8):
+a_hat_8 = 698.29
+b_hat_8 = 27.96
+
+Prognose für Monat 9 (p_8+1): 726.25
+Prognose für Monat 10 (p_8+2): 754.21</code></pre>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pw2-tutorial-01_files/figure-html/cell-4-output-2.png" width="689" height="491" class="figure-img"></p>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Wichtig: Der Formelzettel muss handschriftlich erstellt werden. Digital erstellte und ausgedruckte Unterlagen sind nicht zugelassen.</p>
 </div>
-</div>
-</section>
-<section id="fragen-und-unterstützung" class="level1">
-<h1>Fragen und Unterstützung</h1>
-<p>Für Ihre Fragen stehe ich jederzeit gerne zur Verfügung. Kontaktieren Sie mich einfach per E-Mail unter <a href="mailto:tobias.vlcek@uni-due.de?subject=Produktionswirtschaft%3A%20%3CIhr%20Betreff%3E">tobias.vlcek@uni-due.de</a>.</p>
-<p>Zusätzlich steht Ihnen auf dieser Seite ein Chatbot zur Verfügung, der auf den Inhalten der Vorlesung basiert und Ihnen bei inhaltlichen Fragen unterstützend zur Seite stehen kann. Er ist nicht perfekt und eher eine Beta-Version, aber ich hoffe, dass er Ihnen dennoch hilft.</p>
+<p><strong>Formeln:</strong></p>
+<ul>
+<li>Initialisierung:
+<ul>
+<li><span class="math inline">\(y_{0}^{(1)}=\widehat{a}_{0}-\widehat{b}_{0} \cdot \frac{1-\alpha}{\alpha}\)</span></li>
+<li><span class="math inline">\(y_{0}^{(2)}=\widehat{a}_{0}-2 \cdot \widehat{b}_{0} \cdot \frac{1-\alpha}{\alpha}\)</span></li>
+</ul></li>
+<li>Aktualisierung der gleitenden Durchschnitte (für <span class="math inline">\(t=1, \dots, 8\)</span>):
+<ul>
+<li><span class="math inline">\(y_{t}^{(1)}=\alpha \cdot y_{t}+(1-\alpha) \cdot y_{t-1}^{(1)}\)</span></li>
+<li><span class="math inline">\(y_{t}^{(2)}=\alpha \cdot y_{t}^{(1)}+(1-\alpha) \cdot y_{t-1}^{(2)}\)</span></li>
+</ul></li>
+<li>Aktualisierung der Parameter der Trendgeraden (für <span class="math inline">\(t=1, \dots, 8\)</span>):
+<ul>
+<li><span class="math inline">\(\widehat{a}_{t}=2 \cdot y_{t}^{(1)}-y_{t}^{(2)}\)</span></li>
+<li><span class="math inline">\(\widehat{b}_{t}=\frac{\alpha}{1-\alpha} \cdot\left(y_{t}^{(1)}-y_{t}^{(2)}\right)\)</span></li>
+</ul></li>
+<li>Prognosewert (basierend auf Werten von <span class="math inline">\(t=8\)</span>):
+<ul>
+<li><span class="math inline">\(p_{8+i}=\widehat{a}_{8}+\widehat{b}_{8} \cdot i\)</span></li>
+</ul></li>
+</ul>
 
 
 </section>
@@ -778,7 +1074,7 @@ Tip
     </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./general/privacy.html">
+    <a class="nav-link" href="../general/privacy.html">
 <p>Privacy Policy</p>
 </a>
   </li>  
