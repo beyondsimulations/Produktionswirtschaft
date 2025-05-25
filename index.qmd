@@ -16,8 +16,12 @@ Dieser Kurs behandelt das Modul Produktionswirtschaft 2 auf Basis der ursprüngl
 
 # Neuigkeiten
 
-Unser Termin am 20. Mai findet, wie gemeinsam besprochen, online um 13:00 Uhr statt. [Hier der Link zum Termin](https://meet.google.com/pne-bktr-nxt).
-Darüber hinaus habe ich noch einige Updates am Chatbot zum Kurs vorgenommen, er sollte jetzt wesentlich hilfreicher sein. Wichtig ist, dass Sie bei Fragen dem Chatbot möglichst den genauen Kontext zur Aufgabe geben, also entweder die konkrete Aufgabenstellung, an der Sie gerade arbeiten oder einen etwas längeren Text. Ansonsten versteht er nicht, an welchem Thema genau Sie arbeiten und kann nicht wirklich helfen.
+Ich habe, wie besprochen, beispielhaft die eingereichten Klausuraufgaben korrigiert. Die markierten Ergebnisse finden Sie [hier](general/Beispielklausur-A.pdf) und [hier](general/Beispielklausur-B.pdf).
+Grundsätzlich sehen die Lösungen bereits sehr gut aus. Allerdings hätte ich bei einigen Aufgaben eine etwas andere Punkteverteilung gewählt – insbesondere beim parallelen Verfahren mit parallelen Prioritätsregeln. Dies gilt vor allem dann, wenn das Verfahren angewendet werden kann, ohne dass jeder einzelne Schritt dokumentiert werden muss.
+
+Die angegebenen Punktzahlen bei den Aufgaben geben Ihnen in der Klausur eine gute Orientierung über den erwarteten Aufwand pro Aufgabe. Ich bin zuversichtlich, dass die kommende Klausur gut verlaufen wird. Bei weiteren Fragen können Sie mich gerne per E-Mail kontaktieren. Meine Antworten werde ich anschließend auch in den FAQs für alle Studierenden veröffentlichen.
+
+Viel Erfolg bei der Klausur!
 
 # Lernziele
 
