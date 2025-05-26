@@ -47,7 +47,7 @@ Der Kerninhalt des Kurses ist in sechs Module gegliedert:
 
 # Tutorials
 
-Die Tutorials sind von mir auf Basis der Vorlesung von Prof. Dr. Manitz erstellt worden. Sie helfen Ihnen, die Konzepte aus der Vorlesung anzuwenden und zu verstehen. Die Klausur am Ende orientiert sich an den Übungen und wird die Themen der Vorlesung abdecken.
+Die Tutorials sind von mir auf Basis der Vorlesung von Prof. Dr. Manitz erstellt worden. Sie helfen Ihnen, die Konzepte aus der Vorlesung anzuwenden und zu verstehen. Die Klausur am Ende orientiert sich an den Probeklausuren von Herrn Manitz und wird die Themen der Vorlesung abdecken, die wir gemeinsam behandelt haben.
 
 # Erlaubte Hilfsmittel
 
