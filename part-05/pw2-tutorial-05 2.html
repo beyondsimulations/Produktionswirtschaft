@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Produktionswirtschaft 2! – Produktionswirtschaft</title>
+<title>Übung 05 – Produktionswirtschaft</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ac881602332e3938779ca5fc3517c7d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-226bd0f977fa82dfae4534cac220d79a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ac881602332e3938779ca5fc3517c7d9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script defer="" src="https://umi.byndsim.com/script.js" data-website-id="e230d76b-b0a6-477e-8c5d-19a7bd661e68"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Startseite</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05/pw2-lecture-05.pdf">05 Abläufe</a></li><li class="breadcrumb-item"><a href="../part-05/pw2-tutorial-05.html">Tutorium</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,7 +124,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
+      <a href="../index.html" class="sidebar-logo-link">
       <img src="https://images.beyondsimulations.com/logo/logo_pw2.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       </div>
@@ -108,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Startseite</span></a>
   </div>
 </li>
@@ -126,13 +155,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-01/pw2-lecture-01.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-01/pw2-lecture-01.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-01/pw2-tutorial-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-01/pw2-tutorial-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -149,13 +178,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-02/pw2-lecture-02.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-02/pw2-lecture-02.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-02/pw2-tutorial-02.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-02/pw2-tutorial-02.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -172,13 +201,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-03/pw2-lecture-03.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-03/pw2-lecture-03.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-03/pw2-tutorial-03.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-03/pw2-tutorial-03.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -195,13 +224,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-04/pw2-lecture-04.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-04/pw2-lecture-04.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-04/pw2-tutorial-04.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-04/pw2-tutorial-04.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -218,13 +247,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-05/pw2-lecture-05.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../part-05/pw2-lecture-05.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Vorlesung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-05/pw2-tutorial-05.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-05/pw2-tutorial-05.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -235,13 +264,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./general/faqs.html" class="sidebar-item-text sidebar-link">
+  <a href="../general/faqs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQs</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./general/chat.html" class="sidebar-item-text sidebar-link">
+  <a href="../general/chat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chat</span></a>
   </div>
 </li>
@@ -255,23 +284,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#beschreibung" id="toc-beschreibung" class="nav-link active" data-scroll-target="#beschreibung">Beschreibung</a></li>
-  <li><a href="#neuigkeiten" id="toc-neuigkeiten" class="nav-link" data-scroll-target="#neuigkeiten">Neuigkeiten</a></li>
-  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele">Lernziele</a></li>
-  <li><a href="#kursmodule" id="toc-kursmodule" class="nav-link" data-scroll-target="#kursmodule">Kursmodule</a></li>
-  <li><a href="#tutorials" id="toc-tutorials" class="nav-link" data-scroll-target="#tutorials">Tutorials</a></li>
-  <li><a href="#erlaubte-hilfsmittel" id="toc-erlaubte-hilfsmittel" class="nav-link" data-scroll-target="#erlaubte-hilfsmittel">Erlaubte Hilfsmittel</a></li>
-  <li><a href="#fragen-und-unterstützung" id="toc-fragen-und-unterstützung" class="nav-link" data-scroll-target="#fragen-und-unterstützung">Fragen und Unterstützung</a></li>
+  <li><a href="#aufgabe-1-optimierung-der-montage" id="toc-aufgabe-1-optimierung-der-montage" class="nav-link active" data-scroll-target="#aufgabe-1-optimierung-der-montage">Aufgabe 1: Optimierung der Montage</a></li>
+  <li><a href="#aufgabe-2-einhaltung-von-produktionsfristen" id="toc-aufgabe-2-einhaltung-von-produktionsfristen" class="nav-link" data-scroll-target="#aufgabe-2-einhaltung-von-produktionsfristen">Aufgabe 2: Einhaltung von Produktionsfristen</a></li>
+  <li><a href="#aufgabe-3-produktionsoptimierung" id="toc-aufgabe-3-produktionsoptimierung" class="nav-link" data-scroll-target="#aufgabe-3-produktionsoptimierung">Aufgabe 3: Produktionsoptimierung</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="pw2-tutorial-05.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-05/pw2-lecture-05.pdf">05 Abläufe</a></li><li class="breadcrumb-item"><a href="../part-05/pw2-tutorial-05.html">Tutorium</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Produktionswirtschaft 2!</h1>
-<p class="subtitle lead">Universität Duisburg-Essen - Sommersemester 2025</p>
+<h1 class="title">Übung 05</h1>
+<p class="subtitle lead">Optimierung von Ablaufplanungen</p>
 </div>
 
 
@@ -288,64 +313,389 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="beschreibung" class="level1">
-<h1>Beschreibung</h1>
-<p>Dieser Kurs behandelt das Modul Produktionswirtschaft 2 auf Basis der ursprünglichen Vorlesung von Prof.&nbsp;Dr.&nbsp;Manitz. Ich habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.</p>
-</section>
-<section id="neuigkeiten" class="level1">
-<h1>Neuigkeiten</h1>
-<p>Ich habe, wie besprochen, beispielhaft die eingereichten Klausuraufgaben korrigiert. Die markierten Ergebnisse finden Sie <a href="general/Beispielklausur-A.pdf">hier</a> und <a href="general/Beispielklausur-B.pdf">hier</a>. Grundsätzlich sehen die Lösungen bereits sehr gut aus. Allerdings hätte ich bei einigen Aufgaben eine etwas andere Punkteverteilung gewählt – insbesondere beim parallelen Verfahren mit parallelen Prioritätsregeln. Dies gilt vor allem dann, wenn das Verfahren angewendet werden kann, ohne dass jeder einzelne Schritt dokumentiert werden muss.</p>
-<p>Die angegebenen Punktzahlen bei den Aufgaben geben Ihnen in der Klausur eine gute Orientierung über den erwarteten Aufwand pro Aufgabe. Ich bin zuversichtlich, dass die kommende Klausur gut verlaufen wird. Bei weiteren Fragen können Sie mich gerne per E-Mail kontaktieren. Meine Antworten werde ich anschließend auch in den FAQs für alle Studierenden veröffentlichen.</p>
-<p>Viel Erfolg bei der Klausur!</p>
-</section>
-<section id="lernziele" class="level1">
-<h1>Lernziele</h1>
-<p>Mein Ziel ist es, Ihnen die Grundlagen der Zeitreihenanalyse und Produktionsplanung näherzubringen. Diese Konzepte werden sowohl in der Wissenschaft als auch in der Industrie eingesetzt und sind gute Werkzeuge für die Produktionswirtschaft.</p>
-<p>Nach Abschluss dieses Kurses werden Sie in der Lage sein:</p>
-<ul>
-<li>Grundlegende Zeitreihenprognosen durchzuführen</li>
-<li>Produktionsplanungsmodelle zu erstellen und zu analysieren</li>
-<li>Die Kernkonzepte der Produktionssteuerung zu verstehen</li>
-</ul>
-<p>Es sind keine fortgeschrittenen Kenntnisse oder Erfahrungen erforderlich, um den Inhalten zu folgen, obwohl Grundkenntnisse in statistischen Methoden, Operations Research und Mathematik hilfreich sind. Ferner entsprechen nicht alle Inhalte der Vorlesung dem jeweils letzten Stand der Forschung in der Produktionswirtschaft, da die Folien von Prof.&nbsp;Dr.&nbsp;Manitz stammen und bereits etwas älter sind.</p>
-</section>
-<section id="kursmodule" class="level1">
-<h1>Kursmodule</h1>
-<p>Der Kerninhalt des Kurses ist in sechs Module gegliedert:</p>
+<section id="aufgabe-1-optimierung-der-montage" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-1-optimierung-der-montage">Aufgabe 1: Optimierung der Montage</h2>
+<p>Cyber Systems steht vor der Herausforderung, die Montage ihrer neuesten Endoskelett-Arme zu optimieren. In der Endmontage gibt es eine einzelne Station, die für die finale Qualitätsprüfung und Kalibrierung zuständig ist. Für eine Charge von 6 Armen sind die Bearbeitungszeiten (in Stunden) für diese Station bekannt. Die Aufträge sind in der Reihenfolge ihres Eintreffens (FCFS) nummeriert.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Auftrag (Arm-ID)</th>
+<th>Bearbeitungszeit <span class="math inline">\(a_p\)</span> (Stunden)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A001</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>A002</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>A003</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>A004</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>A005</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>A006</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ihre Aufgaben:</strong></p>
 <ol type="1">
-<li><strong>Prognosen und Exponentielles Glätten</strong> - Einführung in Zeitreihenvorhersagen</li>
-<li><strong>Zeitreihenanalyse</strong> - Holt/Winters und Regressionsmodellen</li>
-<li><strong>Beschäftigungsglättung</strong> - Kernkonzepte des Produktionsmanagements</li>
-<li><strong>Ressourcenplanung</strong> - Optimierung der Ressourcenzuweisung</li>
-<li><strong>Reihenfolgeplanung</strong> - Bestimmung optimaler Produktionssequenzen</li>
-<li><strong>Recap</strong> - Wiederholung und offene Fragen</li>
+<li>Ermitteln Sie die Auftragsreihenfolge nach der FCFS-Regel (First Come, First Served). Berechnen Sie für diese Reihenfolge:
+<ul>
+<li>Den Fertigstellungszeitpunkt <span class="math inline">\(F_p\)</span> für jeden Auftrag.</li>
+<li>Die Durchlaufzeit <span class="math inline">\(D_p\)</span> für jeden Auftrag (da alle Aufträge zum Zeitpunkt 0 eintreffen, gilt <span class="math inline">\(D_p = F_p\)</span>).</li>
+<li>Die mittlere Durchlaufzeit <span class="math inline">\(\bar{D}\)</span>.</li>
+</ul></li>
+<li>Ermitteln Sie die Auftragsreihenfolge nach der KOZ-Regel (Kürzeste Operationszeit-Regel, auch SPT-Regel). Berechnen Sie für diese Reihenfolge ebenfalls <span class="math inline">\(F_p\)</span>, <span class="math inline">\(D_p\)</span> und <span class="math inline">\(\bar{D}\)</span>.</li>
+<li>Vergleichen Sie die Ergebnisse der FCFS- und KOZ-Regel. Welche Regel führt zu einer geringeren mittleren Durchlaufzeit?</li>
+<li>Diskutieren Sie kurz, warum die KOZ-Regel in Bezug auf die mittlere Durchlaufzeit optimal ist, aber welche potenziellen Nachteile sie haben könnte.</li>
 </ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task1" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ursprüngliche Auftragsdaten:
+  Auftrag  Bearbeitungszeit_ap
+0    A001                    3
+1    A002                    5
+2    A003                    2
+3    A004                    8
+4    A005                    4
+5    A006                    6
+
+1. FCFS-Regel:
+  Auftrag  Bearbeitungszeit_ap  Fertigstellungszeit_Fp  Durchlaufzeit_Dp
+0    A001                    3                       3                 3
+1    A002                    5                       8                 8
+2    A003                    2                      10                10
+3    A004                    8                      18                18
+4    A005                    4                      22                22
+5    A006                    6                      28                28
+Mittlere Durchlaufzeit (FCFS): 14.83 Stunden
+
+2. KOZ-Regel (Kürzeste Operationszeit):
+  Auftrag  Bearbeitungszeit_ap  Fertigstellungszeit_Fp  Durchlaufzeit_Dp
+0    A003                    2                       2                 2
+1    A001                    3                       5                 5
+2    A005                    4                       9                 9
+3    A002                    5                      14                14
+4    A006                    6                      20                20
+5    A004                    8                      28                28
+Mittlere Durchlaufzeit (KOZ): 13.00 Stunden
+
+3. Vergleich der Ergebnisse:
+Die FCFS-Regel führt zu einer mittleren Durchlaufzeit von 14.83 Stunden.
+Die KOZ-Regel führt zu einer mittleren Durchlaufzeit von 13.00 Stunden.
+Die KOZ-Regel ist in diesem Fall besser und reduziert die mittlere Durchlaufzeit.
+
+4. Diskussion zur KOZ-Regel:
+Die KOZ-Regel minimiert die mittlere Durchlaufzeit (und damit auch die mittlere Wartezeit und den mittleren Bestand), weil sie dafür sorgt, dass Aufträge schnell abgeschlossen werden und die Anzahl der wartenden Aufträge rasch reduziert wird. Jeder Auftrag, der früher fertiggestellt wird, trägt weniger zur Summe der Durchlaufzeiten bei.
+Potenzielle Nachteile:
+- Aufträge mit langer Bearbeitungszeit könnten sehr lange warten müssen ("Aushungern" langer Aufträge), was zu einer hohen Varianz der Durchlaufzeiten führen kann.
+- Wenn Liefertermine eine Rolle spielen, werden diese von der KOZ-Regel nicht berücksichtigt, was zu Verspätungen bei wichtigen Aufträgen führen kann, auch wenn diese eine lange Bearbeitungszeit haben.
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-task1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-05_files/figure-html/fig-task1-output-2.png" width="689" height="494" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Bearbeitungsplan Endoskelett-Arme
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="tutorials" class="level1">
-<h1>Tutorials</h1>
-<p>Die Tutorials sind von mir auf Basis der Vorlesung von Prof.&nbsp;Dr.&nbsp;Manitz erstellt worden. Sie helfen Ihnen, die Konzepte aus der Vorlesung anzuwenden und zu verstehen. Die Klausur am Ende orientiert sich an den Probeklausuren von Herrn Manitz und wird die Themen der Vorlesung abdecken, die wir gemeinsam behandelt haben.</p>
+<section id="aufgabe-2-einhaltung-von-produktionsfristen" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-2-einhaltung-von-produktionsfristen">Aufgabe 2: Einhaltung von Produktionsfristen</h2>
+<p>Wey Corp.&nbsp;steht unter Druck, kritische Navigationskomponenten für ihre nächste Generation von Frachtern der “Nostromos”-Klasse zu fertigen. Jeder Komponententyp durchläuft eine spezielle Endmontage- und Teststation. Für die aktuelle Produktionswoche liegen fünf dringende Aufträge vor, jeweils mit bekannter Bearbeitungszeit an dieser Station und einem festen Auslieferungstermin (Plantermin). Das Management möchte die Anzahl der verspäteten Aufträge minimieren. Alle Aufträge sind zu Beginn der Woche (Zeitpunkt 0) verfügbar.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 39%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Auftrag (Komponente)</th>
+<th>Bearbeitungszeit <span class="math inline">\(a_p\)</span> (Tage)</th>
+<th>Plantermin <span class="math inline">\(LT_p\)</span> (Tag)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>C01</td>
+<td>3</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>C02</td>
+<td>5</td>
+<td>10</td>
+</tr>
+<tr class="odd">
+<td>C03</td>
+<td>2</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>C04</td>
+<td>6</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>C05</td>
+<td>4</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ihre Aufgaben:</strong></p>
+<ol type="1">
+<li>Sortieren Sie die Aufträge zunächst nach der Liefertermin-Regel (EDD - Earliest Due Date). Erstellen Sie einen Plan und ermitteln Sie für jeden Auftrag den Fertigstellungszeitpunkt <span class="math inline">\(F_p\)</span> und die Verspätung <span class="math inline">\(V_p = \max(0, F_p - LT_p)\)</span>. Wie viele Aufträge sind verspätet?</li>
+<li>Wenden Sie nun das Hodgson-Verfahren an, um die Anzahl der verspäteten Aufträge zu minimieren.</li>
+<li>Erstellen Sie den finalen Ablaufplan. Berechnen Sie für diesen Plan:
+<ul>
+<li>Den Fertigstellungszeitpunkt <span class="math inline">\(F_p\)</span> für jeden Auftrag.</li>
+<li>Die Verspätung <span class="math inline">\(V_p\)</span> für jeden Auftrag.</li>
+<li>Die Gesamtzahl der verspäteten Aufträge.</li>
+<li>Die maximale Verspätung.</li>
+</ul></li>
+<li>Vergleichen Sie das Ergebnis des Hodgson-Verfahrens mit dem der reinen Liefertermin-Regel hinsichtlich der Anzahl verspäteter Aufträge.</li>
+</ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task2" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ursprüngliche Auftragsdaten:
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp
+0     C01                    3               7
+1     C02                    5              10
+2     C03                    2               5
+3     C04                    6              12
+4     C05                    4               8
+
+1. Reine Liefertermin-Regel (EDD):
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fertigstellungszeit_Fp  \
+0     C03                    2               5                       2   
+1     C01                    3               7                       5   
+2     C05                    4               8                       9   
+3     C02                    5              10                      14   
+4     C04                    6              12                      20   
+
+   Verspaetung_Vp  
+0               0  
+1               0  
+2               1  
+3               4  
+4               8  
+Anzahl verspäteter Aufträge (EDD): 3
+Maximale Verspätung (EDD): 8
+Gesamte Verspätung (EDD): 13
+
+2. Hodgson-Verfahren (Schrittweise):
+
+Iteration 1:
+Aktuelle Reihenfolge in R (nach EDD sortiert mit Fp, Vp):
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fp_temp  Vp_temp
+0     C03                    2               5        2        0
+1     C01                    3               7        5        0
+2     C05                    4               8        9        1
+3     C02                    5              10       14        4
+4     C04                    6              12       20        8
+Erster verspäteter Auftrag: C05
+Betrachte Teilmenge für Entfernung (bis einschl. erster Verspäteter):
+  Auftrag  Bearbeitungszeit_ap
+0     C03                    2
+1     C01                    3
+2     C05                    4
+Entferne Auftrag 'C05' (Bearbeitungszeit: 4)
+Aktuelles R_set (Original Indizes): [0, 1, 2, 3]
+Aktuelles S_set (Original Indizes): [4]
+
+Iteration 2:
+Aktuelle Reihenfolge in R (nach EDD sortiert mit Fp, Vp):
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fp_temp  Vp_temp
+0     C03                    2               5        2        0
+1     C01                    3               7        5        0
+2     C02                    5              10       10        0
+3     C04                    6              12       16        4
+Erster verspäteter Auftrag: C04
+Betrachte Teilmenge für Entfernung (bis einschl. erster Verspäteter):
+  Auftrag  Bearbeitungszeit_ap
+0     C03                    2
+1     C01                    3
+2     C02                    5
+3     C04                    6
+Entferne Auftrag 'C04' (Bearbeitungszeit: 6)
+Aktuelles R_set (Original Indizes): [0, 1, 2]
+Aktuelles S_set (Original Indizes): [4, 3]
+
+Iteration 3:
+Aktuelle Reihenfolge in R (nach EDD sortiert mit Fp, Vp):
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fp_temp  Vp_temp
+0     C03                    2               5        2        0
+1     C01                    3               7        5        0
+2     C02                    5              10       10        0
+Keine verspäteten Aufträge in R_set gefunden. Hodgson-Algorithmus abgeschlossen für R_set.
+
+3. &amp; 4. Finaler Ablaufplan nach Hodgson-Verfahren:
+  Auftrag  Bearbeitungszeit_ap  Plantermin_LTp  Fertigstellungszeit_Fp  \
+0     C03                    2               5                       2   
+1     C01                    3               7                       5   
+2     C02                    5              10                      10   
+3     C05                    4               8                      14   
+4     C04                    6              12                      20   
+
+   Verspaetung_Vp  
+0               0  
+1               0  
+2               0  
+3               6  
+4               8  
+Anzahl verspäteter Aufträge (Hodgson): 2
+Maximale Verspätung (Hodgson): 8
+Gesamte Verspätung (Hodgson): 14
+
+5. Vergleich:
+Die reine Liefertermin-Regel (EDD) führte zu 3 verspäteten Aufträgen.
+Das Hodgson-Verfahren führt zu 2 verspäteten Aufträgen.
+Das Hodgson-Verfahren ist darauf ausgelegt, die *Anzahl* der verspäteten Aufträge zu minimieren, was hier gelungen ist. 
+Es kann jedoch vorkommen, dass die maximale oder gesamte Verspätung dadurch nicht zwingend minimal wird oder sich sogar erhöht.
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div id="fig-task2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-05_files/figure-html/fig-task2-output-2.png" width="686" height="491" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Produktionsplan Komponenten
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="erlaubte-hilfsmittel" class="level1">
-<h1>Erlaubte Hilfsmittel</h1>
-<p>Da ich Verständnis statt Auswendiglernen fördern möchte, dürfen Sie in der Klausur neben einem Taschenrechner auch einen eigenhändig verfassten, beidseitig beschriebenen A4-Zettel mit Formeln verwenden.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="aufgabe-3-produktionsoptimierung" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-3-produktionsoptimierung">Aufgabe 3: Produktionsoptimierung</h2>
+<p>Johnson-Industries arbeitet an der Fertigung von Schlüsselkomponenten für ein neues, fortschrittliches Verteidigungssystem, Projekt “Aegis”. Jede Komponente muss zwei Hauptproduktionsstufen durchlaufen: Zuerst eine Präzisionsbearbeitung auf Maschine A und anschließend eine komplexe Montage auf Maschine B. Die Aufträge können nicht überholt werden und die Reihenfolge der Bearbeitung ist auf beiden Maschinen gleich (Flow Shop). Ziel ist es, die Gesamtfertigungszeit für alle anstehenden Komponenten (den Makespan) zu minimieren.</p>
+<p>Für die anstehende Produktionscharge sind die Bearbeitungszeiten (in Stunden) für fünf Komponenten bekannt:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 41%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Komponente (ID)</th>
+<th>Bearbeitungszeit Maschine A (Stunden)</th>
+<th>Bearbeitungszeit Maschine B (Stunden)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ARC-01</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>REP-02</td>
+<td>1</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>UNI-03</td>
+<td>9</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td>THR-04</td>
+<td>3</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td>STA-05</td>
+<td>10</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ihre Aufgaben:</strong></p>
+<ol type="1">
+<li>Wenden Sie den Johnson-Algorithmus an, um die optimale Auftragsreihenfolge zu bestimmen, die den Makespan minimiert. Dokumentieren Sie Ihre Schritte zur Herleitung der Reihenfolge. Geben Sie die finale, optimale Auftragsreihenfolge an.</li>
+<li>Erstellen Sie einen detaillierten Belegungsplan (Gantt-Diagramm) für die ermittelte Reihenfolge. Zeichnen Sie die Belegung für Maschine A und Maschine B.</li>
+<li>Berechnen Sie den minimalen Makespan (Gesamtfertigungszeit) für diese Auftragscharge.</li>
+</ol>
+<p><strong>Lösungshinweise:</strong></p>
+<div id="cell-fig-task3" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>Ursprüngliche Auftragsdaten:
+  Auftrag  Zeit_M1  Zeit_M2
+0  ARC-01        5        2
+1  REP-02        1        6
+2  UNI-03        9        7
+3  THR-04        3        8
+4  STA-05       10        4
+
+Schritte des Johnson-Algorithmus:
+Schritt 1: Kürzeste Zeit 1 (Maschine A) für Auftrag REP-02. Platziere vorn an Position 1.
+Schritt 2: Kürzeste Zeit 2 (Maschine B) für Auftrag ARC-01. Platziere hinten an Position 5.
+Schritt 3: Kürzeste Zeit 3 (Maschine A) für Auftrag THR-04. Platziere vorn an Position 2.
+Schritt 4: Kürzeste Zeit 4 (Maschine B) für Auftrag STA-05. Platziere hinten an Position 4.
+Schritt 5: Kürzeste Zeit 7 (Maschine B) für Auftrag UNI-03. Platziere hinten an Position 3.
+
+2. Finale optimale Auftragsreihenfolge nach Johnson:
+  Auftrag  Zeit_M1  Zeit_M2
+0  REP-02        1        6
+1  THR-04        3        8
+2  UNI-03        9        7
+3  STA-05       10        4
+4  ARC-01        5        2
+
+4. Minimaler Makespan: 30 Stunden
+
+3. Belegungsdaten für Gantt-Diagramm:
+  Auftrag    Maschine  Start  Dauer  Ende
+0  REP-02  Maschine A      0      1     1
+1  REP-02  Maschine B      1      6     7
+2  THR-04  Maschine A      1      3     4
+3  THR-04  Maschine B      7      8    15
+4  UNI-03  Maschine A      4      9    13
+5  UNI-03  Maschine B     15      7    22
+6  STA-05  Maschine A     13     10    23
+7  STA-05  Maschine B     23      4    27
+8  ARC-01  Maschine A     23      5    28
+9  ARC-01  Maschine B     28      2    30</code></pre>
 </div>
-<div class="callout-title-container flex-fill">
-Tip
+<div class="cell-output cell-output-display">
+<div id="fig-task3" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-task3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="pw2-tutorial-05_files/figure-html/fig-task3-output-2.png" width="689" height="491" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-task3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Produktionsplan Johnson-Industries (Johnson-Algorithmus)
+</figcaption>
+</figure>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p>Wichtig: Der Formelzettel muss handschriftlich erstellt werden. Digital erstellte und ausgedruckte Unterlagen sind nicht zugelassen.</p>
 </div>
-</div>
-</section>
-<section id="fragen-und-unterstützung" class="level1">
-<h1>Fragen und Unterstützung</h1>
-<p>Für Ihre Fragen stehe ich jederzeit gerne zur Verfügung. Kontaktieren Sie mich einfach per E-Mail unter <a href="mailto:tobias.vlcek@uni-due.de?subject=Produktionswirtschaft%3A%20%3CIhr%20Betreff%3E">tobias.vlcek@uni-due.de</a>.</p>
-<p>Zusätzlich steht Ihnen auf dieser Seite ein Chatbot zur Verfügung, der auf den Inhalten der Vorlesung basiert und Ihnen bei inhaltlichen Fragen unterstützend zur Seite stehen kann. Er ist nicht perfekt und eher eine Beta-Version, aber ich hoffe, dass er Ihnen dennoch hilft.</p>
 
 
 </section>
@@ -780,7 +1130,7 @@ Tip
     </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="./general/privacy.html">
+    <a class="nav-link" href="../general/privacy.html">
 <p>Privacy Policy</p>
 </a>
   </li>  
