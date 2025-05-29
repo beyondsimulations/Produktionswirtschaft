@@ -261,8 +261,7 @@ print(df_task3)
 # Einfacher GD der Ordnung 4
 df_task3['GD4'] = df_task3['Verkauf'].rolling(window=4).mean()
 # Zentrierter GD (Durchschnitt von 2 aufeinanderfolgenden GD4 Werten)
-df_task3['ZGD4'] = df_task3['GD4'].rolling(window=2).mean().shift(-1) # shift(-1) zur korrekten Zuordnung
-
+df_task3['ZGD4'] = df_task3['GD4'].rolling(window=2).mean()
 print("\nVerkaufsdaten mit GD4 und ZGD4:")
 print(df_task3[['Periode', 'Verkauf', 'GD4', 'ZGD4']].round(2))
 
