@@ -392,7 +392,7 @@ window.Quarto = {
 <li>Saisonalisieren Sie diese Prognosen, indem Sie sie mit den entsprechenden Saisonindizes multiplizieren, um die finalen Verkaufsprognosen zu erhalten.</li>
 </ol>
 <p><strong>Lösung (Python-Code):</strong></p>
-<div id="f33aed83" class="cell" data-execution_count="1">
+<div id="03103679" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>Verkaufsdaten Gelato Paradiso:
    Jahr QuartalStr  Verkauf  Periode  Saisonindex
@@ -540,7 +540,7 @@ Finale Verkaufsprognosen für Jahr 3 (resaisoniert):
 <li>Normieren Sie die durchschnittlichen Saisonfaktoren, sodass ihre Summe der Anzahl der Saisons (hier 4) entspricht. Diese normierten Werte sind die finalen Saisonindizes (<span class="math inline">\(\widehat{s}_m\)</span>).</li>
 </ol>
 <p><strong>Lösung (Python-Code):</strong></p>
-<div id="ee57a36e" class="cell" data-execution_count="2">
+<div id="9b6267cc" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-stdout">
 <pre><code>Verkaufsdaten FrostyFun Eiscreme:
     Jahr QuartalStr  Verkauf  Periode
@@ -562,43 +562,43 @@ Verkaufsdaten mit GD4 und ZGD4:
 0         1      150    NaN     NaN
 1         2      250    NaN     NaN
 2         3      350    NaN     NaN
-3         4      180  232.5  235.00
-4         5      170  237.5  241.25
-5         6      280  245.0  250.00
-6         7      390  255.0  258.75
-7         8      210  262.5  265.00
-8         9      190  267.5  271.25
-9        10      310  275.0  280.00
-10       11      430  285.0  288.75
-11       12      240  292.5     NaN
+3         4      180  232.5     NaN
+4         5      170  237.5  235.00
+5         6      280  245.0  241.25
+6         7      390  255.0  250.00
+7         8      210  262.5  258.75
+8         9      190  267.5  265.00
+9        10      310  275.0  271.25
+10       11      430  285.0  280.00
+11       12      240  292.5  288.75
 
 Verkaufsdaten mit Roh-Saisonfaktoren:
     Periode QuartalStr  Verkauf    ZGD4  Roh_SF
-3         4         Q4      180  235.00   0.766
-4         5         Q1      170  241.25   0.705
-5         6         Q2      280  250.00   1.120
-6         7         Q3      390  258.75   1.507
-7         8         Q4      210  265.00   0.792
-8         9         Q1      190  271.25   0.700
-9        10         Q2      310  280.00   1.107
-10       11         Q3      430  288.75   1.489
+4         5         Q1      170  235.00   0.723
+5         6         Q2      280  241.25   1.161
+6         7         Q3      390  250.00   1.560
+7         8         Q4      210  258.75   0.812
+8         9         Q1      190  265.00   0.717
+9        10         Q2      310  271.25   1.143
+10       11         Q3      430  280.00   1.536
+11       12         Q4      240  288.75   0.831
 
 Durchschnittliche Saisonfaktoren (s_m):
    QuartalNum  s_m_durchschnitt
-0           1             0.703
-1           2             1.114
-2           3             1.498
-3           4             0.779
+0           1             0.720
+1           2             1.152
+2           3             1.548
+3           4             0.821
 
-Summe der durchschnittlichen SF: 4.094
-Normierungsfaktor: 0.977
+Summe der durchschnittlichen SF: 4.241
+Normierungsfaktor: 0.943
 
 Finale normierte Saisonindizes:
    QuartalNum  s_m_durchschnitt  Saisonindex_Normiert
-0           1             0.703                 0.687
-1           2             1.114                 1.088
-2           3             1.498                 1.464
-3           4             0.779                 0.761
+0           1             0.720                 0.679
+1           2             1.152                 1.086
+2           3             1.548                 1.460
+3           4             0.821                 0.775
 Summe der normierten Saisonindizes: 4.00</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -611,10 +611,10 @@ Summe der normierten Saisonindizes: 4.00</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Übersicht der finalen Saisonindizes:
-Q1    0.687
-Q2    1.088
-Q3    1.464
-Q4    0.761
+Q1    0.679
+Q2    1.086
+Q3    1.460
+Q4    0.775
 dtype: float64</code></pre>
 </div>
 </div>
@@ -685,7 +685,7 @@ dtype: float64</code></pre>
 <li>Würden Sie denken, dass das Verfahren von Holt und Winters besser geeignet wäre, um die Verkaufszahlen zu prognostizieren?</li>
 </ol>
 <p><strong>Lösung (Python-Code):</strong></p>
-<div id="354949d1" class="cell" data-execution_count="3">
+<div id="c63527b7" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-stdout">
 <pre><code>Verkaufsdaten Deep Learning:
    Monat  Verkauf
