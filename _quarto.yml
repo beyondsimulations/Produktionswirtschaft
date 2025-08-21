@@ -57,20 +57,16 @@ website:
       - text: "***"
       - text: "FAQs"
         href: general/faqs.qmd
-      - text: "Chat"
-        href: general/chat.qmd
 
-  page-footer: 
-    center: "Produktionswirtschaft, Tobias Vlćek</br>CC BY-NC-SA 4.0" 
-    right: 
+  page-footer:
+    center: "Produktionswirtschaft, Tobias Vlćek</br>CC BY-NC-SA 4.0"
+    right:
       - icon: github
         href: https://github.com/beyondsimulations/Produktionswirtschaft
       - icon: linkedin
         href: https://linkedin.com/in/tobiasvlcek
       - icon: envelope
         href: mailto:workshop@beyondsimulations.com
-      - icon: lock
-        href: general/privacy.qmd
 
 format:
   html:
@@ -86,43 +82,9 @@ format:
     code-block-border-left: "#AD1F00"
     include-in-header:
       - general/header.html
-    include-after-body: 
-      text: |
-        <script>
-          window.difyChatbotConfig = {
-            token: 'oj8UtJHplG4byLvd',
-            baseUrl: 'https://flow.byndsim.com',
-            systemVariables: {
-              // user_id: 'YOU CAN DEFINE USER ID HERE',
-            },
-            containerProps: {
-              style: {
-                  backgroundColor: '#ffffff',
-                  borderRadius: '0px',
-              },
-            },
-          }
-        </script>
-        <script
-          src="https://flow.byndsim.com/embed.min.js"
-          id="oj8UtJHplG4byLvd"
-          defer>
-        </script>
-        <style>
-          #dify-chatbot-bubble-button {
-            background-color: #646B91 !important;
-          }
-          #dify-chatbot-bubble-window {
-            width: 24rem !important;
-            height: 80vh !important;
-            position: fixed !important;
-          }
-        </style>
 
   typst:
-      papersize: a4
-        
+    papersize: a4
+
 execute:
   freeze: auto
-
-
