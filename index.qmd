@@ -14,15 +14,6 @@ html:
 
 Dieser Kurs behandelt das Modul Produktionswirtschaft 2 auf Basis der ursprünglichen Vorlesung von Prof. Dr. Manitz. Ich habe den Kurs kurzfristig übernommen und die Materialien deswegen lediglich leicht angepasst. Es sind keine neuen Inhalte enthalten, sondern lediglich neue Übungen.
 
-# Neuigkeiten
-
-Ich habe, wie besprochen, beispielhaft die eingereichten Klausuraufgaben korrigiert. Die markierten Ergebnisse finden Sie [hier](general/Beispielklausur-A.pdf) und [hier](general/Beispielklausur-B.pdf).
-Grundsätzlich sehen die Lösungen bereits sehr gut aus. Allerdings hätte ich bei einigen Aufgaben eine etwas andere Punkteverteilung gewählt – insbesondere beim parallelen Verfahren mit parallelen Prioritätsregeln. Dies gilt vor allem dann, wenn das Verfahren angewendet werden kann, ohne dass jeder einzelne Schritt dokumentiert werden muss.
-
-Die angegebenen Punktzahlen bei den Aufgaben geben Ihnen in der Klausur eine gute Orientierung über den erwarteten Aufwand pro Aufgabe. Ich bin zuversichtlich, dass die kommende Klausur gut verlaufen wird. Bei weiteren Fragen können Sie mich gerne per E-Mail kontaktieren. Meine Antworten werde ich anschließend auch in den FAQs für alle Studierenden veröffentlichen.
-
-Viel Erfolg bei der Klausur!
-
 # Lernziele
 
 Mein Ziel ist es, Ihnen die Grundlagen der Zeitreihenanalyse und Produktionsplanung näherzubringen. Diese Konzepte werden sowohl in der Wissenschaft als auch in der Industrie eingesetzt und sind gute Werkzeuge für die Produktionswirtschaft.
@@ -33,7 +24,7 @@ Nach Abschluss dieses Kurses werden Sie in der Lage sein:
 - Produktionsplanungsmodelle zu erstellen und zu analysieren
 - Die Kernkonzepte der Produktionssteuerung zu verstehen
 
-Es sind keine fortgeschrittenen Kenntnisse oder Erfahrungen erforderlich, um den Inhalten zu folgen, obwohl Grundkenntnisse in statistischen Methoden, Operations Research und Mathematik hilfreich sind. Ferner entsprechen nicht alle Inhalte der Vorlesung dem jeweils letzten Stand der Forschung in der Produktionswirtschaft, da die Folien von Prof. Dr. Manitz stammen und bereits etwas älter sind. 
+Es sind keine fortgeschrittenen Kenntnisse oder Erfahrungen erforderlich, um den Inhalten zu folgen, obwohl Grundkenntnisse in statistischen Methoden, Operations Research und Mathematik hilfreich sind. Ferner entsprechen nicht alle Inhalte der Vorlesung dem jeweils letzten Stand der Forschung in der Produktionswirtschaft, da die Folien von Prof. Dr. Manitz stammen und bereits etwas älter sind.
 
 # Kursmodule
 Der Kerninhalt des Kurses ist in sechs Module gegliedert:
@@ -59,6 +50,6 @@ Wichtig: Der Formelzettel muss handschriftlich erstellt werden. Digital erstellt
 
 # Fragen und Unterstützung
 
-Für Ihre Fragen stehe ich jederzeit gerne zur Verfügung. Kontaktieren Sie mich einfach per E-Mail unter [tobias.vlcek@uni-due.de](mailto:tobias.vlcek@uni-due.de?subject=Produktionswirtschaft%3A%20%3CIhr%20Betreff%3E). 
+Für Ihre Fragen stehe ich jederzeit gerne zur Verfügung. Kontaktieren Sie mich einfach per E-Mail unter [tobias.vlcek@uni-due.de](mailto:tobias.vlcek@uni-due.de?subject=Produktionswirtschaft%3A%20%3CIhr%20Betreff%3E).
 
 Zusätzlich steht Ihnen auf dieser Seite ein Chatbot zur Verfügung, der auf den Inhalten der Vorlesung basiert und Ihnen bei inhaltlichen Fragen unterstützend zur Seite stehen kann. Er ist nicht perfekt und eher eine Beta-Version, aber ich hoffe, dass er Ihnen dennoch hilft.

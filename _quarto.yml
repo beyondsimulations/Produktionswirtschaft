@@ -17,7 +17,7 @@ website:
   bread-crumbs: true
   sidebar:
     style: floating
-    logo: https://images.beyondsimulations.com/logo/logo_pw2.png
+    logo: https://images.beyondsimulations.com/lectures/mj-warehouses.png
     collapse-level: 2
     search: true
     contents:
