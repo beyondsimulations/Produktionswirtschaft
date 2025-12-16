@@ -8,3 +8,5 @@ _freeze/
 .env
 solutions/
 
+
+**/*.quarto_ipynb
