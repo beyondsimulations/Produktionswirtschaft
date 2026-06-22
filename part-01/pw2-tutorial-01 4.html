@@ -2,16 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.8.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Häufig gestellte Fragen – Produktionswirtschaft</title>
+<title>Übung 01 – Produktionswirtschaft</title>
 <style>
-/* Default styles provided by pandoc.
-** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
-*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -35,18 +32,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-02c30cac93986b11f45f16d1208415fd.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-a6d4d8c63d9dce8ebd0f7ba59524a5f4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-02c30cac93986b11f45f16d1208415fd.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-46eeb4c476de49ef7df495821a6125d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-82f9c2b79712d7d510204ef2fdf11519.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-bf9006d88790e8634321efd6a0fdd376.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-82f9c2b79712d7d510204ef2fdf11519.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-38d7cd419040d45990241f61e79a554a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -76,26 +70,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script defer="" src="https://umi.byndsim.com/script.js" data-website-id="e230d76b-b0a6-477e-8c5d-19a7bd661e68"></script>
 
-<script defer="" data-domain="beyondsimulations.github.io" src="https://plb.byndsim.com/js/script.file-downloads.hash.outbound-links.js"></script>
-<script>
-    window.plausible =
-        window.plausible ||
-        function () {
-            (window.plausible.q = window.plausible.q || []).push(arguments);
-        };
-</script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script defer="" src="https://oshu.eu/widget.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        ChatWidget.init({
-            tenant: "platform",
-            agent: "produktionswirtschaft",
-            layoutMode: "sidebar",
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
         });
-    });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
 </script>
-
 
 </head>
 
@@ -108,7 +111,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../general/faqs.html">FAQs</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-01/pw2-lecture-01.pdf">01 Zeitreihen</a></li><li class="breadcrumb-item"><a href="../part-01/pw2-tutorial-01.html">Tutorium</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -160,7 +163,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-01/pw2-tutorial-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../part-01/pw2-tutorial-01.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Tutorium</span></a>
   </div>
 </li>
@@ -263,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../general/faqs.html" class="sidebar-item-text sidebar-link active">
+  <a href="../general/faqs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">FAQs</span></a>
   </div>
 </li>
@@ -277,22 +280,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#unbeantwortete-fragen" id="toc-unbeantwortete-fragen" class="nav-link active" data-scroll-target="#unbeantwortete-fragen">Unbeantwortete Fragen</a></li>
-  <li><a href="#faqs" id="toc-faqs" class="nav-link" data-scroll-target="#faqs">FAQs</a></li>
-  <li><a href="#darf-ich-ein-blatt-mit-in-die-prüfung-nehmen" id="toc-darf-ich-ein-blatt-mit-in-die-prüfung-nehmen" class="nav-link" data-scroll-target="#darf-ich-ein-blatt-mit-in-die-prüfung-nehmen">Darf ich ein Blatt mit in die Prüfung nehmen?</a></li>
-  <li><a href="#kann-ich-die-übungen-auch-als-pdf-herunterladen" id="toc-kann-ich-die-übungen-auch-als-pdf-herunterladen" class="nav-link" data-scroll-target="#kann-ich-die-übungen-auch-als-pdf-herunterladen">Kann ich die Übungen auch als PDF herunterladen?</a></li>
-  <li><a href="#woran-orientiert-sich-die-klausur" id="toc-woran-orientiert-sich-die-klausur" class="nav-link" data-scroll-target="#woran-orientiert-sich-die-klausur">Woran orientiert sich die Klausur?</a></li>
-  <li><a href="#wie-lange-dauert-die-klausur" id="toc-wie-lange-dauert-die-klausur" class="nav-link" data-scroll-target="#wie-lange-dauert-die-klausur">Wie lange dauert die Klausur?</a></li>
+  <li><a href="#aufgabe-1-zerlegung-einer-zeitreihe" id="toc-aufgabe-1-zerlegung-einer-zeitreihe" class="nav-link active" data-scroll-target="#aufgabe-1-zerlegung-einer-zeitreihe">Aufgabe 1: Zerlegung einer Zeitreihe</a></li>
+  <li><a href="#aufgabe-2-prognose-ohne-trend" id="toc-aufgabe-2-prognose-ohne-trend" class="nav-link" data-scroll-target="#aufgabe-2-prognose-ohne-trend">Aufgabe 2: Prognose ohne Trend</a></li>
+  <li><a href="#aufgabe-3-prognose-mit-trend" id="toc-aufgabe-3-prognose-mit-trend" class="nav-link" data-scroll-target="#aufgabe-3-prognose-mit-trend">Aufgabe 3: Prognose mit Trend</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="faqs.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="pw2-tutorial-01.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-01/pw2-lecture-01.pdf">01 Zeitreihen</a></li><li class="breadcrumb-item"><a href="../part-01/pw2-tutorial-01.html">Tutorium</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Häufig gestellte Fragen</h1>
-<p class="subtitle lead">Antworten auf gängige Fragen</p>
+<h1 class="title">Übung 01</h1>
+<p class="subtitle lead">Prognosen und Exponentielles Glätten</p>
 </div>
 
 
@@ -309,30 +309,202 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="unbeantwortete-fragen" class="level2">
-<h2 class="anchored" data-anchor-id="unbeantwortete-fragen">Unbeantwortete Fragen</h2>
-<p>Falls Sie eine Frage haben, die hier nicht beantwortet wird, teilen Sie mir dies bitte mit, indem Sie mir eine E-Mail an <a href="mailto:vlcek@beyondsimulations.com?subject=Produktionswirtschaft%3A%20%3CIhr%20Betreff%3E">vlcek@beyondsimulations.com</a>. Sollten Sie einen Fehler im Kursmaterial gefunden haben oder Vorschläge zur Verbesserung des Kurses haben, teilen Sie mir dies bitte ebenfalls sehr gerne mit!</p>
-<hr>
+<section id="aufgabe-1-zerlegung-einer-zeitreihe" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-1-zerlegung-einer-zeitreihe">Aufgabe 1: Zerlegung einer Zeitreihe</h2>
+<p>Eine traditionsreiche Manufaktur aus Essen möchte den Verkauf ihrer berühmten Torten besser verstehen, um Zutatenbestellungen und Personalplanung zu optimieren. Die Verkaufszahlen der letzten zwei Jahre (in Stück pro Monat) sind wie folgt:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Monat</th>
+<th>Jahr 1</th>
+<th>Jahr 2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Januar</td>
+<td>80</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td>Februar</td>
+<td>75</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td>März</td>
+<td>90</td>
+<td>105</td>
+</tr>
+<tr class="even">
+<td>April</td>
+<td>110</td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td>Mai</td>
+<td>130</td>
+<td>150</td>
+</tr>
+<tr class="even">
+<td>Juni</td>
+<td>150</td>
+<td>175</td>
+</tr>
+<tr class="odd">
+<td>Juli</td>
+<td>160</td>
+<td>190</td>
+</tr>
+<tr class="even">
+<td>August</td>
+<td>155</td>
+<td>180</td>
+</tr>
+<tr class="odd">
+<td>September</td>
+<td>120</td>
+<td>140</td>
+</tr>
+<tr class="even">
+<td>Oktober</td>
+<td>100</td>
+<td>115</td>
+</tr>
+<tr class="odd">
+<td>November</td>
+<td>85</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td>Dezember</td>
+<td>100</td>
+<td>120</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ihre Aufgaben:</strong></p>
+<ol type="1">
+<li>Stellen Sie die Zeitreihe grafisch dar (eine einfache Skizze auf Papier genügt).</li>
+<li>Beschreiben Sie die Hauptkomponenten (Trend, Saison, Zyklus, irreguläre Schwankungen), die Sie in den Verkaufszahlen vermuten. Wie würden Sie diese qualitativ charakterisieren? (z.B. steigender Trend, saisonale Spitzen im Sommer und zu Weihnachten).</li>
+<li>Skizzieren Sie, wie Sie vorgehen würden, um die Trend- und Saisonkomponenten grob zu schätzen, basierend auf den im Skript vorgestellten Ideen.</li>
+</ol>
 </section>
-<section id="faqs" class="level2">
-<h2 class="anchored" data-anchor-id="faqs">FAQs</h2>
-<hr>
+<section id="aufgabe-2-prognose-ohne-trend" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-2-prognose-ohne-trend">Aufgabe 2: Prognose ohne Trend</h2>
+<p>Eine 3D-Druck Firma aus Duisburg möchte die Nachfrage nach seinen 3D-Druckteilen für den nächsten Tag vorhersagen, um Überproduktion oder Engpässe zu vermeiden. Er hat die Verkaufszahlen der letzten 10 Tage notiert:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Tag</th>
+<th>Verkaufte 3D-Druckteile (<span class="math inline">\(y_t\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>120</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>125</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>115</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>122</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>118</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>128</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>123</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>119</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>126</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>124</td>
+</tr>
+</tbody>
+</table>
+<p>Die Firma geht davon aus, dass der Verkauf relativ konstant ist, aber täglichen Schwankungen unterliegt (d.h. kein klarer Trend, konstantes Niveau).</p>
+<p><strong>Ihre Aufgaben:</strong></p>
+<ol type="1">
+<li>Berechnen Sie einen gleitenden Durchschnitt der Ordnung <span class="math inline">\(n=3\)</span> (3-Tage-Linie), um eine Prognose für Tag 11 zu erstellen (<span class="math inline">\(p_{11}\)</span>). Der Prognosewert für Tag <span class="math inline">\(t+1\)</span> ist der Durchschnittswert zum Zeitpunkt <span class="math inline">\(t\)</span>.</li>
+<li>Wenden Sie die exponentielle Glättung erster Ordnung an, um eine Prognose für Tag 11 zu erstellen. Verwenden Sie einen Glättungsfaktor <span class="math inline">\(\alpha = 0.2\)</span>. Als Startwert für den geglätteten Wert zum Zeitpunkt <span class="math inline">\(t=0\)</span> (Prognose für Tag 1, <span class="math inline">\(p_1\)</span>) nehmen Sie den tatsächlichen Verkauf von Tag 1 (<span class="math inline">\(y_1\)</span>).</li>
+<li>Welche Prognose erscheint Ihnen intuitiv plausibler? Begründen Sie kurz.</li>
+<li>Berechnen Sie den Prognosefehler mit der mittleren absoluten Abweichung für die letzten 4 Tage für beide Verfahren.</li>
+</ol>
 </section>
-<section id="darf-ich-ein-blatt-mit-in-die-prüfung-nehmen" class="level2">
-<h2 class="anchored" data-anchor-id="darf-ich-ein-blatt-mit-in-die-prüfung-nehmen">Darf ich ein Blatt mit in die Prüfung nehmen?</h2>
-<p>Ja, Sie dürfen ein DIN A4-Blatt mit Notizen auf beiden Seiten mit in die Prüfung nehmen. Bitte beachten Sie, dass es sich um <strong>ein</strong> Blatt Papier handeln sollte, das handschriftlich beschrieben sein sollte.</p>
-</section>
-<section id="kann-ich-die-übungen-auch-als-pdf-herunterladen" class="level2">
-<h2 class="anchored" data-anchor-id="kann-ich-die-übungen-auch-als-pdf-herunterladen">Kann ich die Übungen auch als PDF herunterladen?</h2>
-<p>Ja, die Übungen können als PDF herunterladen werden. Die Datei finden Sie auf der jeweiligen Seite der Übung, wenn Sie auf “Typst” klicken.</p>
-</section>
-<section id="woran-orientiert-sich-die-klausur" class="level2">
-<h2 class="anchored" data-anchor-id="woran-orientiert-sich-die-klausur">Woran orientiert sich die Klausur?</h2>
-<p>Die Klausur orientiert sich primär an den Probeklausuren von Herrn Manitz und wird die Themen der Vorlesung abdecken, die wir gemeinsam behandelt haben. Wenn ihr die von uns behandelten Themen der alten Klausuren rechnen könnt und die Übungen verstanden habt, seid ihr sehr gut vorbereitet.</p>
-</section>
-<section id="wie-lange-dauert-die-klausur" class="level2">
-<h2 class="anchored" data-anchor-id="wie-lange-dauert-die-klausur">Wie lange dauert die Klausur?</h2>
-<p>Die Klausur dauert 60 Minuten.</p>
+<section id="aufgabe-3-prognose-mit-trend" class="level2">
+<h2 class="anchored" data-anchor-id="aufgabe-3-prognose-mit-trend">Aufgabe 3: Prognose mit Trend</h2>
+<p>Ein aufstrebender YouTuber hat in den letzten 8 Monaten einen stetigen Zuwachs an neuen Abonnenten verzeichnet. Er möchte die Entwicklung für die nächsten zwei Monate prognostizieren, um seine Content-Strategie anzupassen.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Monat <span class="math inline">\(t\)</span></th>
+<th>Neue Abonnenten <span class="math inline">\(y_t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>500</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>530</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>520</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>580</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>620</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>670</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>640</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>710</td>
+</tr>
+</tbody>
+</table>
+<p>Er möchte die Methode der exponentiellen Glättung mit Trendkorrektur verwenden, wie sie im Skript vorgestellt wird. Nutzen Sie einen Glättungsfaktor <span class="math inline">\(\alpha = 0.3\)</span>. Das geschätzte Niveau zum Zeitpunkt <span class="math inline">\(t=0\)</span> ist <span class="math inline">\(\widehat{a}_0 = 480\)</span> und der Trend (Steigung) ist <span class="math inline">\(\widehat{b}_0 = 25\)</span>.</p>
+<p><strong>Ihre Aufgaben:</strong></p>
+<ol type="1">
+<li>Berechnen Sie die initialen Werte <span class="math inline">\(y_0^{(1)}\)</span> und <span class="math inline">\(y_0^{(2)}\)</span>.</li>
+<li>Berechnen Sie iterativ <span class="math inline">\(y_t^{(1)}\)</span>, <span class="math inline">\(y_t^{(2)}\)</span>, <span class="math inline">\(\widehat{a}_t\)</span> und <span class="math inline">\(\widehat{b}_t\)</span> für die Monate <span class="math inline">\(t=1\)</span> bis <span class="math inline">\(t=8\)</span>.</li>
+<li>Erstellen Sie eine Prognose für die Anzahl neuer Abonnenten für Monat 9 und Monat 10.</li>
+<li>Berechnen Sie den Prognosefehler mit der mittleren quadratischen Abweichung (MSE) für Monat 7 und Monat 8.</li>
+</ol>
 
 
 </section>
@@ -389,14 +561,13 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-      const outerScaffold = trigger.parentElement.cloneNode(true);
-      const codeEl = outerScaffold.querySelector('code');
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
         }
-      }
-      return codeEl.innerText;
+        return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -742,21 +913,10 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item">
-    <a class="nav-link" href="../general/imprint.html">
-<p>Imprint</p>
-</a>
-  </li>  
-    <li class="nav-item">
-    <a class="nav-link" href="../general/privacy.html">
-<p>Privacy</p>
-</a>
-  </li>  
-</ul>
+      &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>Produktionswirtschaft, Tobias Vlćek<br>CC BY-SA 4.0</p>
+<p>Produktionswirtschaft, Tobias Vlćek<br>CC BY-NC-SA 4.0</p>
 </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
@@ -773,7 +933,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="mailto:vlcek@beyondsimulations.com">
+    <a class="nav-link" href="mailto:workshop@beyondsimulations.com">
       <i class="bi bi-envelope" role="img">
 </i> 
     </a>
