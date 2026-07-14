@@ -4,7 +4,7 @@ subtitle: "Ressourcenplanung und Durchlaufterminierung"
 
 format:
     html:
-        theme: [sandstone, ../styles.scss]
+        theme: [default, ../styles.scss]
         highlight-style: arrow
         linkcolor: "#a60000"
         echo: false

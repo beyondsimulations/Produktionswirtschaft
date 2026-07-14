@@ -3,7 +3,7 @@ title: "Übung 05"
 subtitle: "Optimierung von Ablaufplanungen"
 format:
     html:
-        theme: [sandstone, ../styles.scss]
+        theme: [default, ../styles.scss]
         highlight-style: arrow
         linkcolor: "#a60000"
         echo: false
