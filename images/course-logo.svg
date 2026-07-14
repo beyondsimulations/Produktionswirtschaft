@@ -1,0 +1,21 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" role="img" aria-label="Production Logistics">
+
+  <g stroke="#52717a" stroke-width="2">
+    <path d="M8 24 L8 8 L24 8"></path>
+    <path d="M76 8 L92 8 L92 24"></path>
+    <path d="M92 76 L92 92 L76 92"></path>
+    <path d="M24 92 L8 92 L8 76"></path>
+  </g>
+  <path d="M22 22 L22 76 L80 76" stroke="#e4b169" stroke-width="1.8" opacity="0.525"></path>
+  <g stroke="#e4b169" stroke-width="0.8" opacity="0.27">
+    <path d="M22 40 L80 40"></path><path d="M22 58 L80 58"></path>
+  </g>
+  <path d="M56 46 L80 24 L80 56 Z" fill="#52717a" fill-opacity="0.12"></path>
+  <path d="M22 62 L30 50 L38 60 L46 44 L52 54 L56 46" stroke="#e4b169" stroke-width="2.4" opacity="1"></path>
+  <g fill="#e4b169" opacity="1">
+    <circle cx="30" cy="50" r="2"></circle><circle cx="38" cy="60" r="2"></circle>
+    <circle cx="46" cy="44" r="2"></circle><circle cx="52" cy="54" r="2"></circle>
+  </g>
+  <path d="M56 46 L66 38 L80 40" stroke="#52717a" stroke-width="2.4" stroke-dasharray="4 3"></path>
+  <circle cx="56" cy="46" r="3.4" fill="#52717a"></circle>
+</svg>
