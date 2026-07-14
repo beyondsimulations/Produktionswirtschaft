@@ -11,13 +11,15 @@ project:
     - part-05/*.qmd
     - part-06/*.qmd
 website:
+  favicon: images/favicon.svg
   title: "Produktionswirtschaft"
   repo-url: https://github.com/beyondsimulations/Produktionswirtschaft
   site-url: https://beyondsimulations.github.io/Produktionswirtschaft
   bread-crumbs: true
   sidebar:
     style: floating
-    logo: https://images.beyondsimulations.com/lectures/mj-warehouses.png
+    logo: images/course-logo.svg
+    logo-alt: "Produktionswirtschaft"
     collapse-level: 2
     search: true
     contents:
@@ -90,6 +92,7 @@ format:
     code-block-border-left: "#AD1F00"
     include-in-header:
       - general/header.html
+      - general/favicon.html
 
   typst:
     papersize: a4
