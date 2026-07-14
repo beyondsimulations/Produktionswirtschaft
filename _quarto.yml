@@ -59,14 +59,19 @@ website:
         href: general/faqs.qmd
 
   page-footer:
-    center: "Produktionswirtschaft, Tobias Vlćek</br>CC BY-NC-SA 4.0"
+    left:
+      - text: "Imprint"
+        href: general/imprint.qmd
+      - text: "Privacy"
+        href: general/privacy.qmd
+    center: "Produktionswirtschaft, Tobias Vlćek</br>CC BY-SA 4.0"
     right:
       - icon: github
         href: https://github.com/beyondsimulations/Produktionswirtschaft
       - icon: linkedin
         href: https://linkedin.com/in/tobiasvlcek
       - icon: envelope
-        href: mailto:workshop@beyondsimulations.com
+        href: mailto:vlcek@beyondsimulations.com
 
 format:
   html:
